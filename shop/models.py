@@ -54,11 +54,15 @@ class Fuel(models.Model):
     def __str__(self):
         return self.name
 class Product(models.Model):
+    code = models.CharField(max_length=100, primary_key=True, default=0)
+    vendor_code = models.CharField(max_length=100, unique=True, null = True, blank = True)
+    name_m = models.CharField(max_length=200, null=True)
     name = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    oiltype = models.ForeignKey(OilType,on_delete=models.CASCADE, blank=True)
-    viscosity = models.ForeignKey(Viscosity, on_delete=models.CASCADE, blank=True)
-    compound = models.ForeignKey(Compound, on_delete=models.CASCADE, blank=True)
+    category = models.ManyToManyField(Category)
+    oiltype = models.ForeignKey(OilType,on_delete=models.CASCADE, blank=True , null = True)
+    viscosity = models.ForeignKey(Viscosity, on_delete=models.CASCADE, blank=True, null = True)
+    compound = models.ForeignKey(Compound, on_delete=models.CASCADE, blank=True, null = True)
+    fuel = models.ForeignKey(Fuel, on_delete=models.CASCADE, blank = True, null = True)
     stock = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default = True)
