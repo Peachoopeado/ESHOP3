@@ -1,0 +1,29 @@
+{% extends 'shop/base.html' %}
+{% block title %} {{ category.name }} {% endblock %}
+{% block pagename %}<h1>{{ category.name }}</h1> {% endblock %}
+{% block content %}
+    <h2>Тип продукта</h2>
+    <ul>
+    {% for oiltype in category.oiltype_set.all %}
+        <li><a href="">{{ oiltype }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h2>Вязкость</h2>
+    <ul>
+    {% for viscosity in category.viscosity_set.all %}
+        <li>{{ viscosity }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Состав</h2>
+    <ul>
+    {% for compound in category.compound_set.all %}
+    <li>{{ compound }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Топливо</h2>
+    {% for fuel in category.fuel_set.all %}
+        <li>{{ fuel }}</li>
+    {% endfor %}
+
+{% endblock %}

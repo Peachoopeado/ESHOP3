@@ -1,0 +1,10 @@
+{% extends 'shop/base.html' %}
+{% block title %} Категории {% endblock %}
+{% block pagename %}<h1>Категории</h1> {% endblock %}
+{% block content %}
+    <ul>
+    {% for category in categories %}
+        <li><a href="{{ category.get_url }}">{{ category }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
