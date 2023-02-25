@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, OilType, Viscosity, Compound, Fuel
+from .models import Category, OilType, Viscosity, Compound, Fuel, Product
 
 # Register your models here.
 admin.site.register(Category)
@@ -28,3 +28,11 @@ class FuelAdmin(admin.ModelAdmin):
     filter_horizontal = ['category', 'oiltype', 'viscosity', 'compound']
 
 admin.site.register(Fuel, FuelAdmin)
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['category', 'oiltype', 'viscosity', 'compound', 'stock', 'price', 'available']
+    list_editable = ['stock', 'price', 'available']
+    list_filter = ['category', 'oiltype', 'viscosity', 'compound', 'stock', 'price', 'available']
+
+
+admin.site.register(Product)

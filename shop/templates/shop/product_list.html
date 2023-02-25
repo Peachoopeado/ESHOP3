@@ -2,28 +2,47 @@
 {% block title %} {{ category.name }} {% endblock %}
 {% block pagename %}<h1>{{ category.name }}</h1> {% endblock %}
 {% block content %}
-    <h2>Тип продукта</h2>
-    <ul>
-    {% for oiltype in category.oiltype_set.all %}
-        <li><a href="">{{ oiltype }}</a></li>
-    {% endfor %}
-    </ul>
+    <aside>
+        {% if category.oiltype_set.all %}
+            <h2>Тип продукта</h2>
+            <ul>
+                {% for oiltype in category.oiltype_set.all %}
+                    <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if oil_type %}
+            <h2>Вязкость</h2>
+            <ul>
+                {% for viscosity in oil_type.viscosity_set.all %}
+                    <li><a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ viscosity.slug }}">{{ viscosity }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if visc %}
+            <h2>Состав</h2>
+            <ul>
+                {% for compound in visc.compound_set.all %}
+                    <li>
+                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ compound.slug }}">{{ compound }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if comp %}
+            <h2>Топливо</h2>
+            <ul>
+                {% for fuel in category.fuel_set.all %}
+                    <li>
+                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ comp.slug }}/{{ fuel.slug }}">{{ fuel }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </aside>
+    <h2>Товары</h2>
 
-    <h2>Вязкость</h2>
-    <ul>
-    {% for viscosity in category.viscosity_set.all %}
-        <li>{{ viscosity }}</li>
-    {% endfor %}
-    </ul>
-    <h2>Состав</h2>
-    <ul>
-    {% for compound in category.compound_set.all %}
-    <li>{{ compound }}</li>
-    {% endfor %}
-    </ul>
-    <h2>Топливо</h2>
-    {% for fuel in category.fuel_set.all %}
-        <li>{{ fuel }}</li>
-    {% endfor %}
+
 
 {% endblock %}
