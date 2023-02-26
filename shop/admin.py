@@ -32,7 +32,7 @@ admin.site.register(Fuel, FuelAdmin)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['code','vendor_code','name_m','oiltype', 'viscosity', 'compound', 'fuel', 'stock', 'price', 'available']
     list_editable = ['stock', 'price', 'available']
-    list_filter = ['oiltype', 'viscosity', 'compound', 'available']
+    list_filter = ['category','oiltype', 'viscosity', 'compound', 'available']
     filter_horizontal = ['category']
 
 

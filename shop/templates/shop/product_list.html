@@ -43,6 +43,14 @@
     </aside>
     <h2>Товары</h2>
 
+        <ul>
+            {% for product in products %}
+            <li><a href="{{ product.get_url }}">{{ product }}</a></li>
+            {% endfor %}
+        </ul>
+
+
+
 
 
 {% endblock %}

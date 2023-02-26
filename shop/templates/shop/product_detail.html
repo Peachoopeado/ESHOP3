@@ -1,0 +1,11 @@
+{% extends 'shop/base.html' %}
+{% block title %} {{ product.name }} {% endblock %}
+{% block content %}
+<h2>Информация о товаре - {{ product.name }}</h2>
+<h3>Название - {{ product.name }}</h3>
+<h3>Тип продукта - {{ product.oiltype }}</h3>
+<h3>Вязкость - {{ product.viscosity }}</h3>
+<h3>Состав - {{ product.compound }}</h3>
+<h3>Топливо - {{ product.fuel }}</h3>
+<h3>Цена - {{ product.price }}</h3>
+{% endblock %}
