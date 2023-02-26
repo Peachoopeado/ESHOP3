@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from .models import Category, OilType, Viscosity, Compound, Fuel, Product
+from cart.forms import CartAddProductForm
 
 # Create your views here.
 def show_categories(request):
@@ -45,8 +46,10 @@ def show_category_assortment(request, category_slug = None, oiltype_slug = None,
 
 def show_product_detail(request, product_code:str):
     product = get_object_or_404(Product, code = product_code)
+    cart_product_form = CartAddProductForm()
     data = {
         'product': product,
+        'cart_product_form': cart_product_form
     }
 
     return render(request, 'shop/product_detail.html', data)
