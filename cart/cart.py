@@ -16,7 +16,7 @@ class Cart(object):
         if not cart:
             # сохранить пустую коризну в сессии
             cart = self.session[settings.CART_SESSION_ID] = {}
-            self.cart = cart
+        self.cart = cart
     def add(self, product, quantity = 1, update_quantity=False):
         """
 
@@ -42,7 +42,7 @@ class Cart(object):
     def remove(self, product):
         """
 
-        удаление товара из корзины
+        Удаление товара из корзины
         """
         product_code = str(product.code)
         if product_code in self.cart:
@@ -51,13 +51,13 @@ class Cart(object):
     def __iter__(self):
         """
 
-        перебор элементов в корзине и получение продуктов из базы данных
+        Перебор элементов в корзине и получение продуктов из базы данных
         """
         product_codes = self.cart.keys()
         # Получение объектов product и добавление их в корзину
         products = Product.objects.filter(code__in=product_codes)
         for product in products:
-            self.cart[str(product.id)]['product'] = product
+            self.cart[str(product.code)]['product'] = product
 
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
