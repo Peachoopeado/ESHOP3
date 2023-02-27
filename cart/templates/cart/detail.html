@@ -38,6 +38,6 @@
     </table>
     <p class="text-right">
         <a href="{% url 'assortment' %}">Вернуться к ассортименту</a>
-        <a href="#">Перейти к оформлению</a>
+        <a href="{% url 'order-create' %}" class="button">Перейти к оформлению</a>
     </p>
 {% endblock %}
