@@ -1,28 +1,84 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'shop/css/reset.css'%}">
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=PT+Sans&display=swap"
+          rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <div class="cart">
-            {% with total_items=cart|length %}
-                {% if cart|length > 0  %}
-                    Your cart:
-                    <a href="{% url "cart-detail" %}">{{ total_items }} item{{ total_items|pluralize }},
-                    {{ cart.get_total_price }}
-                    </a>
-                {% else %}
-                    Your cart is empty
-                {% endif %}
-            {% endwith %}
+<header>
+    <div class="header-body">
+        <div class="logo">
+        <img src="{% static 'shop/img/logo.png' %}" alt="логотип">
+    </div>
+    <div class="nav">
+        <div class="search">
+            <div class="search_block">
+                <form action="{% url 'search' %}" , method="get" class="form-horizontal">
+                    <input type="search" placeholder="Поиск" name="q" class="form-control">
+
+                <button type="submit" class="btn1 btn">
+                    <span class="fa fa-search" aria-hidden="true"></span>
+                </button>
+            </form>
+            </div>
+            <div class="buttons_block">
+                <div class="buttons">
+                    <div class="login">
+
+                    </div>
+                    <div class="favourite">
+
+                    </div>
+                    <div class="cart">
+                        {% with total_items=cart|length %}
+                            {% if cart|length > 0 %}
+                                Your cart:
+                                <a href="{% url "cart-detail" %}">{{ total_items }} item{{ total_items|pluralize }},
+                                    {{ cart.get_total_price }}
+                                </a>
+                            {% else %}
+                                Your cart is empty
+                            {% endif %}
+                        {% endwith %}
+
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
-    </header>
+        <hr>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-item nav-link" href="">о нас</a></li>
+                    <li><a class="nav-item nav-link" href="">наши партнёры</a></li>
+                    <li><a class="nav-item nav-link" href="">ассортимент</a></li>
+                    <li><a class="nav-item nav-link" href="">контакты</a></li>
+                </ul>
+
+
+        </nav>
+    </div>
+    </div>
+
+
+</header>
 {% block pagename %} {% endblock %}
 {% block content %}
 {% endblock %}
 
 </body>
+<script src="{% static 'shop/js/bootstrap.js' %}"></script>
 </html>
