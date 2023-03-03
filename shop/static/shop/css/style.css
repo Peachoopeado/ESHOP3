@@ -1,3 +1,7 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 a:active,
 a:hover,
 a{
@@ -149,6 +153,7 @@ nav li{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
 .ask_body{
     width: 1674px;
@@ -239,6 +244,30 @@ footer hr{
     font-size: 15px;
     font-weight: 400;
 
+}
+.list_body{
+    display: flex;
+}
+aside{
+    border: 1px solid black;
+    width: 428px;
+    margin-left:110px;
+}
+.filter_block{
+    width: 428px;
+    border: 1px solid #000000;
+    margin-bottom: 30px;
+}
+.filter_block h2{
+    font-size: 35px;
+}
+.filter_block li{
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.col-xl-5{
+    font-size: 34px;
 }
 
 

@@ -75,3 +75,4 @@ class Product(models.Model):
 
     def get_url(self):
         return reverse('product-detail', args=[self.code])
+
