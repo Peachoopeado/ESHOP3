@@ -9,7 +9,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 100px;
 
 }
 .header-body{
@@ -107,3 +107,139 @@ nav li{
         font-size: 20px;
     }
 }
+
+.category_heading{
+    margin-left: 150px;
+    text-transform: uppercase;
+}
+.category_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+.category_body{
+    width: 85%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.category{
+    width: 366px;
+    height: 234px;
+    display: block;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px 40px 36px 70px ;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 40px 40px 74px 40px;
+}
+.category p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ask{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ask_body{
+    width: 1674px;
+    height: 263px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #363131;
+}
+.ask_sentence{
+    width: 613px;
+    height: 166px;
+    line-height: 65px;
+    margin-right: 115px;
+}
+.ask_sentence p {
+    color: #fff;
+    font-size: 64px;
+    font-weight: bold;
+}
+.ask_button{
+    width: 498px;
+    height: 112px;
+    background: #F8FD00;
+    border: 2px solid #000000;
+    border-radius: 40px;
+    font-size: 55px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer{
+    width: 100%;
+    background: #363131;
+
+}
+.footer_body{
+    width: 85%;
+    margin: 0 auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer_block1{
+
+}
+.footer_subblock2 table th{
+    color: #fff;
+    font-weight: 400;
+    font-size: 24px;
+}
+.footer_subblock2 table td{
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.footer_block2{
+    margin-right: 160px;
+}
+.footer_block2 ul li{
+    text-align: center;
+    padding-bottom: 25px;
+}
+.footer_block2 ul li a{
+
+    color: #fff;
+    font-size: 32px ;
+    font-weight: bold;
+    padding-bottom: 37px;
+}
+
+footer hr{
+    border-width: 1px;
+    color: black;
+}
+.underfooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.underfooter h3{
+
+    margin: 0 auto 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+
+
