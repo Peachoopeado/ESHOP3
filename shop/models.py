@@ -71,8 +71,15 @@ class Product(models.Model):
     available = models.BooleanField(default = True)
 
     def __str__(self):
-        return self.name
+        return self.code
 
     def get_url(self):
         return reverse('product-detail', args=[self.code])
 
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='shop/img/products')
+
+    def __str__(self):
+        return self.product.code

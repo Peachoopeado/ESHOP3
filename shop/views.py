@@ -42,6 +42,7 @@ def show_category_assortment(request, category_slug = None, oiltype_slug = None,
         'comp': comp,
         'fuel': fuel,
         'products': products,
+
     }
     return render(request, f'shop/product_list.html', data)
 

@@ -190,6 +190,7 @@ nav li{
 footer{
     width: 100%;
     background: #363131;
+    flex: 0 0 auto;
 
 }
 .footer_body{
@@ -226,6 +227,7 @@ footer{
     font-size: 32px ;
     font-weight: bold;
     padding-bottom: 37px;
+    text-transform: uppercase;
 }
 
 footer hr{
@@ -264,9 +266,10 @@ aside{
 .filter_block li{
     font-weight: 500;
     font-size: 28px;
+
 }
 
-.col-xl-5{
+.col-xl-4{
     font-size: 34px;
 }
 

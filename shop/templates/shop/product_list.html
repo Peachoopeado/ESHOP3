@@ -60,9 +60,9 @@
 
             <div class="row mt-5 mb-3">
                 {% for product in products %}
-                    <div class="col-xl-5">
+                    <div class="col-xl-4">
                         <img src="" alt="">
-                        <a href="{{ product.get_url }}">{{ product }}</a>
+                        <a href="{{ product.get_url }}">{{ product.name }}</a>
                     </div>
                 {% endfor %}
             </div>
