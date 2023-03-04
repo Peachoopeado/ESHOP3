@@ -15,7 +15,7 @@
           rel="stylesheet">
 
 </head>
-<body>
+
 <header>
     <div class="header-body">
         <div class="logo">
@@ -41,14 +41,16 @@
 
                         </div>
                         <div class="cart">
+
                             {% with total_items=cart|length %}
+                                <img class="cart-img" src="{% static 'shop/img/cart.png' %}" alt="">
                                 {% if cart|length > 0 %}
-                                    Your cart:
-                                    <a href="{% url "cart-detail" %}">{{ total_items }} item{{ total_items|pluralize }},
-                                        {{ cart.get_total_price }}
+
+                                    <a class="cart-button" href="{% url "cart-detail" %}">Товаров в корзине: {{ total_items }}<br>
+                                        {{ cart.get_total_price }} руб.
                                     </a>
                                 {% else %}
-                                    Your cart is empty
+                                    Корзина пуста
                                 {% endif %}
                             {% endwith %}
 
@@ -76,9 +78,11 @@
 
 
 </header>
+<body>
 {% block pagename %} {% endblock %}
 {% block content %}
 {% endblock %}
+</body>
 <footer>
     <div class="footer_body">
         <div class="footer_block1">
@@ -124,6 +128,6 @@
 
 </footer>
 
-</body>
+
 <script src="{% static 'shop/js/bootstrap.js' %}"></script>
 </html>
