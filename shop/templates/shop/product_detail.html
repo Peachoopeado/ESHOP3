@@ -1,16 +1,78 @@
 {% extends 'shop/base.html' %}
 {% block title %} {{ product.name }} {% endblock %}
 {% block content %}
-    <h2>Информация о товаре - {{ product.name }}</h2>
-    <h3>Название - {{ product.name }}</h3>
-    <h3>Тип продукта - {{ product.oiltype }}</h3>
-    <h3>Вязкость - {{ product.viscosity }}</h3>
-    <h3>Состав - {{ product.compound }}</h3>
-    <h3>Топливо - {{ product.fuel }}</h3>
+    <div class="product_card">
+        <div class="product_card_body">
+            <div class="product_card_name_block">
+                <h2>{{ product.name }}</h2>
+            </div>
+            <div class="product_block">
+                <div class="img_block">
+                    <img src="" alt="картинка">
+                </div>
+                <div class="product_chars">
+                    <table>
+                        <tr>
+                            <th>Вязкость</th>
+                            <td>{{ product.viscosity }}</td>
+                        </tr>
+                        <tr>
+                            <th>Бренд</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Тип масла</th>
+                            <td>{{ product.oiltype }}</td>
+                        </tr>
+                        <tr>
+                            <th>Состав</th>
+                            <td>{{ product.compound }}</td>
+                        </tr>
+                        <tr>
+                            <th>Топливо</th>
+                            <td>{{ product.fuel }}</td>
+                        </tr>
+                        <tr>
+                            <th>Объем</th>
+                        <tr></tr>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div class="product_description">
+                <div class="description_heading">
+                    <h3>Описание</h3>
+                </div>
+                <div class="description_text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aliquam animi aperiam
+                        deserunt ea earum id neque nostrum veniam? Adipisci autem cumque cupiditate dolorem earum,
+                        eligendi eos error et facilis fugiat in iure laudantium magnam necessitatibus odio quae qui quos
+                        velit. Amet commodi ipsam labore magni optio perferendis porro?</p>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="product_actions">
+                    <div class="product_docs_block">
+                        <a href="">Лист технического описания</a>
+                        <a href="">Паспорт безопасности</a>
+                    </div>
+                    <div class="buttons_block">
+                        <form action="{% url 'cart-add' product.code %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <input type="submit" value="в корзину">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="back_button">
+
+        </div>
+    </div>
+
     <p class="price">{{ product.price }}</p>
-    <form action="{% url 'cart-add' product.code %}" method="post">
-        {{ cart_product_form }}
-        {% csrf_token %}
-        <input type="submit" value="Добавить в корзину">
-    </form>
+
 {% endblock %}

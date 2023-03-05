@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField()
@@ -11,7 +12,9 @@ class Category(models.Model):
 
     def get_url(self):
         return reverse('assortment-by-category', args=[self.slug])
-
+class CategoryImage(models.Model):
+    categories = models.ForeignKey(Category, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='img/categories')
 class OilType(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField()
@@ -68,7 +71,15 @@ class Product(models.Model):
     available = models.BooleanField(default = True)
 
     def __str__(self):
-        return self.name
+        return self.code
 
     def get_url(self):
         return reverse('product-detail', args=[self.code])
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='shop/img/products')
+
+    def __str__(self):
+        return self.product.code

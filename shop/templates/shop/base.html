@@ -1,28 +1,133 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-</head>
-<body>
-    <header>
-        <div class="cart">
-            {% with total_items=cart|length %}
-                {% if cart|length > 0  %}
-                    Your cart:
-                    <a href="{% url "cart-detail" %}">{{ total_items }} item{{ total_items|pluralize }},
-                    {{ cart.get_total_price }}
-                    </a>
-                {% else %}
-                    Your cart is empty
-                {% endif %}
-            {% endwith %}
+    <link rel="stylesheet" href="{% static 'shop/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=PT+Sans&display=swap"
+          rel="stylesheet">
 
+</head>
+
+<header>
+    <div class="header-body">
+        <div class="logo">
+            <img src="{% static 'shop/img/logo.png' %}" alt="логотип">
         </div>
-    </header>
+        <div class="nav">
+            <div class="search">
+                <div class="search_block">
+                    <form action="{% url 'search' %}" , method="get" class="form-horizontal">
+                        <input type="search" placeholder="Поиск" name="q" class="form-control">
+
+                        <button type="submit" class="btn1 btn">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="buttons_block">
+                    <div class="buttons">
+                        <div class="login">
+
+                        </div>
+                        <div class="favourite">
+
+                        </div>
+                        <div class="cart">
+
+                            {% with total_items=cart|length %}
+                                <img class="cart-img" src="{% static 'shop/img/cart.png' %}" alt="">
+                                {% if cart|length > 0 %}
+
+                                    <a class="cart-button" href="{% url "cart-detail" %}">Товаров в корзине: {{ total_items }}<br>
+                                        {{ cart.get_total_price }} руб.
+                                    </a>
+                                {% else %}
+                                    Корзина пуста
+                                {% endif %}
+                            {% endwith %}
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <hr>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-item nav-link" href="">о нас</a></li>
+                    <li><a class="nav-item nav-link" href="">наши партнёры</a></li>
+                    <li><a class="nav-item nav-link" href="">ассортимент</a></li>
+                    <li><a class="nav-item nav-link" href="">контакты</a></li>
+                </ul>
+
+
+            </nav>
+        </div>
+    </div>
+
+
+</header>
+<body>
 {% block pagename %} {% endblock %}
 {% block content %}
 {% endblock %}
-
 </body>
+<footer>
+    <div class="footer_body">
+        <div class="footer_block1">
+            <div class="footer_subblock1">
+                <img src="{% static 'shop/img/logo.png' %}" alt="">
+            </div>
+            <div class="footer_subblock2">
+                <table>
+                    <tr>
+                        <th>Время работы:</th>
+                        <td> с 10:00 до 22:00</td>
+                    </tr>
+                    <tr>
+                        <th>Адрес:</th>
+                        <td> Санкт-Петербург, ул. Рысева 62А</td>
+                    </tr>
+                    <tr>
+                        <th>Почта:</th>
+                        <td> sever@seversnab.ru</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="footer_block2">
+            <ul>
+                <li><a href="">наши партнёры</a></li>
+                <li><a href="">ассортимент</a></li>
+                <li><a href="">о нас</a></li>
+                <li><a href="">контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer_block3">
+            <a href="https://yandex.ru/maps/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;source=constructorStatic"
+               target="_blank"><img
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=600&amp;height=277&amp;lang=ru_RU"
+                    alt="" style="border: 0;"/></a></div>
+    </div>
+    <hr>
+    <div class="underfooter">
+        <h3>&#169 2014 - 2023 ООО "СеверСнаб"</h3>
+    </div>
+
+</footer>
+
+
+<script src="{% static 'shop/js/bootstrap.js' %}"></script>
 </html>

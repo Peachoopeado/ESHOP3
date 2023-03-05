@@ -1,10 +1,30 @@
 {% extends 'shop/base.html' %}
 {% block title %} Категории {% endblock %}
-{% block pagename %}<h1>Категории</h1> {% endblock %}
+{% block pagename %}<h1 class="category_heading">Ассортимент</h1> {% endblock %}
 {% block content %}
-    <ul>
-    {% for category in categories %}
-        <li><a href="{{ category.get_url }}">{{ category }}</a></li>
-    {% endfor %}
-    </ul>
+    <div class="category_container">
+        <div class="category_body">
+            {% for category in categories %}
+                <a class="category" href="{{ category.get_url }}">
+                    {% for catimg in category.categoryimage_set.all %}
+                        <img src='{{ catimg.img.url }}' alt="">
+                    {% endfor %}
+                    <p>{{ category }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="ask">
+        <div class="ask_body">
+            <div class="ask_sentence">
+                <p>Есть вопросы? Наши специалисты ответят!</p>
+            </div>
+
+                <a class="ask_button" href="">Написать письмо</a>
+        </div>
+    </div>
+
+
+
+
 {% endblock %}

@@ -2,53 +2,75 @@
 {% block title %} {{ category.name }} {% endblock %}
 {% block pagename %}<h1>{{ category.name }}</h1> {% endblock %}
 {% block content %}
-    <aside>
-        {% if category.oiltype_set.all %}
-            <h2>Тип продукта</h2>
-            <ul>
-                {% for oiltype in category.oiltype_set.all %}
-                    <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if oil_type %}
-            <h2>Вязкость</h2>
-            <ul>
-                {% for viscosity in oil_type.viscosity_set.all %}
-                    <li><a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ viscosity.slug }}">{{ viscosity }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if visc %}
-            <h2>Состав</h2>
-            <ul>
-                {% for compound in visc.compound_set.all %}
-                    <li>
-                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ compound.slug }}">{{ compound }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if comp %}
-            <h2>Топливо</h2>
-            <ul>
-                {% for fuel in category.fuel_set.all %}
-                    <li>
-                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ comp.slug }}/{{ fuel.slug }}">{{ fuel }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </aside>
-    <h2>Товары</h2>
+    <div class="list_body">
 
-        <ul>
-            {% for product in products %}
-            <li><a href="{{ product.get_url }}">{{ product }}</a></li>
-            {% endfor %}
-        </ul>
 
+        <aside>
+            {% if category.oiltype_set.all %}
+                <div class="filter_block">
+                    <h2>Тип продукта</h2>
+                    <ul>
+                        {% for oiltype in category.oiltype_set.all %}
+                            <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% if oil_type %}
+                <div class="filter_block">
+                    <h2>Вязкость</h2>
+                    <ul>
+                        {% for viscosity in oil_type.viscosity_set.all %}
+                            <li>
+                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ viscosity.slug }}">{{ viscosity }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% if visc %}
+                <div class="filter_block">
+                    <h2>Состав</h2>
+                    <ul>
+                        {% for compound in visc.compound_set.all %}
+                            <li>
+                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ compound.slug }}">{{ compound }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% if comp %}
+                <div class="filter_block">
+                    <h2>Топливо</h2>
+                    <ul>
+                        {% for fuel in category.fuel_set.all %}
+                            <li>
+                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ comp.slug }}/{{ fuel.slug }}">{{ fuel }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </aside>
+        <div class="container mt-2">
+
+
+            <h2>Товары</h2>
+
+            <div class="row mt-5 mb-3">
+                {% for product in products %}
+                    <div class="col-xl-4">
+                        <img src="" alt="">
+                        <a href="{{ product.get_url }}">{{ product.name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+    </div>
 
 
 
