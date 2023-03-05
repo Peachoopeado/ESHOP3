@@ -1,0 +1,58 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+    <div class="contact_us_container">
+        <div class="contact_us_body">
+            <div class="contact_us_form">
+                <h1>напишите нам!</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ contact_form.full_name }}
+                    {{ contact_form.company }}
+                    {{ contact_form.position }}
+                    {{ contact_form.email }}
+                    {{ contact_form.phone }}
+                    {{ contact_form.subject }}
+                    {{ contact_form.text }}
+                    <input class="submit_form" type="submit" value="отправить">
+                </form>
+            </div>
+            <div class="contact_us_initials">
+                <div class="map">
+                    <script type="text/javascript" charset="utf-8" async
+                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=100%25&amp;height=583&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                <div class="initials">
+                    <div class="initial_container">
+                        <div class="initial_body">
+                            <h1>контакты</h1>
+                            <a href="" class="callback"></a>
+                        </div>
+                    </div>
+                    <div class="initial_container">
+                        <div class="initial_body">
+                            <h1>Адрес офиса</h1>
+                            <p>Россия, Лен.область, г. Гатчина, ул. Рысева д. 62А</p>
+                        </div>
+                    </div>
+                    <div class="initial_container">
+                        <div class="initial_body">
+                            <div class="initial_block">
+                                <h1>Номер телефона</h1>
+                                <a href="tel:" style="text-align: center">+7(999) 999-00-00</a>
+                            </div>
+                            <div class="initial_block">
+                                <h1>Почта</h1>
+                                <a href="mailto: info@sev_snab.ru" style="text-align: center">info@sev_snab.ru</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
