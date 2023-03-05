@@ -83,3 +83,18 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return self.product.code
+
+class User_Request(models.Model):
+    full_name = models.CharField('ФИО', max_length=300)
+    company = models.CharField('Название организации',max_length=300, blank=True)
+    position = models.CharField('Должность',max_length=300, blank=True)
+    email = models.EmailField('Почта')
+    phone = models.CharField('Номер телефона', max_length=20)
+    subject = models.CharField('Тема сообщения', max_length=150)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.full_name
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'

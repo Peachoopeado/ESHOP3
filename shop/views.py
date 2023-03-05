@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, OilType, Viscosity, Compound, Fuel, Product
 from cart.forms import CartAddProductForm
 from django.views.generic import ListView
+from .forms import User_RequestForm
 
 # Create your views here.
 def show_categories(request):
@@ -55,6 +56,24 @@ def show_product_detail(request, product_code:str):
     }
 
     return render(request, 'shop/product_detail.html', data)
+
+def show_contact_page(request):
+    error = ''
+    if request.method =='POST':
+        contact_form = User_RequestForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            return redirect('contacts')
+        else:
+            error = 'Данные введены некорректно'
+    contact_form = User_RequestForm()
+    data = {
+        'contact_form': contact_form
+    }
+    return render(request, 'shop/contact_us.html', data)
+
+def show_about_page(request):
+    return render(request, 'shop/about.html')
 
 class Search(ListView):
     model = Product
