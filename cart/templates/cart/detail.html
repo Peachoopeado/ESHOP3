@@ -2,10 +2,8 @@
 {% block title %} Корзина {% endblock %}
 
 {% block content %}
-    <h1>Корзина</h1>
     <div class="cart_container">
         <div class="cart_body">
-
             <div class="cart_items">
                 {% for item in cart %}
                     {% with product=item.product %}

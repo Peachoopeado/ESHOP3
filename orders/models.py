@@ -3,12 +3,13 @@ from shop.models import Product
 
 # Create your models here.
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
+    type = models.CharField(max_length=200, null=True)
+    full_name = models.CharField('Ф.И.О.',max_length=200, null=True)
+    phone = models.CharField('Телефон',max_length=200, null=True)
+    email = models.EmailField('Email',null=True)
+    address = models.CharField('Адрес', max_length=250)
+    postal_code = models.CharField('Почтовый индекс',max_length=20)
+    way_to_get = models.CharField(max_length=200, null=True)
     # items = models.ManyToManyField(Product)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

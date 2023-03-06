@@ -2,23 +2,37 @@
 {% block title %}Оформление заказа{% endblock %}
 
 {% block content %}
-    <h1>Оформление</h1>
-    <div class="order-info">
-        <h3>Ваш заказ</h3>
-        <ul>
-            {% for item in cart %}
-                <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>{{ item.total_price }} руб.</span>
-                </li>
-            {% endfor %}
-        </ul>
-        <p>Итого: {{ cart.get_total_price }} руб.</p>
+    <div class="order_container">
+        <div class="order_body">
+
+            <form action="{% url 'order-create' %}" method="post" class="order-form">
+                <div class="order_fields">
+                <h3>Тип плательщика</h3>
+                <span>{{ form.type }}</span>
+                <h2>Информация о покупателе</h2>
+                <div class="field_block"><div class="field_name">Ф.И.О.</div>
+                    <div class="field">{{ form.full_name }}</div></div>
+                <div class="field_block"><div class="field_name">Телефон</div> <div class="field">{{ form.phone }}</div>  </div>
+                <div class="field_block"><div class="field_name">Почта</div> <div class="field">{{ form.email }}</div> </div>
+                <h2>Выберите способ получения</h2>
+                {{ form.way_to_get }}
+                <h2>Ваши товары</h2>
+                </div>
+
+                <ul>
+                    {% for item in cart %}
+                        <li>
+                            {{ item.quantity }}x {{ item.product.name }}
+                            <span>{{ item.total_price }} руб.</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p><b>Итого:</b> {{ cart.get_total_price }} руб.</p>
+                <input class="button_place_order" type="submit" value="Разместить заказ">
+                {% csrf_token %}
+            </form>
+        </div>
     </div>
-    <form action="{% url 'order-create' %}" method="post" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Разместить заказ"></p>
-        {% csrf_token %}
-    </form>
+
 
 {% endblock %}

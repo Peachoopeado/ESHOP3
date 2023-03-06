@@ -685,6 +685,7 @@ aside {
 }
 
 /*Корзина*/
+
 .cart_container {
     width: 100%;
     display: flex;
@@ -769,4 +770,64 @@ aside {
     text-align: center;
     margin: 0 auto;
 
+}
+
+/*Оформление*/
+.order_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5em;
+}
+.order_body{
+    width: 90%;
+}
+.order_body h2, h3{
+    font-weight: bold;
+}
+.field_block{
+    margin-bottom: 15px;
+}
+.field_name{
+    width: 10em;
+    font-size: 2em;
+}
+.order_fields select{
+    border-radius: 3px;
+    font-size: 25px;
+    background: rgba(56, 70, 133, 0.8);
+    color: #FFFFFF;
+
+}
+.order_fields div{
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+
+}
+
+.order_fields span:after{
+    margin-right: 30px;
+}
+.order_fields input{
+
+    width: 497px;
+
+    border: 2px solid #000000;
+    border-radius: 40px;
+    padding-left: 30px;
+    font-size: 24px;
+    line-height: 47px;
+}
+
+.button_place_order{
+    width: 483px;
+    height: 87px;
+    background: #384685;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    text-transform: uppercase;
 }
