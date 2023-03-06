@@ -76,13 +76,26 @@ class Product(models.Model):
     def get_url(self):
         return reverse('product-detail', args=[self.code])
 
-
+class Partner(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(null=True)
+    link = models.CharField(max_length=200, null=True)
+    def __str__(self):
+        return self.name
+    def get_url(self):
+        return reverse('one-partner', args=[self.id])
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     img = models.ImageField(upload_to='shop/img/products')
 
     def __str__(self):
         return self.product.code
+class PartnerImage(models.Model):
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, null=True)
+    img = models.ImageField(upload_to='shop/img/partners')
+    def __str__(self):
+        return self.partner.name
+
 
 class User_Request(models.Model):
     full_name = models.CharField('ФИО', max_length=300)

@@ -13,11 +13,15 @@
         </div>
     </div>
     <div class="partners_container">
+
         <div class="partners_body">
-            <a href=""><img src="" alt="NORDFIL"></a>
-            <a href=""><img src="" alt="YMIOIL"></a>
-            <a href=""><img src="" alt="Delfin"></a>
-            <a href=""><img src="" alt="North Sea"></a>
+            {% for partner in partners %}
+            <a class="partners" href="{{ partner.get_url }}">
+                {% for partimg in partner.partnerimage_set.all %}
+                <img src="{{ partimg.img.url }}" alt="">
+                {% endfor %}
+            </a>
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

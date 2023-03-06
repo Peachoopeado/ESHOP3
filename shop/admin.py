@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Category, OilType, Viscosity, Compound, Fuel, Product, CategoryImage, ProductImage, User_Request
+from .models import Category, OilType, Viscosity, Compound, Fuel, Product, CategoryImage, ProductImage, User_Request, Partner, PartnerImage
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 admin.site.register(Category)
@@ -35,8 +36,12 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['category','oiltype', 'viscosity', 'compound', 'available']
     filter_horizontal = ['category']
 
+class PartnerAdmin(SummernoteModelAdmin):
+    summernote_fields = ('description')
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(CategoryImage)
 admin.site.register(ProductImage)
 admin.site.register(User_Request)
+admin.site.register(Partner, PartnerAdmin)
+admin.site.register(PartnerImage)

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'django_summernote',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',

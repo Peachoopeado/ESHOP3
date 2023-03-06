@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, OilType, Viscosity, Compound, Fuel, Product
+from .models import Category, OilType, Viscosity, Compound, Fuel, Product, Partner, PartnerImage
 from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm
@@ -76,8 +76,19 @@ def show_about_page(request):
     return render(request, 'shop/about.html')
 
 def show_partners(request):
-    return render(request, 'shop/partners.html')
-
+    partners = Partner.objects.all()
+    data = {
+        'partners': partners,
+    }
+    return render(request, 'shop/partners.html', data)
+def show_one_partner(request, partner_id:int):
+    partner = get_object_or_404(Partner, id=partner_id)
+    img = get_object_or_404(PartnerImage, id=partner_id)
+    data={
+        'partner': partner,
+        'partner_img': img,
+    }
+    return render(request, 'shop/one_partner.html', data)
 
 
 class Search(ListView):
