@@ -603,4 +603,29 @@ aside {
     background: #363131;
 
 }
-
+.intro_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.intro_body{
+    width: 90%;
+}
+.intro_body h2{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.intro_text{
+    font-size: 20px;
+}
+.partners_container{
+    width: 100%;
+}
+.partners_body {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

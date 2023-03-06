@@ -75,6 +75,11 @@ def show_contact_page(request):
 def show_about_page(request):
     return render(request, 'shop/about.html')
 
+def show_partners(request):
+    return render(request, 'shop/partners.html')
+
+
+
 class Search(ListView):
     model = Product
     template_name = 'shop/search_results.html'

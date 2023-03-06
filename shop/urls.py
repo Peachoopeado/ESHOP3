@@ -12,5 +12,6 @@ urlpatterns = [
     path('search/', views.Search.as_view(), name='search'),
     path('contact/', views.show_contact_page, name='contacts'),
     path('about/', views.show_about_page, name='about'),
+    path('partners/', views.show_partners, name='partners')
 
 ]
