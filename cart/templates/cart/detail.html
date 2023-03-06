@@ -5,49 +5,59 @@
     <h1>Корзина</h1>
     <div class="cart_container">
         <div class="cart_body">
+
             <div class="cart_items">
+                {% for item in cart %}
+                    {% with product=item.product %}
+                        <div class="cart_item">
+                            <table class="cart_positions">
+                                <tbody>
+                                <tr>
+                                    <td>img</td>
+                                    <td>{{ product.name }}</td>
+                                    <td align="center">{{ item.quantity }}</td>
+                                    <td align="center">{{ item.total_price }} руб.</td>
+                                    <td align="right"><a href="{% url 'cart-remove' product.code %}">Удалить</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
 
+
+                        </div>
+                    {% endwith %}
+                {% endfor %}
             </div>
-            <div class="cart_summary">
 
+            <div class="cart_summary">
+                <div class="cart_summary_body">
+                    <table class="summary">
+
+                        <tbody>
+                        <tr>
+                            <td>Товары</td>
+                            <td align="right">{{ cart.get_total_price }} &#8381</td>
+                        </tr>
+                        <tr>
+                            <td>Доставка</td>
+                            <td></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Общая стоимость</td>
+                            <td align="right">{{ cart.get_total_price }} &#8381</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <a href="{% url 'order-create' %}"><div class="gotoform">Перейти к оформлению</div></a>
+                </div>
             </div>
         </div>
     </div>
-    <table class="cart">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Remove</th>
-            <th>Unit price</th>
-            <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in cart %}
-            {% with product=item.product %}
-                <tr>
-                    <td>
-                        <a href="{{ product.get_url }}"></a>
-                    </td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td><a href="{% url 'cart-remove' product.code %}">Удалить</a></td>
-                    <td class="num">{{ item.price }}</td>
-                    <td class="num">{{ item.total_price }}</td>
-                </tr>
-            {% endwith %}
-        {% endfor %}
-        <tr class="total">
-            <td>Total</td>
-            <td colspan="4"></td>
-            <td class="num">{{ cart.get_total_price }}</td>
-        </tr>
-        </tbody>
-    </table>
+
     <p class="text-right">
         <a href="{% url 'assortment' %}">Вернуться к ассортименту</a>
-        <a href="{% url 'order-create' %}" class="button">Перейти к оформлению</a>
+
     </p>
 {% endblock %}
