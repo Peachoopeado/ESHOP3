@@ -256,6 +256,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 30px;
 }
 
 .footer_block1 {
@@ -265,13 +266,13 @@ footer {
 .footer_subblock2 table th {
     color: #fff;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .footer_subblock2 table td {
     color: #fff;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .footer_block2 {
@@ -301,6 +302,7 @@ footer hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10px;
 }
 
 .underfooter h3 {
@@ -512,15 +514,16 @@ aside {
 }
 
 .initials {
-    background-image: url(../img/initials_bcg.png);
+    background:#363131;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border: 1px solid black;
+
 }
 
 .initial_container {
-    border: 1px solid black;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -548,9 +551,10 @@ aside {
 }
 
 .initial_block {
-    border: 1px solid black;
+
     text-align: center;
     color: #fff;
+
 }
 
 .initial_block a {
@@ -577,22 +581,7 @@ aside {
     font-size: 20px;
 }
 
-.slider_container {
-    width: 100%;
-}
 
-.slider_body {
-    width: 80%;
-    border: 1px solid black;
-
-}
-
-.block1, .block2 {
-    width: 431px;
-    height: 594px;
-    background: #363131;
-
-}
 
 .intro_container {
     width: 100%;
@@ -619,7 +608,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 6em;
 }
 
 .partners_body {
@@ -650,6 +639,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 3em;
 }
 
 .partner_body {
@@ -802,7 +792,6 @@ aside {
 }
 .order_fields div{
     display: flex;
-    border: 1px solid black;
     align-items: center;
 
 }

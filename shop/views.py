@@ -4,6 +4,7 @@ from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm
 
+
 # Create your views here.
 def show_categories(request):
     categories = Category.objects.all()
@@ -12,8 +13,9 @@ def show_categories(request):
     }
     return render(request, 'shop/categories.html', data)
 
-def show_category_assortment(request, category_slug = None, oiltype_slug = None, viscosity_slug = None,
-                             compound_slug = None, fuel_slug = None):
+
+def show_category_assortment(request, category_slug=None, oiltype_slug=None, viscosity_slug=None,
+                             compound_slug=None, fuel_slug=None):
     category = None
     oil_type = None
     visc = None
@@ -21,20 +23,22 @@ def show_category_assortment(request, category_slug = None, oiltype_slug = None,
     fuel = None
     products = Product.objects.filter(available=True)
     if category_slug:
-        category = get_object_or_404(Category, slug = category_slug)
-        products = Product.objects.filter(category = category, available=True)
+        category = get_object_or_404(Category, slug=category_slug)
+        products = Product.objects.filter(category=category, available=True)
     if oiltype_slug:
-        oil_type = get_object_or_404(OilType, slug = oiltype_slug)
-        products = Product.objects.filter(category=category, oiltype = oil_type, available=True)
+        oil_type = get_object_or_404(OilType, slug=oiltype_slug)
+        products = Product.objects.filter(category=category, oiltype=oil_type, available=True)
     if viscosity_slug:
-        visc = get_object_or_404(Viscosity, slug = viscosity_slug)
-        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity = visc, available=True )
+        visc = get_object_or_404(Viscosity, slug=viscosity_slug)
+        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, available=True)
     if compound_slug:
-        comp = get_object_or_404(Compound, slug = compound_slug)
-        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound = comp, available=True)
+        comp = get_object_or_404(Compound, slug=compound_slug)
+        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound=comp,
+                                          available=True)
     if fuel_slug:
-        fuel = get_object_or_404(Fuel, slug = fuel_slug)
-        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound = comp, fuel = fuel, available=True)
+        fuel = get_object_or_404(Fuel, slug=fuel_slug)
+        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound=comp, fuel=fuel,
+                                          available=True)
 
     data = {
         'category': category,
@@ -47,8 +51,9 @@ def show_category_assortment(request, category_slug = None, oiltype_slug = None,
     }
     return render(request, f'shop/product_list.html', data)
 
-def show_product_detail(request, product_code:str):
-    product = get_object_or_404(Product, code = product_code)
+
+def show_product_detail(request, product_code: str):
+    product = get_object_or_404(Product, code=product_code)
     cart_product_form = CartAddProductForm()
     data = {
         'product': product,
@@ -57,9 +62,10 @@ def show_product_detail(request, product_code:str):
 
     return render(request, 'shop/product_detail.html', data)
 
+
 def show_contact_page(request):
     error = ''
-    if request.method =='POST':
+    if request.method == 'POST':
         contact_form = User_RequestForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
@@ -72,8 +78,10 @@ def show_contact_page(request):
     }
     return render(request, 'shop/contact_us.html', data)
 
+
 def show_about_page(request):
     return render(request, 'shop/about.html')
+
 
 def show_partners(request):
     partners = Partner.objects.all()
@@ -81,10 +89,12 @@ def show_partners(request):
         'partners': partners,
     }
     return render(request, 'shop/partners.html', data)
-def show_one_partner(request, partner_id:int):
+
+
+def show_one_partner(request, partner_id: int):
     partner = get_object_or_404(Partner, id=partner_id)
     img = get_object_or_404(PartnerImage, id=partner_id)
-    data={
+    data = {
         'partner': partner,
         'partner_img': img,
     }
@@ -103,4 +113,3 @@ class Search(ListView):
         context = super().get_context_data(*args, **kwargs)
         context['q'] = self.request.GET.get('q')
         return context
-
