@@ -3,6 +3,7 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
+from decimal import Decimal
 
 
 # Create your views here.
@@ -26,7 +27,15 @@ def cart_remove(request, product_code):
 
 def cart_detail(request):
     cart = Cart(request)
+    delivery_price = cart.get_delivery_price()
+    if request.method == 'POST':
+        delivery = request.POST.get('delivery', '')
+        cart.set_delivery(delivery)
+        delivery_price = cart.get_delivery_price()
     data = {
         'cart': cart,
+        'delivery_choices': cart.get_delivery_choices(),
+        'delivery_price': delivery_price,
+
     }
     return render(request, 'cart/detail.html', data)

@@ -1,4 +1,5 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 {% block title %} Корзина {% endblock %}
 
 {% block content %}
@@ -35,20 +36,38 @@
                             <td>Товары</td>
                             <td align="right">{{ cart.get_total_price }} &#8381</td>
                         </tr>
-                        <tr>
-                            <td>Доставка</td>
-                            <td></td>
-
-                        </tr>
-
-                        <tr>
-                            <td>Общая стоимость</td>
-                            <td align="right">{{ cart.get_total_price }} &#8381</td>
-                        </tr>
-
                         </tbody>
                     </table>
-                    <a href="{% url 'order-create' %}"><div class="gotoform">Перейти к оформлению</div></a>
+                    <table class="summary">
+
+                        <tbody>
+                        <tr>
+                            <td>Способ получения</td>
+                            <td>{% for choice in delivery_choices %}
+                                <label for="">{{ choice.1 }}<input type="radio" name="delivery"
+                                                                   value="{{ choice.0|floatformat }}"
+                                        {% if cart.delivery == choice.0 %} checked{% endif %}></label>
+                            {% endfor %}
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+
+                            <td>Общая стоимость</td>
+                            <td align="right"><span id="total-price"
+                                                    data-total-price>{{ cart.get_total_price_with_delivery }}</span>
+                                &#8381
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <a href="{% url 'order-create' %}">
+                        <div class="gotoform">Оформить заказ</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -58,4 +77,44 @@
         <a href="{% url 'assortment' %}">Вернуться к ассортименту</a>
 
     </p>
+{#    <script src="{% static 'cart/js/TotalPriceScript.js' %}"></script>#}
+    <script>
+  function updateTotalPrice() {
+    var deliveryRadioButtons = document.getElementsByName('delivery');
+
+    for (var i = 0; i < deliveryRadioButtons.length; i++) {
+      if (deliveryRadioButtons[i].checked) {
+        var totalPrice = parseFloat('{{ cart.get_total_price|floatformat:2 }}');
+        var deliveryPrice = 0;
+        if (i === 0) {
+          deliveryPrice = 600;
+        }
+        var totalWithDelivery = (totalPrice + deliveryPrice).toFixed(2);
+        document.getElementById('total-price').innerHTML = totalWithDelivery;
+        break;
+      }
+    }
+  }
+
+  var deliveryRadioButtons = document.getElementsByName('delivery');
+  for (var i = 0; i < deliveryRadioButtons.length; i++) {
+    deliveryRadioButtons[i].addEventListener('change', updateTotalPrice);
+  }
+
+  updateTotalPrice();
+</script>
+
+    <script>
+        const deliveryChoice = document.querySelector('input[name="delivery"]:checked').value;
+        const cartTotalPrice = parseFloat("{{ cart.get_total_price_with_delivery }}");
+        const cartDeliveryPrice = parseFloat("{{ cart.get_delivery_price }}");
+
+        console.log(deliveryChoice);
+        console.log(cartTotalPrice);
+        console.log(cartDeliveryPrice);
+    </script>
+
 {% endblock %}
+
+
+
