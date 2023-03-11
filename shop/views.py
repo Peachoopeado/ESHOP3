@@ -3,6 +3,7 @@ from .models import Category, OilType, Viscosity, Compound, Fuel, Product, Partn
 from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm
+from django.db.models import Q
 
 
 # Create your views here.
@@ -104,10 +105,17 @@ def show_one_partner(request, partner_id: int):
 class Search(ListView):
     model = Product
     template_name = 'shop/search_results.html'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
-        return Product.objects.filter(name_m__icontains=self.request.GET.get('q'))
+        query = self.request.GET.get('q')
+        if query:
+            queryset = Product.objects.filter(
+                Q(name__icontains = query)|Q(viscosity__name__icontains=query)
+            )
+        else:
+            queryset = Product.objects.none()
+        return queryset
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
