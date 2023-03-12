@@ -819,3 +819,8 @@ aside {
     color: #FFFFFF;
     text-transform: uppercase;
 }
+.card-img-top {
+  object-fit: cover; /* масштабировать изображение так, чтобы оно полностью заполняло элемент */
+  object-position: center; /* выравнивать изображение по центру элемента */
+  height: 600px; /* задать высоту для изображений */
+}
