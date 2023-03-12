@@ -21,7 +21,9 @@ def cart_add(request, product_code):
 def cart_remove(request, product_code):
     cart = Cart(request)
     product = get_object_or_404(Product, code=product_code)
-    cart.remove(product)
+    if product.code:
+        cart.remove(product)
+
     return redirect('cart-detail')
 
 

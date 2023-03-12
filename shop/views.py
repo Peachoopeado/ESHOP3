@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, OilType, Viscosity, Compound, Fuel, Product, Partner, PartnerImage
+from .models import Category, OilType, Viscosity, Compound, Fuel, Transmission, Product, Partner, PartnerImage
 from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm
@@ -16,12 +16,13 @@ def show_categories(request):
 
 
 def show_category_assortment(request, category_slug=None, oiltype_slug=None, viscosity_slug=None,
-                             compound_slug=None, fuel_slug=None):
+                             compound_slug=None, fuel_slug=None, transmission_slug=None):
     category = None
     oil_type = None
     visc = None
     comp = None
     fuel = None
+    transmission = None
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -40,6 +41,11 @@ def show_category_assortment(request, category_slug=None, oiltype_slug=None, vis
         fuel = get_object_or_404(Fuel, slug=fuel_slug)
         products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound=comp, fuel=fuel,
                                           available=True)
+    if transmission_slug:
+        transmission = get_object_or_404(Transmission, slug=transmission_slug)
+        products = Product.objects.filter(category=category, oiltype=oil_type, viscosity=visc, compound=comp, fuel=fuel,
+                                          transmission=transmission,
+                                          available=True)
 
     data = {
         'category': category,
@@ -47,6 +53,7 @@ def show_category_assortment(request, category_slug=None, oiltype_slug=None, vis
         'visc': visc,
         'comp': comp,
         'fuel': fuel,
+        'transmission': transmission,
         'products': products,
 
     }
