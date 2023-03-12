@@ -4,9 +4,11 @@ html {
 }
 
 body {
-    width: 100%;
-    min-width: 1024px;
-    max-width: 1920px;
+    height: 100%;
+    margin-right: 0;
+}
+body.body--no-scroll{
+    overflow: hidden;
 }
 
 a:active,
@@ -15,14 +17,17 @@ a {
     text-decoration: none;
 }
 
+.mobile {
+    display: none;
+}
+
 header {
     width: 100%;
-    height: 15em;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
-
+    position: fixed;
+    background: #FFFFFF;
 }
 
 .header-body {
@@ -35,7 +40,6 @@ header {
 
 .logo {
     width: 333px;
-    height: 204px;
 
 }
 
@@ -48,8 +52,8 @@ header {
 
 .search {
     width: 100%;
-    height: 60px;
     display: flex;
+    padding-top: 20px;
 
 }
 
@@ -63,6 +67,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: end;
+
 }
 
 .search_block input {
@@ -112,6 +117,166 @@ nav li {
     border-radius: 10px;
 }
 
+.header-mobile {
+    display: none;
+}
+
+.nav-mobile {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.mobile-menu {
+
+    position: fixed;
+    top: 6em;
+    left: 100%;
+    right: 0;
+    bottom: 0;
+    background-color: #363131;
+    height: 100vh;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: 0.3s ;
+
+
+}
+
+.mobile-menu ul {
+    margin-top: 2em;
+    margin-left: 2em;
+    padding: 0;
+    list-style: none;
+}
+
+.mobile-menu li {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+.mobile-menu i{
+    font-size: 2em;
+    color: #F8FD00;
+    padding-right: 10px;
+}
+.mobile-menu a {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.mobile-menu.active {
+    display: block;
+    left: 0;
+}
+
+
+
+@media (max-width: 992px) {
+    header {
+        display: none;
+
+    }
+
+    .mobile {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #fff;
+        position: fixed;
+    }
+
+    .mobile-logo img {
+        height: auto;
+        width: 100%;
+        max-width: 80px;
+
+    }
+
+    .mobile-icons {
+        display: flex;
+        justify-content: space-between;
+        width: 80px;
+        padding-left: 3em;
+        margin-right: 5px;
+    }
+
+    .mobile-icon {
+        color: black; /* Цвет иконок */
+        font-size: 20px; /* Размер иконок */
+        margin-right: 20px; /* Отступ между иконками */
+    }
+
+    .mobile-icon i {
+        font-size: 30px;
+        color: #000;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .mobile-menu-btn__icon {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mobile-menu-btn__icon::before,
+    .mobile-menu-btn__icon::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mobile-menu-btn__icon::before {
+        transform: translateY(-10px);
+    }
+
+    .mobile-menu-btn__icon::after {
+        transform: translateY(8px);
+    }
+
+    .mobile-menu-btn.active .mobile-menu-btn__icon {
+        background-color: transparent;
+    }
+
+    .mobile-menu-btn.active .mobile-menu-btn__icon::before {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.active .mobile-menu-btn__icon::after {
+        transform: translateY(0) rotate(-45deg);
+    }
+
+
+}
+
 @media (max-width: 1772px) {
     .nav li {
         padding-left: 120px;
@@ -153,6 +318,10 @@ nav li {
 
         font-size: 20px;
     }
+}
+
+.main-content {
+    padding-top: 300px;
 }
 
 /*Ассортимент*/
@@ -244,9 +413,12 @@ nav li {
 /*Конец ассортимента*/
 /*Подвал*/
 footer {
+    position: relative;
+    bottom: 0;
     width: 100%;
     background: #363131;
     flex: 0 0 auto;
+    min-height: calc(100vh - 587px);
 
 }
 
@@ -307,11 +479,46 @@ footer hr {
 
 .underfooter h3 {
 
-    margin: 0 auto 0;
+    margin: 30px auto;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
 
+}
+
+@media only screen and (max-width: 768px) {
+    .footer_body {
+        width: 100%;
+        padding: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer_block2 {
+        margin: 20px auto;
+    }
+
+    .footer_block1 {
+        margin: 20px auto;
+    }
+
+    .footer_block1 img {
+        align-items: center;
+    }
+
+    .footer_block2 ul li {
+        padding: 5px 0;
+    }
+
+    .footer_block2 ul li a {
+        font-size: 24px;
+        padding-bottom: 10px;
+    }
+
+
+    .underfooter h3 {
+        font-size: 12px;
+    }
 }
 
 /*Конец подвала*/
@@ -384,7 +591,6 @@ aside {
     border-spacing: 75px 0;
     border-collapse: separate;
 }
-
 
 
 .description_heading h3 {
@@ -514,7 +720,7 @@ aside {
 }
 
 .initials {
-    background:#363131;
+    background: #363131;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -580,7 +786,6 @@ aside {
 .about_text_block {
     font-size: 20px;
 }
-
 
 
 .intro_container {
@@ -689,9 +894,11 @@ aside {
     justify-content: space-between;
 
 }
-.cart_items{
+
+.cart_items {
     width: 1126px;
 }
+
 .cart_item {
     height: 8em;
     background: #FBFBFB;
@@ -702,27 +909,31 @@ aside {
     margin-bottom: 15px;
 
 }
-.cart_item p{
+
+.cart_item p {
     margin-left: 30px;
 }
-.cart_item a{
+
+.cart_item a {
     margin-right: 30px;
 }
-.cart_positions{
+
+.cart_positions {
     border: 1px solid black;
     width: 100%;
     height: 100%;
     table-layout: fixed;
 
 
-
 }
-.cart_positions th{
+
+.cart_positions th {
     border: 1px solid black;
 
 }
-.cart_positions td{
-   border: 1px solid black;
+
+.cart_positions td {
+    border: 1px solid black;
 
 }
 
@@ -740,7 +951,7 @@ aside {
     justify-content: center;
 }
 
-.summary{
+.summary {
     width: 90%;
     table-layout: fixed;
     border: 1px solid black;
@@ -748,7 +959,7 @@ aside {
     font-weight: bold;
 }
 
-.gotoform{
+.gotoform {
     width: 90%;
     background: #384685;
     border-radius: 5px;
@@ -762,43 +973,50 @@ aside {
 }
 
 /*Оформление*/
-.order_container{
+.order_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 5em;
 }
-.order_body{
+
+.order_body {
     width: 90%;
 }
-.order_body h2, h3{
+
+.order_body h2, h3 {
     font-weight: bold;
 }
-.field_block{
+
+.field_block {
     margin-bottom: 15px;
 }
-.field_name{
+
+.field_name {
     width: 10em;
     font-size: 2em;
 }
-.order_fields select{
+
+.order_fields select {
     border-radius: 3px;
     font-size: 25px;
     background: rgba(56, 70, 133, 0.8);
     color: #FFFFFF;
 
 }
-.order_fields div{
+
+.order_fields div {
     display: flex;
     align-items: center;
 
 }
 
-.order_fields span:after{
+.order_fields span:after {
     margin-right: 30px;
 }
-.order_fields input{
+
+.order_fields input {
 
     width: 497px;
 
@@ -809,7 +1027,7 @@ aside {
     line-height: 47px;
 }
 
-.button_place_order{
+.button_place_order {
     width: 483px;
     height: 87px;
     background: #384685;
@@ -819,8 +1037,9 @@ aside {
     color: #FFFFFF;
     text-transform: uppercase;
 }
+
 .card-img-top {
-  object-fit: cover; /* масштабировать изображение так, чтобы оно полностью заполняло элемент */
-  object-position: center; /* выравнивать изображение по центру элемента */
-  height: 600px; /* задать высоту для изображений */
+    object-fit: cover; /* масштабировать изображение так, чтобы оно полностью заполняло элемент */
+    object-position: center; /* выравнивать изображение по центру элемента */
+    height: 600px; /* задать высоту для изображений */
 }

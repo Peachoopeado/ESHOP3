@@ -9,17 +9,21 @@
     <link rel="stylesheet" href="{% static 'shop/css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+          integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=PT+Sans&display=swap"
           rel="stylesheet">
 
+
 </head>
 
-<header>
+<header class="pc">
     <div class="header-body">
         <div class="logo">
-            <img src="{% static 'shop/img/logo.png' %}" alt="логотип">
+            <img src="{% static 'shop/img/logo.svg' %}" alt="логотип">
         </div>
         <div class="nav">
             <div class="search">
@@ -64,26 +68,59 @@
             <hr>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
-                <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-item nav-link" href="{% url 'about' %}">о нас</a></li>
-                    <li><a class="nav-item nav-link" href="{% url 'partners' %}">наши партнёры</a></li>
-                    <li><a class="nav-item nav-link" href="{% url 'assortment' %}">ассортимент</a></li>
-                    <li><a class="nav-item nav-link" href="{% url 'contacts' %}">контакты</a></li>
-                </ul>
-
-
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">о нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'partners' %}">наши партнёры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'assortment' %}">ассортимент</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacts' %}">контакты</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </div>
 
 
 </header>
+<div class="mobile">
+    <a href="#" class="mobile-logo">
+        <img src="{% static 'shop/img/logo.svg' %}" alt="логотип" width="100">
+    </a>
+    <div class="mobile-icons">
+        <a href="#" class="mobile-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="mobile-icon"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <span class="mobile-menu-btn__icon"></span>
+    </button>
+</div>
+<div class="mobile-menu" id="mobile-menu">
+    <ul>
+        <li><a href="{% url 'partners' %}"><i class="fa-solid fa-circle-info"></i>о нас</a></li>
+        <li><a href="{% url 'assortment' %}"><i class="fa-solid fa-boxes-stacked"></i>ассортимент</a></li>
+        <li><a href="{% url 'about' %}"><i class="fa-solid fa-handshake"></i>наши партнёры</a></li>
+        <li><a href="{% url 'contacts' %}"><i class="fa-solid fa-envelope"></i>контакты</a></li>
+    </ul>
+</div>
 <body>
-{% block pagename %} {% endblock %}
-{% block content %}
-{% endblock %}
 
+{% block pagename %} {% endblock %}
+<div class="main-content">
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="https://kit.fontawesome.com/38616c9bbe.js" crossorigin="anonymous"></script>
+<script src="{% static 'shop/js/bootstrap.js' %}"></script>
+<script src="{% static 'shop/js/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static 'shop/js/burgerScript.js' %}"></script>
 </body>
 <footer>
     <div class="footer_body">
@@ -137,5 +174,4 @@
 </footer>
 
 
-<script src="{% static 'shop/js/bootstrap.js' %}"></script>
 </html>
