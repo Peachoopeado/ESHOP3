@@ -8,17 +8,18 @@
             </div>
             <div class="product_block">
                 <div class="img_block">
-                    <img src="" alt="картинка">
+                    <img src="{{ product.img.url }}" alt="картинка">
                 </div>
                 <div class="product_chars">
                     <table>
                         <tr>
                             <th>Вязкость</th>
-                            <td>{{ product.viscosity }}</td>
+                            <td>{% if product.viscosity.all %}{% for viscosity in product.viscosity.all %}
+                                {{ viscosity }}{% endfor %}{% endif %}</td>
                         </tr>
                         <tr>
                             <th>Бренд</th>
-                            <td></td>
+                            <td>{{ product.brand }}</td>
                         </tr>
                         <tr>
                             <th>Тип масла</th>
@@ -30,10 +31,12 @@
                         </tr>
                         <tr>
                             <th>Топливо</th>
-                            <td>{{ product.fuel }}</td>
+                            <td>{% if product.fuel.all %}{% for fuel in product.fuel.all %}{{ fuel }}
+                            {% endfor %}{% endif %}</td>
                         </tr>
                         <tr>
                             <th>Объем</th>
+                            <td>{{ product.volume }} л.</td>
                         <tr></tr>
                         </tr>
                     </table>
@@ -45,24 +48,23 @@
                     <h3>Описание</h3>
                 </div>
                 <div class="description_text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aliquam animi aperiam
-                        deserunt ea earum id neque nostrum veniam? Adipisci autem cumque cupiditate dolorem earum,
-                        eligendi eos error et facilis fugiat in iure laudantium magnam necessitatibus odio quae qui quos
-                        velit. Amet commodi ipsam labore magni optio perferendis porro?</p>
+                    <p>{{ product.description }}</p>
                 </div>
             </div>
             <div class="actions">
                 <div class="product_actions">
                     <div class="product_docs_block">
-                        <a href="">Лист технического описания</a>
-                        <a href="">Паспорт безопасности</a>
+                        <a href="{{ product.tech_desc }}"><i class="fa-solid fa-file-lines" style="padding-right: 5px;"></i>Лист технического описания</a>
+                        <a href="{{ product.security_pasport }}"><i class="fa-solid fa-triangle-exclamation" style="padding-right: 5px;"></i>Паспорт безопасности</a>
                     </div>
                     <div class="buttons_block">
                         <form action="{% url 'cart-add' product.code %}" method="post">
+                            <input type="submit" value="в корзину">
                             {{ cart_product_form }}
                             {% csrf_token %}
-                            <input type="submit" value="в корзину">
+
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -73,6 +75,5 @@
         </div>
     </div>
 
-    <p class="price">{{ product.price }}</p>
 
 {% endblock %}

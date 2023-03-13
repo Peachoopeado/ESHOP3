@@ -12,11 +12,16 @@
                             <table class="cart_positions">
                                 <tbody>
                                 <tr>
-                                    <td>img</td>
-                                    <td>{{ product.name }}</td>
-                                    <td align="center">{{ item.quantity }}</td>
-                                    <td align="center">{{ item.total_price }} руб.</td>
-                                    <td align="right"><a href="{% url 'cart-remove' product.code %}">Удалить</a></td>
+                                    <td width="300px" style="background: #FFFFFF"><img src="{{ product.img.url }}"
+                                                                                       alt=""></td>
+                                    <td style="background: #FFFFFF">{{ product.name }}</td>
+                                    <td width="100px" style="background: #FFFFFF"
+                                        align="center">{{ item.quantity }}</td>
+                                    <td width="150px" style="background: #FFFFFF" align="center">{{ item.total_price }}
+                                        руб.
+                                    </td>
+                                    <td width="150px" style="background: #FFFFFF" align="right"><a
+                                            href="{% url 'cart-remove' product.code %}">Удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -33,28 +38,24 @@
 
                         <tbody>
                         <tr>
-                            <td>Товары</td>
+                            <td>Товары ({{ cart|length }})</td>
                             <td align="right">{{ cart.get_total_price }} &#8381</td>
                         </tr>
                         </tbody>
                     </table>
                     <table class="summary">
-
                         <tbody>
                         <tr>
-                            <td>Способ получения</td>
-                            <td>{% for choice in delivery_choices %}
-                                <label for="">{{ choice.1 }}<input type="radio" name="delivery"
-                                                                   value="{{ choice.0|floatformat }}"
-                                        {% if cart.delivery == choice.0 %} checked{% endif %}></label>
-                            {% endfor %}
-                            </td>
+                            <td>Способ получения
+                                </td>
+
                         </tr>
-
-
-
+                        <tr style="border-bottom: 2px solid black; font-weight: lighter;">{% for choice in delivery_choices %}
+                            <td><label for="">{{ choice.1 }}<input type="radio" name="delivery"
+                                                                   value="{{ choice.0|floatformat }}"
+                                    {% if cart.delivery == choice.0 %} checked{% endif %}></label></td>{% endfor %}
+                        </tr>
                         <tr>
-
                             <td>Общая стоимость</td>
                             <td align="right"><span id="total-price"
                                                     data-total-price>{{ cart.get_total_price_with_delivery }}</span>
@@ -77,32 +78,32 @@
         <a href="{% url 'assortment' %}">Вернуться к ассортименту</a>
 
     </p>
-{#    <script src="{% static 'cart/js/TotalPriceScript.js' %}"></script>#}
+    {#    <script src="{% static 'cart/js/TotalPriceScript.js' %}"></script>#}
     <script>
-  function updateTotalPrice() {
-    var deliveryRadioButtons = document.getElementsByName('delivery');
+        function updateTotalPrice() {
+            var deliveryRadioButtons = document.getElementsByName('delivery');
 
-    for (var i = 0; i < deliveryRadioButtons.length; i++) {
-      if (deliveryRadioButtons[i].checked) {
-        var totalPrice = parseFloat('{{ cart.get_total_price|floatformat:2 }}');
-        var deliveryPrice = 0;
-        if (i === 0) {
-          deliveryPrice = 600;
+            for (var i = 0; i < deliveryRadioButtons.length; i++) {
+                if (deliveryRadioButtons[i].checked) {
+                    var totalPrice = parseFloat('{{ cart.get_total_price|floatformat:2 }}');
+                    var deliveryPrice = 0;
+                    if (i === 0) {
+                        deliveryPrice = 600;
+                    }
+                    var totalWithDelivery = (totalPrice + deliveryPrice).toFixed(2);
+                    document.getElementById('total-price').innerHTML = totalWithDelivery;
+                    break;
+                }
+            }
         }
-        var totalWithDelivery = (totalPrice + deliveryPrice).toFixed(2);
-        document.getElementById('total-price').innerHTML = totalWithDelivery;
-        break;
-      }
-    }
-  }
 
-  var deliveryRadioButtons = document.getElementsByName('delivery');
-  for (var i = 0; i < deliveryRadioButtons.length; i++) {
-    deliveryRadioButtons[i].addEventListener('change', updateTotalPrice);
-  }
+        var deliveryRadioButtons = document.getElementsByName('delivery');
+        for (var i = 0; i < deliveryRadioButtons.length; i++) {
+            deliveryRadioButtons[i].addEventListener('change', updateTotalPrice);
+        }
 
-  updateTotalPrice();
-</script>
+        updateTotalPrice();
+    </script>
 
     <script>
         const deliveryChoice = document.querySelector('input[name="delivery"]:checked').value;

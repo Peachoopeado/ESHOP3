@@ -6,7 +6,7 @@ from shop.models import Product
 class Cart(object):
     def get_delivery_choices(self):
         return [
-            ('delivery', 'Доставка (600)'),
+            ('delivery', 'Доставка'),
             ('pickup', 'Самовывоз')
         ]
 

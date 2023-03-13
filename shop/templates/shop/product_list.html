@@ -6,6 +6,9 @@
 
 
         <aside>
+            <div class="aside-body">
+
+
             {% if category.oiltype_set.all %}
                 <div class="filter_block">
                     <h2>Тип продукта</h2>
@@ -52,6 +55,7 @@
                     </ul>
                 </div>
             {% endif %}
+            </div>
         </aside>
         <div class="container mt-2">
 
@@ -60,10 +64,10 @@
 
             <div class="row mt-5 mb-3">
                 {% for product in products %}
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card mb-4 box-shadow">
                             {% if product.img %}
-                                <img src="{{ product.img.url }}" alt="" class="card-img-top">
+                                <img src="{{ product.img.url }}" alt="" class="card-img-top img-fluid">
                             {% endif %}
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.visual_name }}</h5>
