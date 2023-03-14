@@ -61,7 +61,6 @@ header {
 
 .search_block {
     width: 100%;
-    border: 1px solid black;
 }
 
 .buttons_block {
@@ -99,25 +98,37 @@ nav li {
 }
 
 .cart {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .cart-img:before {
     content: none
 }
 
-
-.cart-button {
-    display: block;
-    border: 1px solid black;
-    background: #4F80BB;
-    height: 45px;
-    width: 245px;
-    text-align: center;
-    margin-right: 2em;
-    font-weight: bold;
-    border-radius: 10px;
+.pc-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.cart-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart-icon i {
+    font-size: 30px;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.cart-label {
+
+  font-size: 12px;
+  text-align: center;
+}
+
 
 .header-mobile {
     display: none;
@@ -209,7 +220,37 @@ nav li {
     display: block;
     left: 0;
 }
-
+.icon{
+    font-size: 30px;
+}
+.cart-items-pc {
+        position: relative;
+        top: -10px;
+        right: 10px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+.cart-items{
+        position: relative;
+        top: -42px;
+        right: -40px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
 
 @media (max-width: 992px) {
     header {
@@ -247,12 +288,15 @@ nav li {
         color: black; /* Цвет иконок */
         font-size: 20px; /* Размер иконок */
         margin-right: 20px; /* Отступ между иконками */
+
     }
 
     .mobile-icon i {
         font-size: 30px;
         color: #000;
     }
+
+
 
     .mobile-menu-btn {
         display: flex;
@@ -352,6 +396,12 @@ nav li {
 
 .main-content {
     padding-top: 250px;
+}
+
+@media screen and (max-width: 992px) {
+    .main-content {
+        padding-top: 100px;
+    }
 }
 
 /*Ассортимент*/
@@ -653,8 +703,10 @@ aside {
 
 }
 
-.card-img-top {
-    width: 100%;
+.card-img {
+    display: block;
+    margin: 0 auto;
+    width: 17vw;
     height: auto;
     object-fit: contain; /* автоматически изменяет размер изображения */
 }
@@ -821,7 +873,8 @@ aside {
         font-size: 5vw;
         line-height: 6vw;
     }
-    .description_heading h3{
+
+    .description_heading h3 {
         font-size: 3vw;
     }
 }
@@ -832,7 +885,8 @@ aside {
         line-height: 5vw;
 
     }
-    .description_heading h3{
+
+    .description_heading h3 {
         font-size: 2vw;
     }
 }
@@ -843,7 +897,8 @@ aside {
         line-height: 3vw;
 
     }
-    .description_heading h3{
+
+    .description_heading h3 {
         font-size: 2vw;
     }
 }
@@ -860,11 +915,10 @@ aside {
 }
 
 .buttons_block {
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 30%;
 
 }
 
@@ -917,9 +971,11 @@ aside {
     .product_block {
         display: block;
     }
-    .img_block{
+
+    .img_block {
         display: flex;
     }
+
     .img_block img {
         margin: 0 auto;
     }
@@ -969,11 +1025,12 @@ aside {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
 
 }
-@media screen and (max-width: 1457px){
-    .contact_us_body{
+
+@media screen and (max-width: 1457px) {
+    .contact_us_body {
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -1006,9 +1063,11 @@ aside {
     font-size: 36px;
     line-height: 47px;
 }
-.contact_us_form form input.submit_form{
+
+.contact_us_form form input.submit_form {
     padding: 0;
 }
+
 .contact_us_form form textarea {
     display: block;
     width: 80%;
@@ -1085,35 +1144,42 @@ aside {
 }
 
 @media screen and (max-width: 768px) {
-    .contact_us_form{
+    .contact_us_form {
         width: 80%;
     }
+
     .contact_us_form h1 {
         font-size: 4vw;
     }
-    .contact_us_form form input{
+
+    .contact_us_form form input {
         font-size: 2.5vw;
     }
-    .contact_us_form form textarea{
-        font-size:  2.5vw;
+
+    .contact_us_form form textarea {
+        font-size: 2.5vw;
     }
-    .initials{
+
+    .initials {
         display: block;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-     .contact_us_form{
+    .contact_us_form {
         width: 80%;
     }
+
     .contact_us_form h1 {
         font-size: 4vw;
     }
-    .contact_us_form form input{
+
+    .contact_us_form form input {
         font-size: 2vw;
     }
-    .contact_us_form form textarea{
-        font-size:  2vw;
+
+    .contact_us_form form textarea {
+        font-size: 2vw;
     }
 }
 
@@ -1122,11 +1188,13 @@ aside {
     .contact_us_form h1 {
         font-size: 2.5vw;
     }
-    .contact_us_form form input{
+
+    .contact_us_form form input {
         font-size: 1.25vw;
     }
-    .contact_us_form form textarea{
-        font-size:  1.25vw;
+
+    .contact_us_form form textarea {
+        font-size: 1.25vw;
     }
 }
 
@@ -1267,54 +1335,68 @@ aside {
     width: 90%;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 
 }
-.cart_body>div{
-    margin-right: 30px;
-}
+
 
 .cart_items {
-    width: 1126px;
+    width: 90%;
 }
 
 .cart_item {
-    height: 8em;
+
     background: #FBFBFB;
     box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     font-size: 20px;
-
 }
 
 .cart_item p {
     margin-left: 30px;
 }
 
-.cart_item a {
-    margin-right: 30px;
-}
 
 .cart_positions {
-    border: 1px solid black;
     width: 100%;
-    height: 100%;
     table-layout: fixed;
+    margin-top: 10px;
 
 
 }
-.cart_positions img{
+
+.cart_positions img {
     display: block;
     margin: auto auto;
     width: 6vw;
 }
 
-.cart_positions th {
-    border: 1px solid black;
+
+.cart_positions tr td i {
+    display: block;
+    text-align: center;
+}
+
+.cart_positions td:nth-of-type(1) {
+    width: 6vw;
+}
+
+.cart_positions td:nth-of-type(2) {
+    width: 12vw;
+}
+
+.cart_positions td:nth-of-type(3) {
+    width: 5vw;
+}
+
+.cart_positions td:nth-of-type(4) {
+    width: 7vw;
 
 }
 
-.cart_positions td {
-    border: 1px solid black;
+.cart_positions td:nth-of-type(5) {
+    width: 2vw;
+
 }
 
 
@@ -1329,12 +1411,14 @@ aside {
     align-items: center;
     justify-content: center;
 }
-.cart_summary_body{
+
+.cart_summary_body {
     width: 100%;
     padding: 20px;
 }
+
 .summary {
-    width: 90%;
+    width: 100%;
     table-layout: fixed;
     border: 1px solid black;
     margin: 0 auto 30px;
@@ -1353,37 +1437,60 @@ aside {
     margin: 0 auto;
 
 }
-@media screen and (max-width: 1440px){
-    .cart_body{
+
+@media screen and (max-width: 1440px) {
+    .cart_body {
         display: block;
     }
-    .cart_item{
+
+    .cart_body > div {
+        margin: 40px auto;
+    }
+
+    .cart_item {
         display: block;
         margin: 0 auto;
         width: 100%;
     }
-    .cart_summary{
-        justify-content: center;
-        align-items: center;
+
+    .cart_summary {
+        width: 80%;
     }
 }
+
 @media screen and (max-width: 768px) {
-    .summary{
-        font-size: 2vw;
+    .summary {
+        font-size: 4vw;
+    }
+
+    .cart_positions td {
+        font-size: 2.5vw;
+    }
+
+    .cart_positions img {
+        width: 8vw;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-    .summary{
+    .summary {
         font-size: 2vw;
     }
+
+    .cart_positions td {
+        font-size: 2vw;
+    }
+
+    .cart_positions img
 }
 
 @media screen and (min-width: 1200px) {
-    .summary{
+    .cart_positions img
+    .summary {
         font-size: 1.5vw;
     }
 }
+
 /*Оформление*/
 .order_container {
     width: 100%;
@@ -1454,4 +1561,41 @@ aside {
     object-fit: cover; /* масштабировать изображение так, чтобы оно полностью заполняло элемент */
     object-position: center; /* выравнивать изображение по центру элемента */
     height: 600px; /* задать высоту для изображений */
+}
+
+.thank-you {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+.thank-you-body {
+    width: 90%;
+    display: block;
+}
+
+.thank-you-message {
+    text-align: center;
+}
+
+.go-back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.thank-you-body a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 242px;
+    height: 34px;
+    background: #F8FD00;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    margin: 0 auto;
+
 }

@@ -7,6 +7,7 @@ from .tasks import order_created
 # Create your views here.
 def order_create(request):
     cart = Cart(request)
+    error = ''
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
@@ -23,10 +24,14 @@ def order_create(request):
                 }
             order_created.delay(order.id)
             return render(request, 'orders/order/created.html', data)
+        else:
+            error = 'ОШИБКА'
     else:
-        form = OrderCreateForm
+        form = OrderCreateForm()
+
     data = {
         'cart': cart,
         'form': form,
+        'error':error
     }
     return render(request, 'orders/order/create.html', data)

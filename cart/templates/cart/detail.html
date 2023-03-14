@@ -12,16 +12,16 @@
                             <table class="cart_positions">
                                 <tbody>
                                 <tr>
-                                    <td width="300px" style="background: #FFFFFF"><img src="{{ product.img.url }}"
+                                    <td style="background: #FFFFFF"><img src="{{ product.img.url }}"
                                                                                        alt=""></td>
                                     <td style="background: #FFFFFF">{{ product.name }}</td>
-                                    <td width="100px" style="background: #FFFFFF"
+                                    <td style="background: #FFFFFF"
                                         align="center">{{ item.quantity }}</td>
-                                    <td width="150px" style="background: #FFFFFF" align="center">{{ item.total_price }}
+                                    <td style="background: #FFFFFF" align="center">{{ item.total_price }}
                                         руб.
                                     </td>
                                     <td width="150px" style="background: #FFFFFF" align="right"><a
-                                            href="{% url 'cart-remove' product.code %}">Удалить</a></td>
+                                            href="{% url 'cart-remove' product.code %}"><i class="fa-regular fa-circle-xmark"></i></a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -74,10 +74,7 @@
         </div>
     </div>
 
-    <p class="text-right">
-        <a href="{% url 'assortment' %}">Вернуться к ассортименту</a>
 
-    </p>
     {#    <script src="{% static 'cart/js/TotalPriceScript.js' %}"></script>#}
     <script>
         function updateTotalPrice() {

@@ -43,16 +43,16 @@
                         <div class="cart">
 
                             {% with total_items=cart|length %}
+                                <div class="cart-icon">
+                                    <a href="{% url 'cart-detail' %}" class="pc-icon">
+                                        <i class="fa fa-shopping-cart"></i>
 
-                                {% if cart|length > 0 %}
-
-                                    <a class="cart-button" href="{% url "cart-detail" %}">Товаров в
-                                        корзине: {{ total_items }}<br>
-                                        {{ cart.get_total_price }} руб.
+                                            {% if cart|length > 0 %} <span class="cart-items-pc">{{ total_items }}</span>{% endif %}
                                     </a>
-                                {% else %}
-                                    Корзина пуста
-                                {% endif %}
+                                    <div class="cart-label">Корзина</div>
+                                </div>
+
+
                             {% endwith %}
 
                         </div>
@@ -92,7 +92,11 @@
     </a>
     <div class="mobile-icons">
         <a href="#" class="mobile-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="#" class="mobile-icon"><i class="fa fa-shopping-cart"></i></a>
+        {% with total_items=cart|length %}
+            <a href="{% url "cart-detail" %}" class="mobile-icon"><i style="padding-left: 15px;"
+                                                                     class="fa fa-shopping-cart"></i>
+                {% if cart|length > 0 %} <span class="cart-items">{{ total_items }}</span>{% endif %}</a>
+        {% endwith %}
     </div>
     <button class="mobile-menu-btn" id="mobile-menu-btn">
         <span class="mobile-menu-btn__icon"></span>
@@ -154,7 +158,9 @@
             </ul>
         </div>
         <div class="footer_block3">
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=100%25&amp;height=387&amp;lang=ru_RU&amp;scroll=true"></script></div>
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=100%25&amp;height=387&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
 
     </div>
     <hr>

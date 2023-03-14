@@ -2,6 +2,19 @@
 
 {% block title %} Ваш заказ успешно создан!{% endblock %}
 {% block content %}
-    <h1>Спасибо!</h1>
-    <p>Ваш заказ был успешно создан. Номер вашего заказа : <strong>{{ order.id }}</strong></p>
+    <div class="thank-you">
+    <div class="thank-you-body">
+        <div class="thank-you-message">
+            <h3>Ваш заказ принят! В ближайшее время с вами свяжется наш оператор!</h3>
+        <h4>Номер вашего заказа : <strong>{{ order.id }}</strong></h4>
+        </div>
+        <div class="go-back-button">
+            <a href="{% url 'assortment' %}">На главную</a>
+        </div>
+
+
+    </div>
+    </div>
+
+
 {% endblock %}

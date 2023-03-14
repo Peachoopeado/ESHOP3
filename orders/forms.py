@@ -5,7 +5,7 @@ from .models import Order
 class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['type', 'full_name', 'phone', 'email', 'address', 'postal_code', 'way_to_get']
+        fields = ['type', 'full_name', 'phone', 'email', 'way_to_get']
         widgets = {
             'full_name': forms.TextInput(attrs={
                 'placeholder': 'Ф.И.О*'
@@ -13,15 +13,7 @@ class OrderCreateForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={
                 'placeholder': 'Телефон*'
             }),
-            'email': forms.TextInput(attrs={
-                'placeholder': 'Почта*'
-            }),
-            'address': forms.TextInput(attrs={
-                'placeholder': 'Адрес'
-            }),
-            'postal_code': forms.TextInput(attrs={
-                'placeholder': 'Почтовый индекс'
-            }),
+            'email': forms.EmailInput(),
 
             'type': forms.Select(choices=(('Физ.лицо', 'Физическое лицо'),
                                           ('Юр.лицо', 'Юридическое лицо'))),
