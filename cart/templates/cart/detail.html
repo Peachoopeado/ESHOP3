@@ -16,8 +16,15 @@
                                                                                        alt=""></td>
                                     <td style="background: #FFFFFF">{{ product.name }}</td>
                                     <td style="background: #FFFFFF"
-                                        align="center">{{ item.quantity }}</td>
-                                    <td style="background: #FFFFFF" align="center">{{ item.total_price }}
+                                        align="center">
+                                        <div class="quantity">
+                                            <a href="{% url 'cart-remove-one' product.code %}" class="minus-btn" type="button" name="button">-</a>
+                                            <input class="qty" type="text" name="quantity" value="{{ item.quantity }}" data-id="{{ item.id }}" readonly>
+                                            <a href="{% url 'cart-add-one' product.code %}" class="plus-btn" type="button" name="button">+</a>
+                                        </div>
+{#                                        {{ item.quantity }}#}
+                                    </td>
+                                    <td style="background: #FFFFFF" align="center" class="total-price">{{ item.total_price }}
                                         руб.
                                     </td>
                                     <td width="150px" style="background: #FFFFFF" align="right"><a
@@ -100,16 +107,6 @@
         }
 
         updateTotalPrice();
-    </script>
-
-    <script>
-        const deliveryChoice = document.querySelector('input[name="delivery"]:checked').value;
-        const cartTotalPrice = parseFloat("{{ cart.get_total_price_with_delivery }}");
-        const cartDeliveryPrice = parseFloat("{{ cart.get_delivery_price }}");
-
-        console.log(deliveryChoice);
-        console.log(cartTotalPrice);
-        console.log(cartDeliveryPrice);
     </script>
 
 {% endblock %}

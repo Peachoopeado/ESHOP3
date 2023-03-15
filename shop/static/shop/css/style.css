@@ -12,9 +12,8 @@ body.body--no-scroll {
     overflow: hidden;
 }
 
-a:active,
-a:hover,
 a {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -108,25 +107,28 @@ nav li {
     content: none
 }
 
-.pc-icon{
+.pc-icon {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .cart-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .cart-icon i {
     font-size: 30px;
     margin-top: 5px;
     padding-left: 10px;
 }
+
 .cart-label {
 
-  font-size: 12px;
-  text-align: center;
+    font-size: 12px;
+    text-align: center;
 }
 
 
@@ -220,37 +222,40 @@ nav li {
     display: block;
     left: 0;
 }
-.icon{
+
+.icon {
     font-size: 30px;
 }
+
 .cart-items-pc {
-        position: relative;
-        top: -10px;
-        right: 10px;
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-    }
-.cart-items{
-        position: relative;
-        top: -42px;
-        right: -40px;
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-    }
+    position: relative;
+    top: -10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.cart-items {
+    position: relative;
+    top: -42px;
+    right: -40px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
 
 @media (max-width: 992px) {
     header {
@@ -295,7 +300,6 @@ nav li {
         font-size: 30px;
         color: #000;
     }
-
 
 
     .mobile-menu-btn {
@@ -1329,6 +1333,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .cart_body {
@@ -1399,6 +1404,95 @@ aside {
 
 }
 
+.quantity {
+
+    width: 100px;
+    margin: 0 auto;
+    display: flex;
+}
+
+input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.minus-btn, .plus-btn {
+    height: 25px;
+    width: 25px;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    margin: 0 2px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+.minus-btn:hover, .plus-btn:hover {
+    background-color: #d4d4d4;
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+}
+
+.quantity input {
+    height: 25px;
+    width: 50%;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.quantity button {
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 4px;
+    border: none;
+    width: 25px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .quantity {
+        width: 13vw;
+    }
+    .quantity input{
+        font-size: 2.6vw;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .quantity {
+        width: 7vw;
+    }
+    .quantity input{
+        font-size: 2vw;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .quantity {
+        width: 4vw;
+    }
+    .quantity input{
+        font-size: 1vw;
+    }
+
+}
 
 .cart_summary {
     width: 487px;
@@ -1447,6 +1541,7 @@ aside {
         margin: 40px auto;
     }
 
+
     .cart_item {
         display: block;
         margin: 0 auto;
@@ -1470,6 +1565,10 @@ aside {
     .cart_positions img {
         width: 8vw;
     }
+    .gotoform{
+        width: 37vw;
+        font-size: 3.5vw;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -1481,12 +1580,18 @@ aside {
         font-size: 2vw;
     }
 
-    .cart_positions img
+    .gotoform{
+        width: 45vw;
+        font-size: 2vw;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-    .cart_positions img
     .summary {
+        font-size: 1.5vw;
+    }
+    .gotoform{
+        width: 90%;
         font-size: 1.5vw;
     }
 }

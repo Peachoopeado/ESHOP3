@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
+from django.http import JsonResponse
 
 
 class Cart(object):
@@ -47,7 +48,28 @@ class Cart(object):
         self.session[settings.CART_SESSION_ID] = self.cart
         # Отметить сеанс как "измененный", чтобы убедиться, что он сохранен
         self.session.modified = True
-
+    def add_one(self, product):
+        """
+        Добавление одной единицы товара
+        """
+        product_code = str(product.code)
+        if product_code in self.cart:
+            if self.cart[product_code]['quantity'] > 0:
+                self.cart[product_code]['quantity'] += 1
+                self.save()
+            else:
+                self.add(product, quantity=1)
+    def delete_one(self, product):
+        """
+        Удаление одной единицы товара из корзины
+        """
+        product_code = str(product.code)
+        if product_code in self.cart:
+            if self.cart[product_code]['quantity'] > 1:
+                self.cart[product_code]['quantity'] -= 1
+            else:
+                del self.cart[product_code]
+            self.save()
     def remove(self, product):
         """
 
