@@ -57,10 +57,10 @@
                         <a href="{{ product.tech_desc }}"><i class="fa-solid fa-file-lines" style="padding-right: 5px;"></i>Лист технического описания</a>
                         <a href="{{ product.security_pasport }}"><i class="fa-solid fa-triangle-exclamation" style="padding-right: 5px;"></i>Паспорт безопасности</a>
                     </div>
-                    <div class="buttons_block">
+                    <div class="actions_buttons">
                         <form action="{% url 'cart-add' product.code %}" method="post">
                             <input type="submit" value="в корзину">
-                            {{ cart_product_form }}
+{#                            {{ cart_product_form }}#}
                             {% csrf_token %}
 
                         </form>
