@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, OilType, Viscosity, Compound, Fuel, Transmission, Product, Partner, PartnerImage
+from .models import Category, Brand, OilType, Viscosity, Compound, Fuel, Transmission, Product, Partner, PartnerImage
 from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm

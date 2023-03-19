@@ -13,7 +13,9 @@ class OrderCreateForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={
                 'placeholder': 'Телефон*'
             }),
-            'email': forms.EmailInput(),
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'Почта*'
+            }),
 
             'type': forms.Select(choices=(('Физ.лицо', 'Физическое лицо'),
                                           ('Юр.лицо', 'Юридическое лицо'))),

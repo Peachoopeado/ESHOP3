@@ -29,6 +29,7 @@ class Brand(models.Model):
         return self.name
 
 
+
 class OilType(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField()

@@ -8,8 +8,6 @@
         <aside>
             <div class="aside-body">
 
-
-            {% if category.oiltype_set.all %}
                 <div class="filter_block">
                     <h2>Тип продукта</h2>
                     <ul>
@@ -18,7 +16,6 @@
                         {% endfor %}
                     </ul>
                 </div>
-            {% endif %}
             {% if oil_type %}
                 <div class="filter_block">
                     <h2>Вязкость</h2>

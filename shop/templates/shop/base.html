@@ -47,7 +47,8 @@
                                     <a href="{% url 'cart-detail' %}" class="pc-icon">
                                         <i class="fa fa-shopping-cart"></i>
 
-                                            {% if cart|length > 0 %} <span class="cart-items-pc">{{ total_items }}</span>{% endif %}
+                                        {% if cart|length > 0 %}
+                                            <span class="cart-items-pc">{{ total_items }}</span>{% endif %}
                                     </a>
                                     <div class="cart-label">Корзина</div>
                                 </div>
@@ -91,10 +92,18 @@
         <img src="{% static 'shop/img/logo.svg' %}" alt="логотип" width="100">
     </a>
     <div class="mobile-icons">
-        <a href="#" class="mobile-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <div class="mobile-search">
+            <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <form action="{% url 'search' %}" method="get">
+                <input id="search-input" type="search" name="q" style="display: none;">
+            </form>
+        </div>
+
+
+
         {% with total_items=cart|length %}
-            <a href="{% url "cart-detail" %}" class="mobile-icon"><i style="padding-left: 15px;"
-                                                                     class="fa fa-shopping-cart"></i>
+            <a href="{% url "cart-detail" %}" id="cart-button" class="mobile-icon"><i style="padding-left: 15px;"
+                                                                                      class="fa fa-shopping-cart"></i>
                 {% if cart|length > 0 %} <span class="cart-items">{{ total_items }}</span>{% endif %}</a>
         {% endwith %}
     </div>
@@ -124,6 +133,7 @@
 <script src="{% static 'shop/js/bootstrap.js' %}"></script>
 <script src="{% static 'shop/js/jquery-3.6.4.min.js' %}"></script>
 <script src="{% static 'shop/js/burgerScript.js' %}"></script>
+<script src="{% static 'shop/js/searchScript.js' %}"></script>
 </body>
 <footer>
     <div class="footer_body">
