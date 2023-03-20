@@ -1326,6 +1326,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .about_body {
@@ -1337,9 +1338,208 @@ aside {
 }
 
 .about_text_block {
+    display: block;
     font-size: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .about_text_layer1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .about_text_layer1 p{
+        font-size: 3.5vw;
+        text-align: justify;
+    }
+
+    .about_text_layer1 img {
+        width: 85vw;
+    }
+
+    .about_text_layer2 p {
+        font-size: 3.5vw;
+        text-align: justify;
+        margin-top: 20px;
+
+    }
+
+    .about_text_layer2 img {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .about_text_layer1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+    .about_text_layer1 p {
+        font-size: 2.25vw;
+        text-align: justify;
+    }
+
+    .about_text_layer1 img {
+        width: 90vw;
+    }
+
+    .about_text_layer2 p {
+        margin-top: 30px;
+        font-size: 2.25vw;
+        text-align: justify;
+    }
+
+    .about_text_layer2 img {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .about_text_layer1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 150px;
+    }
+
+    .about_text_layer1 p {
+        text-align: left;
+        font-size: 1.5vw;
+        order: 2;
+    }
+
+    .about_text_layer1 img {
+        width: 35vw;
+        order: 1;
+    }
+
+    .about_text_layer2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 200px;
+
+    }
+
+    .about_text_layer2 p {
+        text-align: left;
+        font-size: 1.5vw;
+    }
+
+    .about_text_layer2 img {
+        width: 20vw;
+    }
+
+}
+.about_text_block h1{
+    text-transform: uppercase;
+}
+.certificates p{
+    text-align: justify;
+}
+.slider{
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+}
+.slider-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+.slider-wrapper img{
+    width: 25vw;
+    object-fit: contain;
+}
+@media screen and (max-width: 768px){
+    .slide1-content{
+
+    }
+    .slide1-content p{
+        display: none;
+    }
+    .slide1-content img{
+        width: 55vw;
+
+
+        object-fit: contain;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px){
+    .slide1-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+    .slide1-content p{
+        font-size: 3vw;
+        width: 50%;
+    }
+    .slide1-content img{
+        width: 35vw;
+    }
+}
+@media screen and (min-width: 1200px){
+    .certificates>p{
+        font-size: 1.5vw;
+    }
+    .slide1-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+    .slide1-content p{
+        font-size: 1.5vw;
+        width: 50%;
+    }
+    .slide1-content img{
+        width: 20vw;
+    }
+
+}
+.slider-controls{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 95%;
+    transform: translateX(-50%);
+}
+.slider-prev,
+.slider-next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    height: 2.75vw;
+    width: 2.75vw;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5);;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+.slider-prev:hover,
+.slider-next:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
 
 .intro_container {
     width: 100%;
