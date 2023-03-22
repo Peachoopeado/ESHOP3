@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
-from .tasks import order_created
+from .tasks import order_created, order_notification
+
+
 
 # Create your views here.
 def order_create(request):
@@ -21,8 +23,10 @@ def order_create(request):
 
             data = {
                 'order': order,
-                }
-            order_created.delay(order.id)
+            }
+            order_created(order.id)
+            order_notification(order.id)
+
             return render(request, 'orders/order/created.html', data)
         else:
             error = 'ОШИБКА'
@@ -32,6 +36,6 @@ def order_create(request):
     data = {
         'cart': cart,
         'form': form,
-        'error':error
+        'error': error
     }
     return render(request, 'orders/order/create.html', data)
