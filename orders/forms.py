@@ -8,10 +8,13 @@ class OrderCreateForm(forms.ModelForm):
         fields = ['type', 'full_name', 'phone', 'email', 'way_to_get']
         widgets = {
             'full_name': forms.TextInput(attrs={
-                'placeholder': 'Ф.И.О*'
+                'placeholder': 'Ф.И.О*',
+                'data-no-numbers': True,
             }),
             'phone': forms.TextInput(attrs={
-                'placeholder': 'Телефон*'
+                'placeholder': 'Телефон*',
+                'id': 'user_phone_input',
+
             }),
             'email': forms.EmailInput(attrs={
                 'placeholder': 'Почта*'

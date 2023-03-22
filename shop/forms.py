@@ -10,12 +10,15 @@ class User_RequestForm(forms.ModelForm):
         widgets = {
             'full_name': forms.TextInput(attrs={
                 'placeholder': '*ФИО',
+                'data-no-numbers': True,
             }),
             'company': forms.TextInput(attrs={
-                'placeholder': 'Название организации'
+                'placeholder': 'Название организации',
+                'id': 'text_input'
             }),
             'position': forms.TextInput(attrs={
-                'placeholder': 'Должность'
+                'placeholder': 'Должность',
+                'data-no-numbers': True,
             }),
             'email': forms.EmailInput(attrs={
                 'placeholder': 'Почта'
