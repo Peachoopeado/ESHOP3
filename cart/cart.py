@@ -7,7 +7,7 @@ from django.http import JsonResponse
 class Cart(object):
     def get_delivery_choices(self):
         return [
-            ('delivery', 'Доставка'),
+            ('delivery', 'Доставка (+600 руб.)'),
             ('pickup', 'Самовывоз')
         ]
 

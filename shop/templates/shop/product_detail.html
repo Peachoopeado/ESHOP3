@@ -1,4 +1,5 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 {% block title %} {{ product.name }} {% endblock %}
 {% block content %}
     <div class="product_card">
@@ -57,6 +58,7 @@
                         <a href="{{ product.tech_desc }}"><i class="fa-solid fa-file-lines" style="padding-right: 5px;"></i>Лист технического описания</a>
                         <a href="{{ product.security_pasport }}"><i class="fa-solid fa-triangle-exclamation" style="padding-right: 5px;"></i>Паспорт безопасности</a>
                     </div>
+                    <div class="price"><span id="price-indicator">Цена: {{ product.price }} руб.</span></div>
                     <div class="actions_buttons">
                         <form action="{% url 'cart-add' product.code %}" method="post">
                             <input type="submit" value="в корзину">
@@ -75,5 +77,5 @@
         </div>
     </div>
 
-
+    <script src="{% static 'shop/js/ProductPriceChageScript.js' %}"></script>
 {% endblock %}

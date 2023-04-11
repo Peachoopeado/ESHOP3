@@ -53,17 +53,17 @@
                     <table class="summary">
                         <tbody>
                         <tr>
-                            <td>Способ получения
+                            <td colspan="2">Способ получения
                                 </td>
 
                         </tr>
                         <tr style="border-bottom: 2px solid black; font-weight: lighter;">{% for choice in delivery_choices %}
-                            <td><label for="">{{ choice.1 }}<input type="radio" name="delivery"
+                            <td id="way-to-get-cell"><label for="">{{ choice.1 }}<input type="radio" name="delivery"
                                                                    value="{{ choice.0|floatformat }}"
                                     {% if cart.delivery == choice.0 %} checked{% endif %}></label></td>{% endfor %}
                         </tr>
                         <tr>
-                            <td>Общая стоимость</td>
+                            <td id="value">Общая стоимость</td>
                             <td align="right"><span id="total-price"
                                                     data-total-price>{{ cart.get_total_price_with_delivery }}</span>
                                 &#8381
