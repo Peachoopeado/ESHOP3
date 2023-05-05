@@ -66,6 +66,7 @@
                             {% csrf_token %}
 
                         </form>
+                        <a href="{% url 'add_to_favorites' product.code %}">В избранное</a>
 
                     </div>
                 </div>

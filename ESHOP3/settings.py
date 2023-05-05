@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'account',
+    'favorites',
     'import_export',
     'django_summernote',
     'django_extensions',
@@ -130,6 +131,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID = 'cart'
+FAVORITES_SESSION_ID = 'favorite'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

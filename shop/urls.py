@@ -1,5 +1,6 @@
 from django.urls import path, include
 from . import views
+from favorites import views as f_views
 urlpatterns = [
     path('', views.show_categories, name='assortment'),
     path('assortment/<str:category_slug>', views.show_category_assortment, name='assortment-by-category'),
@@ -11,6 +12,7 @@ urlpatterns = [
          views.show_category_assortment, name='assortment-by-category-oiltype-viscosity-compound-fuel-transmission'),
 
     path('product/<str:product_code>', views.show_product_detail, name='product-detail'),
+    path('product/<str:product_code>/add-to-favorite/', f_views.add_to_favorites, name='add_to_favorites'),
     path('search/', views.Search.as_view(), name='search'),
     path('search/<int:page>', views.Search.as_view(), name='search-page'),
     path('contact/', views.show_contact_page, name='contacts'),
