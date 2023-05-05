@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'account',
+    'import_export',
     'django_summernote',
     'django_extensions',
     'django.contrib.admin',
@@ -130,12 +132,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = 'cart'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'kir.pikuza@mail.ru'
-EMAIL_HOST_PASSWORD = 'WamugyxmTfwwDkgm1sFi'
-
+EMAIL_HOST_PASSWORD = 'J4xNRvKcsMDppaATgBkw'
 EMAIL_PORT = 2525
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'logout'

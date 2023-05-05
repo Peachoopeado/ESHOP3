@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+    <h2>Create an account</h2>
+    <p>Please, sign up using the following form:</p>
+    <form method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create my account"></p>
+    </form>
+{% endblock %}
