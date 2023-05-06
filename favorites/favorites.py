@@ -22,7 +22,7 @@ class Favorites:
                 self.save()
 
     def remove(self, product):
-        if self.user.is_authentificated:
+        if self.user.is_authenticated:
             favorites = Favorite.objects.get(user=self.user)
             favorites.products.remove(product)
         else:

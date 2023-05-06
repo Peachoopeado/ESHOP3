@@ -2228,4 +2228,75 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
+.favorite_container{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 120px;
+}
+.favorite_body{
+    width: 85%;
+}
+
+
+.favorite_items {
+    width: 90%;
+}
+
+.favorite_item {
+    height: auto;
+    background: #FBFBFB;
+    box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.favorite_item p {
+    margin-left: 30px;
+}
+
+
+.favorite_positions {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 10px;
+
+
+}
+
+.favorite_positions img {
+    display: block;
+    margin: auto auto;
+    width: 10vw;
+    height: 10vw;
+    object-fit: contain;
+
+}
+
+
+.favorite_positions tr td i {
+    display: block;
+    text-align: center;
+}
+
+.favorite_positions td:nth-of-type(1) {
+    width: 6vw;
+}
+
+.favorite_positions td:nth-of-type(2) {
+    width: 12vw;
+}
+
+.favorite_positions td:nth-of-type(3) {
+    width: 3vw;
+}
+.favorite_positions td:nth-of-type(4) {
+    width: 1vw;
+}
+.favorite_positions td:nth-of-type(5) {
+    width: 2vw;
+}
+
+
 

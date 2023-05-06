@@ -1,9 +1,11 @@
 from django.db import models
 from shop.models import Product
+from django.contrib.auth.models import User
 
 
 # Create your models here.
 class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     type = models.CharField(max_length=200, null=True)
     full_name = models.CharField('Ф.И.О.', max_length=200, null=True)
     phone = models.CharField('Телефон', max_length=200, null=True)

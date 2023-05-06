@@ -55,6 +55,7 @@ admin.site.register(Transmission, TransmissionAdmin)
 class ProductResource(resources.ModelResource):
     class Meta:
         model = Product
+        import_id_fields = ['code']
 
 
 class ProductAdmin(ImportExportMixin, admin.ModelAdmin):

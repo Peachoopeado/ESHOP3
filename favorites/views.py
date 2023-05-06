@@ -20,3 +20,12 @@ def add_to_favorites(request, product_code: str):
         messages.success(request, 'Продукт был успешно добавлен в избранное')
 
     return redirect('product-detail', product_code=product_code)
+
+
+@login_required
+def show_favorites_list(request):
+    favorites = Favorite.objects.get(user=request.user)
+    data = {
+        'favorites': favorites,
+    }
+    return render(request, 'favorites_list.html', data)
