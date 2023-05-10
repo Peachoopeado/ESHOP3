@@ -1,22 +1,28 @@
 {% extends 'shop/base.html' %}
 {% load static %}
-{% block title %}Log-in{% endblock %}
+{% block title %}Логин{% endblock %}
 {% block content %}
-    <h2>Log-in</h2>
-    {% if form.errors %}
-    <p>
-    Your username and password didn't match.
-    Please try again.
-    </p>
-    {% else %}
-    <p>Please, use the following form to log-in. If you don't have an account <a href="{% url 'register' %}">sign up here</a>.</p>
-    {% endif %}
-    <div class="login-form">
-        <form action="{% url 'login' %}" method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="hidden" name="text", value="{{ next }}">
-            <p><input type="submit" value="Log-in"></p>
-        </form>
+    <div class="login_container">
+        <div class="login_body">
+            <h2>Логин</h2>
+            {% if form.errors %}
+                <p>
+                    Некорректный логин или пароль. Проверьте правильность данных
+                </p>
+            {% else %}
+                <p>Пожалуйста, заполните поля ниже для входа в личный кабинет. Для регистрации личного кабинета перейдите по <a
+                        href="{% url 'register' %}"><u>ссылке</u></a>.</p>
+            {% endif %}
+            <div class="login-form">
+                <form action="{% url 'login' %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <a href="{% url 'password-reset' %}"><u>Забыл(-а) пароль</u></a>
+                    <input type="hidden" name="text" value="{{ next }}">
+                    <p><input type="submit" value="Войти"></p>
+                </form>
+            </div>
+        </div>
     </div>
+
 {% endblock %}

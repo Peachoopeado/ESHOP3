@@ -2299,4 +2299,113 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
+.login_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-bottom: 110px;
+}
+.login_body{
+    width: 85%;
 
+}
+
+.login-form form input{
+    border: 1px solid black;
+    border-radius: 30px;
+}
+.login-form form label{
+    display: flex;
+}
+.login-form form input:nth-child(1){
+    width: 15vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.registration_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.registration_body{
+    width: 85%;
+
+}
+.registration_container form label{
+    display: flex;
+}
+.registration_container form input{
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+.registration_container form p input:first-child{
+    width: 19vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: unset;
+
+
+}
+.register_done_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register_done_body{
+    width: 85%;
+}
+
+.password_reset_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.password_reset_body{
+    width: 85%;
+}
+.password_reset_body form input{
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+.password_reset_body form input:first-child{
+    width: 19vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: unset;
+}
+.password_reset_confirm_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.password_reset_confirm_body{
+    width: 85%;
+}
+
+.password_reset_confirm_body form input{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+.password_reset_body form input:first-child{
+
+}
