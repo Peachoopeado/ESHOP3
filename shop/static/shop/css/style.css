@@ -2228,15 +2228,39 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-.favorite_container{
+.dashboard{
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
+}
+.dashboard_body{
+    width: 85%;
+}
+
+.tabs{
+    margin-bottom: 30px;
+}
+.tabs button{
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 19vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.favorite_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 120px;
 }
 .favorite_body{
-    width: 85%;
+    width: 100%;
 }
 
 
@@ -2265,7 +2289,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 }
 
-.favorite_positions img {
+.tab-content_positions img {
     display: block;
     margin: auto auto;
     width: 10vw;
@@ -2298,6 +2322,17 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 2vw;
 }
 
+#orders{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 110px;
+}
+#orders-body{
+    width: 100%;
+}
+/*Закончить личный кабинет*/
 
 .login_container{
     width: 100%;
@@ -2315,6 +2350,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .login-form form input{
     border: 1px solid black;
     border-radius: 30px;
+    padding-left: 15px;
 }
 .login-form form label{
     display: flex;
@@ -2325,7 +2361,9 @@ input[type="number"]::-webkit-outer-spin-button {
     color: white;
     font-size: 23px;
     text-align: center;
+    text-transform: uppercase;
     margin-top: 15px;
+    padding: unset;
 }
 
 .registration_container{
@@ -2406,6 +2444,24 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 30px;
     padding-left: 15px;
 }
-.password_reset_body form input:first-child{
-
+.password_reset_confirm_body form input:first-child{
+    width: 19vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: unset;
 }
+
+.password_reset_complete_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 140px;
+}
+.password_reset_complete_body{
+    width: 85%;
+}
+

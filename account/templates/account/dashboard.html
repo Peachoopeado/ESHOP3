@@ -12,71 +12,84 @@
                     <button class="tablinks" onclick="openTab(event, 'orders')">Мои заказы</button>
                     <button class="tablinks" onclick="openTab(event, 'profile')">Профиль</button>
                     <button onclick="window.location.href='{% url 'logout' %}'">Выйти из профиля</button>
+                </div>
 
-                    <div id="favorites" class="tab-content">
-                        <div class="favorite_container">
-                            <div class="favorite_body">
-                                {% if favorite_products %}
-                                    <div class="favorite_items">
-                                        {% for product in favorite_products %}
-                                            <div class="favorite_item">
-                                                <table class="favorite_positions">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td style="background: #FFFFFF"><img src="{{ product.img.url }}"
-                                                                                             alt="">
-                                                        </td>
-                                                        <td style="background: #FFFFFF">{{ product.name }}</td>
-                                                        <td style="background: #FFFFFF">{{ product.price }} руб.</td>
-                                                        <td width="150px" style="background: #FFFFFF" align="right"><a
-                                            href="{% url 'add-fav-to-cart' product.code %}"><i class="fa-solid fa-cart-shopping"></i></a></td>
-                                                        <td width="150px" style="background: #FFFFFF" align="right"><a
-                                            href="{% url 'delete-favorite' product.code %}"><i class="fa-regular fa-circle-xmark"></i></a></td>
+                <div id="favorites" class="tab-content">
+                    <div class="favorite_container">
+                        <div class="favorite_body">
+                            {% if favorite_products %}
+                                <div class="favorite_items">
+                                    {% for product in favorite_products %}
+                                        <div class="favorite_item">
+                                            <table class="favorite_positions">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="background: #FFFFFF"><img src="{{ product.img.url }}"
+                                                                                         alt="">
+                                                    </td>
+                                                    <td style="background: #FFFFFF">{{ product.name }}</td>
+                                                    <td style="background: #FFFFFF">{{ product.price }} руб.</td>
+                                                    <td width="150px" style="background: #FFFFFF" align="right"><a
+                                                            href="{% url 'add-fav-to-cart' product.code %}"><i
+                                                            class="fa-solid fa-cart-shopping"></i></a></td>
+                                                    <td width="150px" style="background: #FFFFFF" align="right"><a
+                                                            href="{% url 'delete-favorite' product.code %}"><i
+                                                            class="fa-regular fa-circle-xmark"></i></a></td>
 
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    <h1>У вас ещё нет избранных продуктов</h1>
-                                {% endif %}
-                            </div>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            {% else %}
+                                <h3>У вас ещё нет избранных продуктов</h3>
+                            {% endif %}
                         </div>
                     </div>
-                    <div id="orders" class="tab-content">
-                        {% if orders%}
+                </div>
+
+                <div id="orders" class="tab-content">
+                    <div id="orders-body">
+                        {% if orders %}
                             {% for order in orders %}
                                 <div class="order_item">
                                     <table class="order-positions">
                                         <tbody>
-                                        <tr><td>Заказ №{{ order.id }} от {{ order.created|date:"d.m.y" }}</td>
-                                        <td>Статус заказа: </td></tr>
-                                        <tr><td>Доставка по адресу: {{ order.address }}</td>
-                                            <td><a href="{% url 'order-detail' order.id %}"><u>Подробнее о заказе</u></a></td></tr>
+                                        <tr>
+                                            <td>Заказ №{{ order.id }} от {{ order.created|date:"d.m.y" }}</td>
+                                            <td>Статус заказа:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Доставка по адресу: {{ order.address }}</td>
+                                            <td><a href="{% url 'order-detail' order.id %}"><u>Подробнее о
+                                                заказе</u></a></td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             {% endfor %}
-                            {% else %}
-                            <p>Вы ещё не сделали ни одного заказа</p>
+                        {% else %}
+                            <h3>Вы ещё не сделали ни одного заказа</h3>
                         {% endif %}
                     </div>
-                    <div id="profile" class="tab-content">
-                        <form method="post">
-                            {% csrf_token %}
-                            <p>Ваш логин: {{ form.username }}</p>
-                            <p>Ваше имя: {{ form.first_name}}</p>
-                            <p>Ваш e-mail: {{ form.email }}</p>
-                            <p><input type="submit" value="Сохранить изменения"></p>
-                        </form>
-                        <a href="{% url 'password-change' %}"><u>Изменить пароль</u></a>
 
-                    </div>
+                </div>
+                <div id="profile" class="tab-content">
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>Ваш логин: {{ form.username }}</p>
+                        <p>Ваше имя: {{ form.first_name }}</p>
+                        <p>Ваш e-mail: {{ form.email }}</p>
+                        <p><input type="submit" value="Сохранить изменения"></p>
+                    </form>
+                    <a href="{% url 'password-change' %}"><u>Изменить пароль</u></a>
+
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 {% endblock %}
