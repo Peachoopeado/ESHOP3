@@ -2465,3 +2465,23 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 85%;
 }
 
+#profile{
+    width: 100%;
+    margin-bottom: 110px;
+}
+
+#profile form p input{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+
+.save-changes{
+    width: 20vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+}
