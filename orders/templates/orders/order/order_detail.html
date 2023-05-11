@@ -2,14 +2,19 @@
 {% load static %}
 {% block title %}Данные о заказе{% endblock %}
 {% block content %}
-    <h1>Информация о заказе №{{ order.id }}</h1>
-    <p>Дата создания заказа: {{ order.created }}</p>
-    <p>Сумма заказа: {{ order.get_total_cost }}</p>
-    <p>Способ получения: {{ order.way_to_get }}</p>
-    <h2>Товары в заказе</h2>
-    <ul>
-        {% for item in order.items.all %}
-            <li>{{ item.product.name }} - {{ item.price }} руб. x {{ item.quantity }}</li>
-        {% endfor %}
-    </ul>
+    <div class="order_detail_container">
+        <div class="order_detail_body">
+            <h1>Информация о заказе №{{ order.id }}</h1>
+            <p><b>Дата создания заказа:</b> {{ order.created }}</p>
+            <p><b>Сумма заказа:</b> {{ order.get_total_cost }}</p>
+            <p><b>Способ получения:</b> {{ order.way_to_get }}</p>
+            <h2>Товары в заказе</h2>
+            <ul>
+                {% for item in order.items.all %}
+                    <li>{{ item.product.name }} - {{ item.price }} руб. x {{ item.quantity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
 {% endblock %}

@@ -2285,10 +2285,12 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
     table-layout: fixed;
     margin-top: 10px;
-
-
 }
-
+.favorite_positions img{
+    display: block;
+    margin: auto auto;
+    width: 6vw;
+}
 .tab-content_positions img {
     display: block;
     margin: auto auto;
@@ -2339,7 +2341,6 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
     margin-bottom: 110px;
 }
 .login_body{
@@ -2532,5 +2533,16 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
 }
 .log_out_body{
+    width: 85%;
+}
+
+
+.order_detail_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.order_detail_body{
     width: 85%;
 }
