@@ -2470,10 +2470,11 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-bottom: 110px;
 }
 
-#profile form p input{
+#profile form p:nth-child(-n+4) input{
     display: flex;
     border: 1px solid black;
     border-radius: 30px;
+    padding-left: 15px;
 }
 
 
@@ -2484,4 +2485,52 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 23px;
     text-align: center;
     text-transform: uppercase;
+    padding: unset;
+    border-radius: 30px;
+}
+
+.password_change_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.password_change_body{
+    width: 85%;
+}
+.password_change_body form input{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+.password_change_body form input:first-child{
+    width: 19vw;
+    background-color:  #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: unset;
+}
+
+.password_change_done_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password_change_done_body{
+    width: 85%;
+}
+
+.log_out_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.log_out_body{
+    width: 85%;
 }
