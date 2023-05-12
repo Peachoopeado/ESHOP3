@@ -5,7 +5,13 @@
     <div class="product_card">
         <div class="product_card_body">
             <div class="product_card_name_block">
-                <h2>{{ product.name }}<a id="add-to-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star "></i></a></h2>
+                <h2>{{ product.name }}<a id="add-to-favorite" href="{% url 'add_to_favorites' product.code %}">
+                    {% if product.is_favorite %}
+                    <i class="fa-solid fa-star" style="color: #f5d350;"></i>
+                    {% else %}
+                    <i class="fa-solid fa-star" style="color: #6c6c6c;"></i>
+                    {% endif %}
+                </a></h2>
             </div>
             <div class="product_block">
                 <div class="img_block">
