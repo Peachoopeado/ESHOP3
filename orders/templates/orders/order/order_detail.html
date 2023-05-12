@@ -53,6 +53,8 @@
                                 </tbody>
                             </table>
                         {% endfor %}
+                        <p id="summ">Итого: {{ order.get_total_cost }} руб.</p>
+                        <button id="back" onclick="window.location.href='{% url 'dashboard' %}'" >Вернуться назад</button>
                     </div>
 
                 </div>

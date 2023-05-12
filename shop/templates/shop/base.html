@@ -41,20 +41,34 @@
                 <div class="buttons_block">
                     <div class="buttons">
                         <div class="login">
-                            <span class="user">
+                            <div class="login-icon">
+                                <a href="{% url 'dashboard' %}" class="pc-icon">
+                                     <i class="fa-solid fa-user"></i>
+                                </a>
+                                <span class="login-label">
                                 {% if request.user.is_authenticated %}
-                                    Hello {{ request.user.first_name}},
-                                    <a href="{% url 'logout' %}">Logout</a>
+                                    {{ request.user.username}}
                                 {% else %}
                                     <a href="{% url 'login' %}">Вход</a>
                                 {% endif %}
                             </span>
+                            </div>
+
                         </div>
-                        <div class="favourite">
+                        <div class="favorite">
+
+                                <div class="favorite-icon">
+                                    <a href="{% url 'cart-detail' %}" class="pc-icon">
+                                        <i class="fa-solid fa-heart"></i>
+                                            <span class="favorite-items-pc">{{ total_items }}</span>
+                                    </a>
+                                    <div class="favorite-label">Избранное</div>
+                                </div>
+
+
 
                         </div>
                         <div class="cart">
-
                             {% with total_items=cart|length %}
                                 <div class="cart-icon">
                                     <a href="{% url 'cart-detail' %}" class="pc-icon">

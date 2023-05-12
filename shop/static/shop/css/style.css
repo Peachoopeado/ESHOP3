@@ -84,10 +84,15 @@ header {
 
 .buttons {
     display: flex;
-    justify-content: right;
+    justify-content: space-around;
+    padding: 0 15px 0 15px;
+
 
 }
-
+.buttons div{
+    display: flex;
+    margin-left: 15px;
+}
 
 nav li {
     display: inline-block;
@@ -95,7 +100,43 @@ nav li {
     padding-left: 150px;
     font-size: 30px;
 }
-
+.login{
+    display: flex;
+    align-items: center;
+}
+.login-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inside: 20px;
+}
+.login-icon i{
+    font-size: 30px;
+    margin-top: 5px;
+}
+.login-label{
+    font-size: 12px;
+    text-align: center;
+}
+.favorite{
+    display: flex;
+    align-items: center;
+}
+.favorite-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inside: 20px;
+}
+.favorite-icon i{
+    font-size: 30px;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+.favorite-label{
+    font-size: 12px;
+    text-align: center;
+}
 .cart {
     display: flex;
     align-items: center;
@@ -122,7 +163,7 @@ nav li {
 .cart-icon i {
     font-size: 30px;
     margin-top: 5px;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 .cart-label {
@@ -2592,24 +2633,25 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: center;
 }
-.order_detail_table{
+
+.order_detail_table {
     font-size: 18px;
     font-weight: bold;
     width: 100%;
 }
 
-.order_detail_table_body{
+.order_detail_table_body {
     width: 80%;
 }
 
-.order_info_frame{
+.order_info_frame {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
-.order_info_body{
+.order_info_body {
     width: 100%;
     display: flex;
     align-items: center;
@@ -2617,7 +2659,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 }
-.order_info_body h1{
+
+.order_info_body h1 {
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
@@ -2660,19 +2703,42 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 7vw;
     text-align: center;
 }
+
 .order_goods_table tr td:nth-child(2) {
     width: 50vw;
     line-height: 30px;
 }
+
 .order_goods_table tr td:nth-child(3) {
     width: 10vw;
 }
+
 .order_goods_table tr td:nth-child(4) {
     width: 10vw;
 }
+
 .order_goods_table tr td:nth-child(1) a {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
     font-weight: lighter;
+}
+
+#summ {
+    margin: 20px 0 20px 107px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#back {
+    width: 15vw;
+    height: 4vw;
+    color: black;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid black;
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin-left: 103px;
 }
