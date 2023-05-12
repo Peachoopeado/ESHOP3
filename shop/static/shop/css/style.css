@@ -1085,7 +1085,7 @@ aside {
 }
 
 @media screen and (max-width: 768px) {
-    .actions_buttons form label{
+    .actions_buttons form label {
         font-size: 3vw;
         width: 15vw;
         margin-left: 20px;
@@ -1093,7 +1093,7 @@ aside {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-    .actions_buttons form label{
+    .actions_buttons form label {
         font-size: 2vw;
         width: 7vw;
         margin-left: 5px;
@@ -1918,16 +1918,20 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0 auto 30px;
     font-weight: bold;
 }
+
 #way-to-get-cell {
     font-size: 16px;
 }
-#way-to-get-cell input[type="radio"]{
+
+#way-to-get-cell input[type="radio"] {
     margin-right: 5px;
     display: inline-block;
 }
-#value{
+
+#value {
     font-size: 20px;
 }
+
 .gotoform {
     width: 90%;
     background: #384685;
@@ -2228,38 +2232,44 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-.dashboard{
+.dashboard {
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
 }
-.dashboard_body{
+
+.dashboard_body {
     width: 85%;
 }
 
-.tabs{
+.tabs {
     margin-bottom: 30px;
 }
-.tabs button{
+
+
+.tablinks {
     border: 1px solid black;
-    border-radius: 30px;
-    width: 19vw;
-    background-color:  #363131;
-    color: white;
+    border-radius: 40px;
+    width: 17vw;
+    height: 4vw;
+    background-color: white;
+    color: black;
     font-size: 23px;
     text-align: center;
     text-transform: uppercase;
+    margin: 0 10px 0 10px;
 }
 
-.favorite_container{
+.favorite_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 120px;
 }
-.favorite_body{
+
+.favorite_body {
     width: 100%;
 }
 
@@ -2286,11 +2296,13 @@ input[type="number"]::-webkit-outer-spin-button {
     table-layout: fixed;
     margin-top: 10px;
 }
-.favorite_positions img{
+
+.favorite_positions img {
     display: block;
     margin: auto auto;
     width: 6vw;
 }
+
 .tab-content_positions img {
     display: block;
     margin: auto auto;
@@ -2317,48 +2329,56 @@ input[type="number"]::-webkit-outer-spin-button {
 .favorite_positions td:nth-of-type(3) {
     width: 3vw;
 }
+
 .favorite_positions td:nth-of-type(4) {
     width: 1vw;
 }
+
 .favorite_positions td:nth-of-type(5) {
     width: 2vw;
 }
 
-#orders{
+#orders {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 110px;
 }
-#orders-body{
+
+#orders-body {
     width: 100%;
+
 }
+
 /*Закончить личный кабинет*/
 
-.login_container{
+.login_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 110px;
 }
-.login_body{
+
+.login_body {
     width: 85%;
 
 }
 
-.login-form form input{
+.login-form form input {
     border: 1px solid black;
     border-radius: 30px;
     padding-left: 15px;
 }
-.login-form form label{
+
+.login-form form label {
     display: flex;
 }
-.login-form form input:nth-child(1){
+
+.login-form form input:nth-child(1) {
     width: 15vw;
-    background-color:  #363131;
+    background-color: #363131;
     color: white;
     font-size: 23px;
     text-align: center;
@@ -2367,27 +2387,31 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: unset;
 }
 
-.registration_container{
+.registration_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.registration_body{
+
+.registration_body {
     width: 85%;
 
 }
-.registration_container form label{
+
+.registration_container form label {
     display: flex;
 }
-.registration_container form input{
+
+.registration_container form input {
     border: 1px solid black;
     border-radius: 30px;
     padding-left: 15px;
 }
-.registration_container form p input:first-child{
+
+.registration_container form p input:first-child {
     width: 19vw;
-    background-color:  #363131;
+    background-color: #363131;
     color: white;
     font-size: 23px;
     text-align: center;
@@ -2396,58 +2420,38 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 }
-.register_done_container{
+
+.register_done_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.register_done_body{
+
+.register_done_body {
     width: 85%;
 }
 
-.password_reset_container{
+.password_reset_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.password_reset_body{
+
+.password_reset_body {
     width: 85%;
 }
-.password_reset_body form input{
+
+.password_reset_body form input {
     border: 1px solid black;
     border-radius: 30px;
     padding-left: 15px;
 }
-.password_reset_body form input:first-child{
-    width: 19vw;
-    background-color:  #363131;
-    color: white;
-    font-size: 23px;
-    text-align: center;
-    text-transform: uppercase;
-    padding: unset;
-}
-.password_reset_confirm_container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.password_reset_confirm_body{
-    width: 85%;
-}
 
-.password_reset_confirm_body form input{
-    display: flex;
-    border: 1px solid black;
-    border-radius: 30px;
-    padding-left: 15px;
-}
-.password_reset_confirm_body form input:first-child{
+.password_reset_body form input:first-child {
     width: 19vw;
-    background-color:  #363131;
+    background-color: #363131;
     color: white;
     font-size: 23px;
     text-align: center;
@@ -2455,23 +2459,52 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: unset;
 }
 
-.password_reset_complete_container{
+.password_reset_confirm_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password_reset_confirm_body {
+    width: 85%;
+}
+
+.password_reset_confirm_body form input {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+
+.password_reset_confirm_body form input:first-child {
+    width: 19vw;
+    background-color: #363131;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: unset;
+}
+
+.password_reset_complete_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 140px;
 }
-.password_reset_complete_body{
+
+.password_reset_complete_body {
     width: 85%;
 }
 
-#profile{
+#profile {
     width: 100%;
     margin-bottom: 110px;
 }
 
-#profile form p:nth-child(-n+4) input{
+#profile form p:nth-child(-n+4) input {
     display: flex;
     border: 1px solid black;
     border-radius: 30px;
@@ -2479,9 +2512,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
-.save-changes{
+.save-changes {
     width: 20vw;
-    background-color:  #363131;
+    background-color: #363131;
     color: white;
     font-size: 23px;
     text-align: center;
@@ -2490,24 +2523,27 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 30px;
 }
 
-.password_change_container{
+.password_change_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.password_change_body{
+
+.password_change_body {
     width: 85%;
 }
-.password_change_body form input{
+
+.password_change_body form input {
     display: flex;
     border: 1px solid black;
     border-radius: 30px;
     padding-left: 15px;
 }
-.password_change_body form input:first-child{
+
+.password_change_body form input:first-child {
     width: 19vw;
-    background-color:  #363131;
+    background-color: #363131;
     color: white;
     font-size: 23px;
     text-align: center;
@@ -2515,34 +2551,128 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: unset;
 }
 
-.password_change_done_container{
+.password_change_done_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.password_change_done_body{
+.password_change_done_body {
     width: 85%;
 }
 
-.log_out_container{
+.log_out_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.log_out_body{
+
+.log_out_body {
     width: 85%;
 }
 
 
-.order_detail_container{
+.order_detail_container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 110px;
 }
-.order_detail_body{
-    width: 85%;
+
+.order_detail_body {
+    width: 100%;
+}
+
+.order_detail_table_frame {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.order_detail_table{
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.order_detail_table_body{
+    width: 80%;
+}
+
+.order_info_frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.order_info_body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.order_info_body h1{
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.order-positions {
+    width: 90%;
+    border: 1px solid black;
+    background: #FBFBFB;
+    box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.order-positions td {
+    font-weight: bold;
+}
+
+.order-positions td:nth-child(1) {
+    width: 80%;
+    height: 30px;
+}
+
+.order_goods_table thead th {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    border-top: 1px solid black;
+}
+
+.order_goods_table tr td {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 47px;
+    height: 75px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+}
+
+.order_goods_table tr td:nth-child(1) {
+    width: 7vw;
+    text-align: center;
+}
+.order_goods_table tr td:nth-child(2) {
+    width: 50vw;
+    line-height: 30px;
+}
+.order_goods_table tr td:nth-child(3) {
+    width: 10vw;
+}
+.order_goods_table tr td:nth-child(4) {
+    width: 10vw;
+}
+.order_goods_table tr td:nth-child(1) a {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: lighter;
 }

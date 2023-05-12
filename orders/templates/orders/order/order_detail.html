@@ -4,16 +4,60 @@
 {% block content %}
     <div class="order_detail_container">
         <div class="order_detail_body">
-            <h1>Информация о заказе №{{ order.id }}</h1>
-            <p><b>Дата создания заказа:</b> {{ order.created }}</p>
-            <p><b>Сумма заказа:</b> {{ order.get_total_cost }}</p>
-            <p><b>Способ получения:</b> {{ order.way_to_get }}</p>
-            <h2>Товары в заказе</h2>
-            <ul>
-                {% for item in order.items.all %}
-                    <li>{{ item.product.name }} - {{ item.price }} руб. x {{ item.quantity }}</li>
-                {% endfor %}
-            </ul>
+            <div class="order_detail_table_frame">
+                <div class="order_detail_table_body">
+                    <table class="order_detail_table">
+                        <tbody>
+                        <tr>
+                            <td>Заказ от {{ order.created }} №{{ order.id }}</td>
+                            <td>Статус заказа:</td>
+                        </tr>
+                        <tr>
+                            <td>Способ получения: {{ order.way_to_get }}</td>
+                        </tr>
+                        <tr>
+                            <td>Комментарий к заказу:</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="order_info_frame">
+
+
+                <div class="order_info_body">
+                    <div class="order_info_content">
+                        <h1>Информация о заказе</h1>
+                        {% for item in order.items.all %}
+                            <table class="order_goods_table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Цена</th>
+                                    <th>Количество</th>
+                                    <th>Итого</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="">PDF</a></td>
+                                    <td>{{ item.product.name }}</td>
+                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.quantity }} шт.</td>
+                                    <td>{{ item.get_total_cost }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
