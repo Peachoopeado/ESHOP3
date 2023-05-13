@@ -5,7 +5,15 @@
     <div class="product_card">
         <div class="product_card_body">
             <div class="product_card_name_block">
-                <h2>{{ product.name }}</h2>
+                <h2>{{ product.name }}
+                {% if product.is_favorite %}
+                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #ffd041"></i></a>
+                {% else %}
+                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #919191"></i></a>
+                {% endif %}
+                </h2>
+
+
             </div>
             <div class="product_block">
                 <div class="img_block">
@@ -66,7 +74,7 @@
                             {% csrf_token %}
 
                         </form>
-                        <a href="{% url 'add_to_favorites' product.code %}">В избранное</a>
+
 
                     </div>
                 </div>

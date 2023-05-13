@@ -67,6 +67,11 @@
                                 <img src="{{ product.img.url }}" alt="" class="card-img">
                             {% endif %}
                             <div class="card-body">
+                                {% if product.is_favorite %}
+                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #ffd041"></i></a>
+                {% else %}
+                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #919191"></i></a>
+                {% endif %}
                                 <h5 class="card-title">{{ product.visual_name }}</h5>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
