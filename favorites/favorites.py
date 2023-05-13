@@ -11,7 +11,6 @@ class Favorites:
             favorites = self.session[settings.FAVORITES_SESSION_ID] = []
         self.favorites = favorites
 
-
     def add(self, product):
         if self.user.is_authentificated:
             favorites, created = Favorite.objects.get_or_create(user=self.user)
@@ -34,10 +33,3 @@ class Favorites:
 
     def save(self):
         self.session[settings.FAVORITES_SESSION_ID] = self.favorites
-
-    def get_favorite_items_count(self):
-        if self.user.is_authenticated:
-            favorites = Favorite.objects.get(user=self.user)
-            return favorites.products.count()
-        else:
-            return len(self.favorites)

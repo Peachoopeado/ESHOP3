@@ -42,7 +42,7 @@
                     <div class="buttons">
                         <div class="login">
                             <div class="login-icon">
-                                <a href="{% url 'dashboard' %}#profile" class="pc-icon">
+                                <a href="{% url 'dashboard' %}" class="pc-icon">
                                      <i class="fa-solid fa-user"></i>
                                 </a>
                                 <span class="login-label">
@@ -58,11 +58,9 @@
                         <div class="favorite">
 
                                 <div class="favorite-icon">
-                                    <a href="{% url 'dashboard' %}#favorites" class="pc-icon">
+                                    <a href="{% url 'dashboard' %}" class="pc-icon">
                                         <i class="fa-solid fa-heart"></i>
-                                        {% if favorites.get_favorite_items_count > 0 %}
-                                            <span class="favorite-items-pc">{{ favorites.get_favorite_items_count }}</span>
-                                        {% endif %}
+                                            <span class="favorite-items-pc">{{ total_items }}</span>
                                     </a>
                                     <div class="favorite-label">Избранное</div>
                                 </div>
@@ -167,7 +165,6 @@
 <script src="{% static 'shop/js/sliderScript.js' %}"></script>
 <script src="{% static 'shop/js/maskInputScript.js' %}"></script>
 <script src="{% static 'shop/js/tabScript.js' %}"></script>
-
 
 
 

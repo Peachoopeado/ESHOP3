@@ -7,4 +7,3 @@ quantitySelect.addEventListener('change', (event)=>{
     const totalPrice = price * selectedQuantity;
     priceIndicator.textContent = `Цена: ${totalPrice.toFixed(2)} руб.`;
 });
-

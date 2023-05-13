@@ -103,7 +103,6 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     security_pasport = models.CharField(max_length=300, null=True, blank=True)
     tech_desc = models.CharField(max_length=300, null=True, blank=True)
-    is_favorite = models.BooleanField(default=False)
     img = ProcessedImageField(upload_to='shop/img/products',
                               processors=[ResizeToFit(245.69, 317.97)],
                               options={'quality': 90},null=True, blank=True)
