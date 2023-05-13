@@ -16,7 +16,13 @@
                 <div class="field_block"><div class="field_name">Телефон</div> <div class="field">{{ form.phone }}</div>  </div>
                 <div class="field_block"><div class="field_name">Почта</div> <div class="field">{{ form.email }}</div> </div>
                 <h2>Выберите способ получения</h2>
-                {{ form.way_to_get }}
+                    {{ form.way_to_get }}
+                    <div id="address-field" class="field_block" style="display: none;">
+                        {{ form.address }}
+                    </div>
+                    <div class="field_block">
+                        {{ form.comment }}
+                    </div>
                 </div>
                 {{ error }}
                 <input class="button_place_order" type="submit" value="Разместить заказ">
@@ -24,6 +30,7 @@
             </form>
         </div>
     </div>
+
 
 
 {% endblock %}

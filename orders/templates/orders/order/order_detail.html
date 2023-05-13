@@ -10,13 +10,13 @@
                         <tbody>
                         <tr>
                             <td>Заказ от {{ order.created }} №{{ order.id }}</td>
-                            <td>Статус заказа:</td>
+                            <td>Статус заказа: {{ order.get_status_display }}</td>
                         </tr>
                         <tr>
                             <td>Способ получения: {{ order.way_to_get }}</td>
                         </tr>
                         <tr>
-                            <td>Комментарий к заказу:</td>
+                            <td>Комментарий к заказу: {% if not order.comment %}Нет{% else %}{{ order.comment }}{% endif %}</td>
                         </tr>
                         </tbody>
 

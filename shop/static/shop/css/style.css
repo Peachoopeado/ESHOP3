@@ -2113,6 +2113,18 @@ input[type="number"]::-webkit-outer-spin-button {
 
     margin-top: 30px;
 }
+#address-field{
+    margin-top: 25px;
+}
+.fixed-comment{
+    border: 2px solid black;
+    resize: none;
+    font-size: 20px;
+    border-radius: 40px;
+    padding: 20px;
+    margin-top: 30px;
+
+}
 
 @media screen and (max-width: 768px) {
     .order_fields select {

@@ -4,7 +4,16 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+STATUS_CHOICES = (
+        ('new', 'Новый'),
+        ('processing', 'В обработке'),
+        ('shipped', 'Отправлен'),
+        ('delivered', 'Доставлен'),
+        ('cancelled', 'Отменен'),
+)
 class Order(models.Model):
+    status = models.CharField('Статус', max_length=20, choices=STATUS_CHOICES, default='new')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     type = models.CharField(max_length=200, null=True)
     full_name = models.CharField('Ф.И.О.', max_length=200, null=True)
@@ -13,6 +22,7 @@ class Order(models.Model):
     address = models.CharField('Адрес', max_length=250)
     postal_code = models.CharField('Почтовый индекс', max_length=20)
     way_to_get = models.CharField(max_length=200, null=True)
+    comment = models.TextField(null=True)
     # items = models.ManyToManyField(Product)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

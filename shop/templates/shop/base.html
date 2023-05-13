@@ -165,7 +165,27 @@
 <script src="{% static 'shop/js/sliderScript.js' %}"></script>
 <script src="{% static 'shop/js/maskInputScript.js' %}"></script>
 <script src="{% static 'shop/js/tabScript.js' %}"></script>
+<script>
+$(document).ready(function() {
+    // Обработчик события изменения значения поля "Способ получения"
+    $("#{{ form.way_to_get.id_for_label }}").change(function() {
+        var selectedOption = $(this).val();
+        if (selectedOption === "Доставка по СПб") {
+            // Если выбран способ доставки по Санкт-Петербургу, показываем поле "Адрес доставки"
+            $("#address-field").show();
+        } else {
+            // Иначе скрываем поле "Адрес доставки"
+            $("#address-field").hide();
+        }
+    });
 
+    // Проверяем значение поля "Способ получения" при загрузке страницы
+    var selectedOption = $("#{{ form.way_to_get.id_for_label }}").val();
+    if (selectedOption === "Доставка по СПб") {
+        $("#address-field").show();
+    }
+});
+</script>
 
 
 </body>
