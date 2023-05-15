@@ -58,13 +58,17 @@
 
 
             <h2>Товары</h2>
+        <div class="product-list-container">
+            <div class="product-list-body">
 
-            <div class="row mt-5 mb-3">
+
+
+            <div class="product-list-bbody">
                 {% for product in products %}
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="card mb-4 box-shadow">
+                    <div class="product-card-container">
+                        <div class="product-card-body">
                             {% if product.img %}
-                                <img src="{{ product.img.url }}" alt="" class="card-img">
+                                <img src="{{ product.img.url }}" alt="">
                             {% endif %}
                             <div class="card-body">
                                 {% if product.is_favorite %}
@@ -86,7 +90,8 @@
                     </div>
                 {% endfor %}
             </div>
-
+        </div>
+        </div>
         </div>
 
     </div>
