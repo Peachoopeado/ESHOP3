@@ -3051,7 +3051,6 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid blue;
 
 }
 .product-list-body{
@@ -3069,8 +3068,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 }
 .product-card-container{
-    border: 1px solid black;
-    margin: 10px 15px 10px 15px;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
 
 }
 @media screen and (max-width: 768px){
@@ -3120,13 +3120,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .product-card-body{
     width: 90%;
-    border: 1px dashed black;
+
 
 }
 .product-card-body img{
     width: 90%;
-
-    border: 1px dashed black;
     object-fit: scale-down;
     display: block;
     margin: 0 auto;
