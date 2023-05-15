@@ -44,16 +44,16 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><a href="">PDF</a></td>
+                                    <td><a href="{{ item.product.tech_desc }}">PDF</a></td>
                                     <td>{{ item.product.name }}</td>
-                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.price }} &#8381</td>
                                     <td>{{ item.quantity }} шт.</td>
-                                    <td>{{ item.get_total_cost }}</td>
+                                    <td class="total-price"></td>
                                 </tr>
                                 </tbody>
                             </table>
                         {% endfor %}
-                        <p id="summ">Итого: {{ order.get_total_cost }} руб.</p>
+                        <p id="summ">Итого: {{ order.get_total_cost }} &#8381</p>
                         <button id="back" onclick="window.location.href='{% url 'dashboard' %}'" >Вернуться назад</button>
                     </div>
 
@@ -63,4 +63,20 @@
         </div>
     </div>
 
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const rows = document.querySelectorAll(".order_goods_table tbody tr");
+        rows.forEach(function(row) {
+            const priceCell = row.querySelector("td:nth-child(3)");
+            const quantityCell = row.querySelector("td:nth-child(4)");
+            const totalPriceCell = row.querySelector(".total-price");
+
+            const price = parseFloat(priceCell.textContent);
+            const quantity = parseInt(quantityCell.textContent);
+            const totalPrice = price * quantity;
+
+            totalPriceCell.innerHTML = totalPrice.toFixed(2) + " &#8381";
+        });
+    });
+</script>
 {% endblock %}

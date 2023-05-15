@@ -59,12 +59,11 @@
                                         <tbody>
                                         <tr>
                                             <td>Заказ №{{ order.id }} от {{ order.created|date:"d.m.y" }}</td>
-                                            <td>Статус заказа:</td>
+                                            <td>Статус: {{ order.get_status_display }}</td>
                                         </tr>
                                         <tr>
                                             <td>Доставка по адресу: {{ order.address }}</td>
-                                            <td><a href="{% url 'order-detail' order.id %}"><u>Подробнее о
-                                                заказе</u></a></td>
+                                            <td><a href="{% url 'order-detail' order.id %}"><small>Подробнее</small></a></td>
                                         </tr>
                                         </tbody>
                                     </table>
