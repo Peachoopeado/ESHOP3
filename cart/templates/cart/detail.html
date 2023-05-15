@@ -52,20 +52,11 @@
                     </table>
                     <table class="summary">
                         <tbody>
-                        <tr>
-                            <td colspan="2">Способ получения
-                                </td>
 
-                        </tr>
-                        <tr style="border-bottom: 2px solid black; font-weight: lighter;">{% for choice in delivery_choices %}
-                            <td id="way-to-get-cell"><label for="">{{ choice.1 }}<input type="radio" name="delivery"
-                                                                   value="{{ choice.0|floatformat }}"
-                                    {% if cart.delivery == choice.0 %} checked{% endif %}></label></td>{% endfor %}
-                        </tr>
                         <tr>
                             <td id="value">Общая стоимость</td>
                             <td align="right"><span id="total-price"
-                                                    data-total-price>{{ cart.get_total_price_with_delivery }}</span>
+                                                    data-total-price>{{ cart.get_total_price }}</span>
                                 &#8381
                             </td>
                         </tr>
@@ -92,7 +83,7 @@
                     var totalPrice = parseFloat('{{ cart.get_total_price|floatformat:2 }}');
                     var deliveryPrice = 0;
                     if (i === 0) {
-                        deliveryPrice = 600;
+                        deliveryPrice = 0;
                     }
                     var totalWithDelivery = (totalPrice + deliveryPrice).toFixed(2);
                     document.getElementById('total-price').innerHTML = totalWithDelivery;

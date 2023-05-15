@@ -27,6 +27,7 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    manager_status = models.BooleanField('Рассмотрено', default=False, blank=False)
 
     def __str__(self):
         return 'Заказ {}'.format(self.id)

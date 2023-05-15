@@ -6,12 +6,17 @@
     <div class="category_container">
         <div class="category_body">
             {% for category in categories %}
-                <a class="category" href="{{ category.get_url }}">
-                    {% for catimg in category.categoryimage_set.all %}
-                        <img src='{{ catimg.img.url }}' alt="">
-                    {% endfor %}
-                    <p>{{ category }}</p>
-                </a>
+                <div class="category_card_container">
+                    <div class="category_card_body">
+                        <a class="category" href="{{ category.get_url }}">
+                            {% for catimg in category.categoryimage_set.all %}
+                                <img src='{{ catimg.img.url }}' alt="">
+                            {% endfor %}
+                        <p>{{ category }}</p>
+                    </a>
+                    </div>
+                </div>
+
             {% endfor %}
         </div>
     </div>

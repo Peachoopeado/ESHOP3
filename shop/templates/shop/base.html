@@ -29,7 +29,7 @@
 <header class="pc">
     <div class="header-body">
         <div class="logo">
-            <img src="{% static 'shop/img/logo.svg' %}" alt="логотип">
+            <a href="{% url 'assortment' %}"><img src="{% static 'shop/img/logo.svg' %}" alt="логотип"></a>
         </div>
         <div class="nav">
             <div class="search">
@@ -90,21 +90,21 @@
 
             </div>
             <hr>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light ">
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">о нас</a>
+                            <a href="{% url 'about' %}">о нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'partners' %}">наши партнёры</a>
+                            <a href="{% url 'partners' %}">наши партнёры</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'assortment' %}">ассортимент</a>
+                            <a href="{% url 'assortment' %}">ассортимент</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contacts' %}">контакты</a>
+                            <a  href="{% url 'contacts' %}">контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -116,23 +116,38 @@
 </header>
 <div class="mobile">
     <a href="#" class="mobile-logo">
-        <img src="{% static 'shop/img/logo.svg' %}" alt="логотип" width="100">
+        <img src="{% static 'shop/img/logo.png' %}" alt="логотип" width="100">
     </a>
     <div class="mobile-icons">
+    <div class="mobile-icon-container">
         <div class="mobile-search">
             <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             <form action="{% url 'search' %}" method="get">
                 <input id="search-input" type="search" name="q" style="display: none;">
             </form>
         </div>
+    </div>
 
 
-
-        {% with total_items=cart|length %}
-            <a href="{% url "cart-detail" %}" id="cart-button" class="mobile-icon"><i style="padding-left: 15px;"
-                                                                                      class="fa fa-shopping-cart"></i>
+        <div class="mobile-icon-container">
+            <a href="{% url 'dashboard' %}" class="mobile-icon">
+                                     <i class="fa-solid fa-user"></i>
+                                </a>
+        </div>
+         <div class="mobile-icon-container">
+             <a href="{% url 'dashboard' %}" class="mobile-icon">
+                                        <i class="fa-solid fa-heart"></i>
+                                            <span class="favorite-items-pc">{{ total_items }}</span>
+                                    </a>
+         </div>
+        <div class="mobile-icon-container">
+            {% with total_items=cart|length %}
+            <a href="{% url "cart-detail" %}" id="cart-button" class="mobile-icon"><i class="fa fa-shopping-cart"></i>
                 {% if cart|length > 0 %} <span class="cart-items">{{ total_items }}</span>{% endif %}</a>
         {% endwith %}
+        </div>
+
+
     </div>
     <button class="mobile-menu-btn" id="mobile-menu-btn">
         <span class="mobile-menu-btn__icon"></span>
