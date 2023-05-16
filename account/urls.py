@@ -8,7 +8,7 @@ urlpatterns = [
     # post views
     # path('login', views.user_login, name='login'),
     path('login', LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('logout', LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
+    path('logout', views.logout_view, name='logout'),
     # path('logout-then-login', include('django.contrib.auth.views'), name='logout-then-login'),
     path('', views.dashboard, name='dashboard'),
     path('remove_favorite/<str:product_code>', views.delete_favorite, name='delete-favorite'),

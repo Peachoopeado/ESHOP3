@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
@@ -29,6 +29,11 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 
 @login_required
@@ -83,13 +88,12 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html', {'user_form': user_form})
 
-def order_detail(request, order_id:int):
+
+def order_detail(request, order_id: int):
     order = get_object_or_404(models.Order, id=order_id)
     if order.user != request.user:
         return redirect('login')
     data = {
-        'order':order,
+        'order': order,
     }
     return render(request, 'orders/order/order_detail.html', data)
-
-

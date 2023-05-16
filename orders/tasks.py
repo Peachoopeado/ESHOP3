@@ -12,7 +12,7 @@ def order_created(order_id):
                                         order.id)
     mail_sent = send_mail(subject,
                           message,
-                          'kir.pikuza@mail.ru',
+                          'no-reply.sevsnab@mail.ru',
                           [order.email])
 
     return mail_sent
@@ -25,6 +25,6 @@ def order_notification(order_id):
     message = 'Поступил новый заказ. Проверьте панель администратора'
     mail_sent = send_mail(subject,
                           message,
-                          'kir.pikuza@mail.ru',
-                          ['iorbit4557@gmail.com'])
+                          'no-reply.sevsnab@mail.ru',
+                          ['seversnab-info@yandex.ru'])
     return mail_sent
