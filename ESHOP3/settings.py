@@ -136,12 +136,13 @@ FAVORITES_SESSION_ID = 'favorite'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+DEFAULT_FROM_EMAIL = 'no-reply.sevsnab@mail.ru'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'no-reply.sevsnab@mail.ru'
-EMAIL_HOST_PASSWORD = 'vrCQjMjTA8zG8xnbxvLB'
-EMAIL_PORT = 2525
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST_PASSWORD = 'fDzgwxeGbgyiTN7bE9a2'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
