@@ -3,6 +3,8 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
+from django.contrib.auth.decorators import login_required
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -11,6 +13,7 @@ from decimal import Decimal
 
 # Create your views here.
 @require_POST
+@login_required
 def cart_add(request, product_code):
     cart = Cart(request)
     product = get_object_or_404(Product, code=product_code)
@@ -42,7 +45,7 @@ def cart_remove(request, product_code):
 
     return redirect('cart-detail')
 
-
+@login_required()
 def cart_detail(request):
     cart = Cart(request)
     delivery_price = cart.get_delivery_price()

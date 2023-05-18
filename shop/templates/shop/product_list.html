@@ -2,101 +2,103 @@
 {% block title %} {{ category.name }} {% endblock %}
 {% block pagename %}<h1>{{ category.name }}</h1> {% endblock %}
 {% block content %}
-    <div class="list_body">
+    <div class="list_container">
+
+        <div class="list_body">
 
 
-        <aside>
-            <div class="aside-body">
+            <aside>
+                <div class="aside-body">
 
-                <div class="filter_block">
-                    <h2>Тип продукта</h2>
-                    <ul>
-                        {% for oiltype in category.oiltype_set.all %}
-                            <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% if oil_type %}
-                <div class="filter_block">
-                    <h2>Вязкость</h2>
-                    <ul>
-                        {% for viscosity in oil_type.viscosity_set.all %}
-                            <li>
-                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ viscosity.slug }}">{{ viscosity }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            {% if visc %}
-                <div class="filter_block">
-                    <h2>Состав</h2>
-                    <ul>
-                        {% for compound in visc.compound_set.all %}
-                            <li>
-                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ compound.slug }}">{{ compound }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            {% if comp %}
-                <div class="filter_block">
-                    <h2>Топливо</h2>
-                    <ul>
-                        {% for fuel in category.fuel_set.all %}
-                            <li>
-                                <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ comp.slug }}/{{ fuel.slug }}">{{ fuel }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            </div>
-        </aside>
-        <div class="container mt-2">
-
-
-            <h2>Товары</h2>
-        <div class="product-list-container">
-            <div class="product-list-body">
-
-
-
-            <div class="product-list-bbody">
-                {% for product in products %}
-                    <div class="product-card-container">
-                        <div class="product-card-body">
-                            {% if product.img %}
-                                <img src="{{ product.img.url }}" alt="">
-                            {% endif %}
-                            <div class="card-body">
-                                {% if product.is_favorite %}
-                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #ffd041"></i></a>
-                {% else %}
-                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #919191"></i></a>
-                {% endif %}
-                                <h5 class="card-title">{{ product.visual_name }}</h5>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="{{ product.get_url }}"
-                                           class="btn btn-sm btn-outline-secondary">Подробнее</a>
-                                    </div>
-                                    <small class="text-muted">{{ product.price }} руб.</small>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="filter_block">
+                        <h2>Тип продукта</h2>
+                        <ul>
+                            {% for oiltype in category.oiltype_set.all %}
+                                <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
+                            {% endfor %}
+                        </ul>
                     </div>
-                {% endfor %}
+                    {% if oil_type %}
+                        <div class="filter_block">
+                            <h2>Вязкость</h2>
+                            <ul>
+                                {% for viscosity in oil_type.viscosity_set.all %}
+                                    <li>
+                                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ viscosity.slug }}">{{ viscosity }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if visc %}
+                        <div class="filter_block">
+                            <h2>Состав</h2>
+                            <ul>
+                                {% for compound in visc.compound_set.all %}
+                                    <li>
+                                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ compound.slug }}">{{ compound }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if comp %}
+                        <div class="filter_block">
+                            <h2>Топливо</h2>
+                            <ul>
+                                {% for fuel in category.fuel_set.all %}
+                                    <li>
+                                        <a href="{{ category.get_url }}/{{ oil_type.slug }}/{{ visc.slug }}/{{ comp.slug }}/{{ fuel.slug }}">{{ fuel }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </aside>
+            <div class="container mt-2">
+
+
+                <h2>Товары</h2>
+                <div class="product-list-container">
+                    <div class="product-list-body">
+
+
+                        <div class="product-list-bbody">
+                            {% for product in products %}
+                                <div class="product-card-container">
+                                    <div class="product-card-body">
+                                        {% if product.img %}
+                                            <img src="{{ product.img.url }}" alt="">
+                                        {% endif %}
+                                        <div class="card-body">
+                                            {% if product.is_favorite %}
+                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i
+                                                        class="fa-solid fa-star" style="color: #ffd041"></i></a>
+                                            {% else %}
+                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i
+                                                        class="fa-solid fa-star" style="color: #919191"></i></a>
+                                            {% endif %}
+                                            <h5 class="card-title">{{ product.visual_name }}</h5>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a href="{{ product.get_url }}"
+                                                       class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                                </div>
+                                                <small class="text-muted">{{ product.price }} руб.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-        </div>
 
+        </div>
     </div>
-    </div>
-
 
 
 

@@ -3,10 +3,13 @@ from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from .tasks import order_created, order_notification
+from django.contrib.auth.decorators import login_required
+
 
 
 
 # Create your views here.
+@login_required
 def order_create(request):
     cart = Cart(request)
     error = ''

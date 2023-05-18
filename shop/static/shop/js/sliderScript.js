@@ -6,7 +6,7 @@ let counter = 0;
 nextBtn.addEventListener('click', () => {
     if (counter < 1){
         counter++;
-        sliderWrapper.style.transform = `translateX(-${counter * 150}%)`;
+        sliderWrapper.style.transform = `translateX(-${counter * 50}%)`;
     } else{
         counter = 0;
         sliderWrapper.style.transform = 'translateX(0%)';
@@ -16,9 +16,9 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
     if (counter > 0){
         counter--;
-        sliderWrapper.style.transform = `translateX(-${counter * 150}%)`;
+        sliderWrapper.style.transform = `translateX(-${counter * 50}%)`;
     } else {
         counter = 1;
-        sliderWrapper.style.transform = `translateX(-${counter * 150}%)`;
+        sliderWrapper.style.transform = `translateX(-${counter * 50}%)`;
     }
 });
