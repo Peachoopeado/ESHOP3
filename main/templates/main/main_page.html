@@ -1,0 +1,72 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+    <div class="lead_container">
+        <div class="lead_left_block">
+            <div class="lead_left_block_body">
+                <h3>Масло мирового качества</h3>
+                <h1>С НАМИ ВАША ТЕХНИКА
+                    В НАДЕЖНЫХ РУКАХ!</h1>
+                <a href="{% url 'assortment' %}"><u>Показать ассортимент</u></a>
+            </div>
+        </div>
+        <div class="lead_right_block">
+            <button onclick="window.local.href='{% url 'contacts' %}'">Задать вопрос</button>
+        </div>
+    </div>
+    <div class="main_partners_container">
+        <div class="main_partners_body">
+            <div class="main_partners_layer1">
+                <div class="dblock1">
+                    <div class="rectangle">
+                    </div>
+                </div>
+                <div class="dblock2">
+                    <div class="rectangle">
+                    </div>
+                </div>
+
+            </div>
+            <div class="main_partners_layer2">
+                <div class="layer2_floor1">
+                    <h2>НАШИ ПАРТНЕРЫ</h2>
+                </div>
+                <div class="layer2_floor2">
+                    <div class="floor2_body">
+                        <div class="slider">
+                            <div class="slider-wrapper">
+                                <div class="slide1-content">
+                                    <img src="{% static 'shop/img/YMICert.png' %}" alt="Slide1">
+                                    <img src="{% static 'shop/img/NSLcert.png' %}" alt="Slide2">
+                                    <p>ООО "Северснаб" является официальным дилером производителей по маслам.
+                                        Подтверждением
+                                        являются предоставленные, компаниями-партнерами сертификаты!</p>
+                                </div>
+                                <div class="slide2-content">
+
+                                </div>
+
+                            </div>
+                            <div class="slider-controls">
+                                <button class="slider-prev">&#8249;</button>
+                                <button class="slider-next">&#8250;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="main_assortment_desc_container">
+
+    </div>
+    <div class="main_about_container">
+
+    </div>
+    <div class="main_news_container">
+
+    </div>
+{% endblock %}
