@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="lead_right_block">
-            <button onclick="window.local.href='{% url 'contacts' %}'">Задать вопрос</button>
+            <button onclick="window.location.href='{% url 'contacts' %}'">Задать вопрос</button>
         </div>
     </div>
     <div class="main_partners_container">
@@ -20,33 +20,37 @@
             <div class="main_partners_layer1">
                 <div class="dblock1">
                     <div class="rectangle">
+
                     </div>
                 </div>
                 <div class="dblock2">
                     <div class="rectangle">
                     </div>
                 </div>
-
-            </div>
-            <div class="main_partners_layer2">
-                <div class="layer2_floor1">
+                <div class="dblock3">
+                     <div class="layer2_floor1">
                     <h2>НАШИ ПАРТНЕРЫ</h2>
                 </div>
                 <div class="layer2_floor2">
                     <div class="floor2_body">
-                        <div class="slider">
-                            <div class="slider-wrapper">
-                                <div class="slide1-content">
-                                    <img src="{% static 'shop/img/YMICert.png' %}" alt="Slide1">
-                                    <img src="{% static 'shop/img/NSLcert.png' %}" alt="Slide2">
-                                    <p>ООО "Северснаб" является официальным дилером производителей по маслам.
-                                        Подтверждением
-                                        являются предоставленные, компаниями-партнерами сертификаты!</p>
-                                </div>
-                                <div class="slide2-content">
+                        <div class="main_slider">
+                            <div class="main_slider-wrapper">
+                                {% for partner in partner %}
+                                <div class="main_slide1-content">
+                                    <h2>{{ partner.name }}</h2>
+                                    <h1>{{ partner.quote }}</h1>
+                                    <p>{{ partner.text }}</p>
+                                    {% for partner_img in partner.mainpartnerimg_set.all %}
 
-                                </div>
+                                    <img src="{{ partner_img.img.url }}" alt="">
+                                    {% endfor %}
 
+                                    <div class="videos">
+                                        <a href="{{ partner.short_video_link }}"><i class="fa-solid fa-circle-play"></i>Посмотрите видео о компании (короткая версия)</a>
+                                        <a href="{{ partner.long_video_link }}"><i class="fa-solid fa-circle-play"></i>Посмотрите видео о компании (полная версия)</a>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                             <div class="slider-controls">
                                 <button class="slider-prev">&#8249;</button>
@@ -55,18 +59,89 @@
                         </div>
                     </div>
                 </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="main_assortment_desc_container">
+        <div class="main_assortment_slider">
+            <div class="main_assortment_slider_wrapper">
+                <div class="main_assortment_slide1-content">
+                    <img src="{% static 'shop/img/assortment/car.jpeg' %}" alt="">
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev">&#8249;</button>
+                <button class="slider-next">&#8250;</button>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    <div class="main_assortment_desc_container">
-
-    </div>
     <div class="main_about_container">
+        <div class="main_about_body">
+            <div class="main_about_layer1">
+                <div class="dblock1">
+                    <div class="rectangle">
 
+                    </div>
+                </div>
+                <div class="dblock2">
+                    <div class="rectangle">
+
+                    </div>
+                </div>
+                <div class="about_dblock3">
+                    <div class="about_dblock3_body">
+                        <h1>НЕМНОГО О НАС</h1>
+                        <p>ООО "Северснаб" зарегистрирован 05.08.2014г., работает в сфере реализации ГСМ и фильтров.
+                            На сегодняшний день компания является официальным дилером крупнейшего производителя по маслам и
+                            смазкам North Sea Lubricants (Голландия), Ymioil (Тюмень), представляет интересы компании
+                            Delfin Group, Nordfil (фильтра).
+                        </p>
+                        <button onclick="window.location.href='{% url 'about' %}'">Подробнее</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="main_news_container">
+        <div class="main_news_body">
+            <h1>НОВОСТИ</h1>
+             <div class="main_news_slider">
+                <div class="main_news_slider_wrapper">
+                    <div class="main_news_slide1-content">
+                        <div class="news_container">
+                            <div class="new">
+
+                            </div>
+                            <div class="new">
+
+                            </div>
+                            <div class="new">
+
+                            </div>
+                            <button onclick="window.location.href=''">Все новости</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                 <div class="slider-controls">
+                        <button class="slider-prev">&#8249;</button>
+                        <button class="slider-next">&#8250;</button>
+                    </div>
+            </div>
+        </div>
 
     </div>
+
+
 {% endblock %}
