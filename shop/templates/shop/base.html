@@ -95,6 +95,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            <a href="{% url 'main' %}">главная</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{% url 'about' %}">о нас</a>
                         </li>
                         <li class="nav-item">
@@ -181,6 +184,8 @@
 <script src="{% static 'shop/js/maskInputScript.js' %}"></script>
 <script src="{% static 'shop/js/tabScript.js' %}"></script>
 <script src="{% static 'shop/js/MainSliderScript.js' %}"></script>
+<script src="{% static 'shop/js/AssortmentSliderScript.js' %}"></script>
+
 <script>
 $(document).ready(function() {
     // Обработчик события изменения значения поля "Способ получения"

@@ -1,32 +1,33 @@
-var slidesWrapper = document.querySelector('.main_slider-wrapper');
-    var slideWidth = slidesWrapper.offsetWidth / slidesWrapper.children.length;
-    var currentSlideIndex = 0;
+var mainSlideWrapper = document.querySelector('.main_slider-wrapper');
+var mainSlideWidth = mainSlideWrapper.offsetWidth / mainSlideWrapper.children.length;
+var currentMainSlideIndex = 0;
+var mainSlideInterval;
 
-    function goToSlide(index) {
-        slidesWrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-        currentSlideIndex = index;
-    }
+function goToMainSlide(index) {
+  mainSlideWrapper.style.transform = `translateX(-${mainSlideWidth * index}px)`;
+  currentMainSlideIndex = index;
+}
 
-    function slidePrev() {
-        if (currentSlideIndex > 0) {
-            goToSlide(currentSlideIndex - 1);
-        } else {
-            goToSlide(slidesWrapper.children.length - 1);
-        }
-    }
+function slideMainPrev() {
+  if (currentMainSlideIndex > 0) {
+    goToMainSlide(currentMainSlideIndex - 1);
+  } else {
+    goToMainSlide(mainSlideWrapper.children.length - 1);
+  }
+}
 
-    function slideNext() {
-        if (currentSlideIndex < slidesWrapper.children.length - 1) {
-            goToSlide(currentSlideIndex + 1);
-        } else {
-            goToSlide(0);
-        }
-    }
+function slideMainNext() {
+  if (currentMainSlideIndex < mainSlideWrapper.children.length - 1) {
+    goToMainSlide(currentMainSlideIndex + 1);
+  } else {
+    goToMainSlide(0);
+  }
+}
 
-    var prevButton = document.querySelector('.slider-prev');
-    var nextButton = document.querySelector('.slider-next');
+var mainPrevButton = document.querySelector('.slider-prev');
+var mainNextButton = document.querySelector('.slider-next');
 
-    prevButton.addEventListener('click', slidePrev);
-    nextButton.addEventListener('click', slideNext);
+mainPrevButton.addEventListener('click', slideMainPrev);
+mainNextButton.addEventListener('click', slideMainNext);
 
-    setInterval(slideNext, 7000);
+setInterval(slideMainNext, 7000);

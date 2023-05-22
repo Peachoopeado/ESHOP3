@@ -24,3 +24,25 @@ class MainPartnerImg(models.Model):
     class Meta:
         verbose_name = 'Слайд_Партнёр_Фото'
         verbose_name_plural = 'Слайд_Партнёры_Фото'
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created = models.DateField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+class NewsImage(models.Model):
+    new = models.ForeignKey(News, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='main/img/news')
+
+    def __str__(self):
+        return self.new.title
+
+    class Meta:
+        verbose_name = 'Превью'
+        verbose_name_plural = 'Превью'
