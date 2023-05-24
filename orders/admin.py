@@ -10,9 +10,14 @@ class OrderItemInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['manager_status', 'id', 'type', 'full_name', 'email',
-                    'address', 'way_to_get', 'paid',
+                    'address', 'way_to_get', 'get_total_cost', 'paid',
                     'created', 'updated', 'status']
     list_filter = ['paid', 'created', 'updated']
+    
+    def get_total_cost(self, obj):
+        return obj.get_total_cost()
+    get_total_cost.short_description = 'Total Cost'
+
     inlines = [OrderItemInline]
 
 
