@@ -10,7 +10,7 @@ function goToAssortmentSlide(index) {
 
 function setActiveIndicator(index) {
   var indicators = document.querySelectorAll('.indicator');
-  indicators.forEach(function(indicator) {
+  indicators.forEach(function (indicator) {
     indicator.classList.remove('active');
   });
   indicators[index].classList.add('active');
@@ -28,8 +28,8 @@ function autoAssortmentSlide() {
 }
 
 var indicators = document.querySelectorAll('.indicator');
-indicators.forEach(function(indicator, index) {
-  indicator.addEventListener('click', function() {
+indicators.forEach(function (indicator, index) {
+  indicator.addEventListener('click', function () {
     slideToAssortmentIndex(index);
   });
 });

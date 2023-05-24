@@ -1,15 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Онлайн-магазин масляных товаров для техники">
     <meta name="keywords"
-          content="автомобиль, грузовой транспорт, фура, грузовик, коммерческий транспорт, промышленная техника, мотоциклы, квадроциклы, лодки, сельскохозяйственная техника, сельхоз техника, масла, автомобильные масла, тракторные масла, масла для яхт, масло для кранов, трансмиссия, смазка, вязкость масел, купить масло, YMIOIL, NordSeaLubricants, NSL, Nordfil, дилер, дистрибьютор">
+        content="автомобиль, грузовой транспорт, фура, грузовик, коммерческий транспорт, промышленная техника, мотоциклы, квадроциклы, лодки, сельскохозяйственная техника, сельхоз техника, масла, автомобильные масла, тракторные масла, масла для яхт, масло для кранов, трансмиссия, смазка, вязкость масел, купить масло, YMIOIL, NordSeaLubricants, NSL, Nordfil, дилер, дистрибьютор">
     <meta name="author" content="СеверСнаб">
-    <meta name="language" content = "ru">
+    <meta name="language" content="ru">
     <title>{% block title %} {% endblock %}</title>
 
     <link rel="shortcut icon" href="{% static 'shop/img/logo.svg' %}" type="image/x-icon">
@@ -17,12 +18,12 @@
     <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
-          integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=PT+Sans&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
 </head>
 
@@ -43,42 +44,42 @@
                         <div class="login">
                             <div class="login-icon">
                                 <a href="{% url 'dashboard' %}" class="pc-icon">
-                                     <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-user"></i>
                                 </a>
                                 <span class="login-label">
-                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_authenticated %}
                                     {{ request.user.username}}
-                                {% else %}
+                                    {% else %}
                                     <a href="{% url 'login' %}">Вход</a>
-                                {% endif %}
-                            </span>
+                                    {% endif %}
+                                </span>
                             </div>
 
                         </div>
                         <div class="favorite">
 
-                                <div class="favorite-icon">
-                                    <a href="{% url 'dashboard' %}" class="pc-icon">
-                                        <i class="fa-solid fa-heart"></i>
-                                            <span class="favorite-items-pc">{{ total_items }}</span>
-                                    </a>
-                                    <div class="favorite-label">Избранное</div>
-                                </div>
+                            <div class="favorite-icon">
+                                <a href="{% url 'dashboard' %}" class="pc-icon">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span class="favorite-items-pc">{{ total_items }}</span>
+                                </a>
+                                <div class="favorite-label">Избранное</div>
+                            </div>
 
 
 
                         </div>
                         <div class="cart">
                             {% with total_items=cart|length %}
-                                <div class="cart-icon">
-                                    <a href="{% url 'cart-detail' %}" class="pc-icon">
-                                        <i class="fa fa-shopping-cart"></i>
+                            <div class="cart-icon">
+                                <a href="{% url 'cart-detail' %}" class="pc-icon">
+                                    <i class="fa fa-shopping-cart"></i>
 
-                                        {% if cart|length > 0 %}
-                                            <span class="cart-items-pc">{{ total_items }}</span>{% endif %}
-                                    </a>
-                                    <div class="cart-label">Корзина</div>
-                                </div>
+                                    {% if cart|length > 0 %}
+                                    <span class="cart-items-pc">{{ total_items }}</span>{% endif %}
+                                </a>
+                                <div class="cart-label">Корзина</div>
+                            </div>
 
 
                             {% endwith %}
@@ -107,7 +108,7 @@
                             <a href="{% url 'assortment' %}">ассортимент</a>
                         </li>
                         <li class="nav-item">
-                            <a  href="{% url 'contacts' %}">контакты</a>
+                            <a href="{% url 'contacts' %}">контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -122,32 +123,32 @@
         <img src="{% static 'shop/img/logo.png' %}" alt="логотип" width="100">
     </a>
     <div class="mobile-icons">
-    <div class="mobile-icon-container">
-        <div class="mobile-search">
-            <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <form action="{% url 'search' %}" method="get">
-                <input id="search-input" type="search" name="q" style="display: none;">
-            </form>
+        <div class="mobile-icon-container">
+            <div class="mobile-search">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form action="{% url 'search' %}" method="get">
+                    <input id="search-input" type="search" name="q" style="display: none;">
+                </form>
+            </div>
         </div>
-    </div>
 
 
         <div class="mobile-icon-container">
             <a href="{% url 'dashboard' %}" class="mobile-icon">
-                                     <i class="fa-solid fa-user"></i>
-                                </a>
+                <i class="fa-solid fa-user"></i>
+            </a>
         </div>
-         <div class="mobile-icon-container">
-             <a href="{% url 'dashboard' %}" class="mobile-icon">
-                                        <i class="fa-solid fa-heart"></i>
-                                            <span class="favorite-items-pc">{{ total_items }}</span>
-                                    </a>
-         </div>
+        <div class="mobile-icon-container">
+            <a href="{% url 'dashboard' %}" class="mobile-icon">
+                <i class="fa-solid fa-heart"></i>
+                <span class="favorite-items-pc">{{ total_items }}</span>
+            </a>
+        </div>
         <div class="mobile-icon-container">
             {% with total_items=cart|length %}
             <a href="{% url "cart-detail" %}" id="cart-button" class="mobile-icon"><i class="fa fa-shopping-cart"></i>
                 {% if cart|length > 0 %} <span class="cart-items">{{ total_items }}</span>{% endif %}</a>
-        {% endwith %}
+            {% endwith %}
         </div>
 
 
@@ -158,6 +159,7 @@
 </div>
 <div class="mobile-menu" id="mobile-menu">
     <ul>
+        <li><a href="{% url 'main' %}"><i class="fa-solid fa-house"></i>главная</a></li>
         <li><a href="{% url 'about' %}"><i class="fa-solid fa-circle-info"></i>о нас</a></li>
         <li><a href="{% url 'assortment' %}"><i class="fa-solid fa-boxes-stacked"></i>ассортимент</a></li>
         <li><a href="{% url 'partners' %}"><i class="fa-solid fa-handshake"></i>наши партнёры</a></li>
@@ -167,46 +169,48 @@
         <a href=""><span>Написать письмо</span></a>
     </div>
 </div>
+
 <body>
 
-{% block pagename %} {% endblock %}
-<div class="main-content">
-    {% block content %}
-    {% endblock %}
-</div>
-<script src="https://kit.fontawesome.com/38616c9bbe.js" crossorigin="anonymous"></script>
-<script src="{% static 'shop/js/bootstrap.js' %}"></script>
-<script src="{% static 'shop/js/jquery-3.6.4.min.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-<script src="{% static 'shop/js/burgerScript.js' %}"></script>
-<script src="{% static 'shop/js/searchScript.js' %}"></script>
-{#<script src="{% static 'shop/js/sliderScript.js' %}"></script>#}
-<script src="{% static 'shop/js/maskInputScript.js' %}"></script>
-<script src="{% static 'shop/js/tabScript.js' %}"></script>
-<script src="{% static 'shop/js/MainSliderScript.js' %}"></script>
-<script src="{% static 'shop/js/AssortmentSliderScript.js' %}"></script>
+    {% block pagename %} {% endblock %}
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="https://kit.fontawesome.com/38616c9bbe.js" crossorigin="anonymous"></script>
+    <script src="{% static 'shop/js/bootstrap.js' %}"></script>
+    <script src="{% static 'shop/js/jquery-3.6.4.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="{% static 'shop/js/burgerScript.js' %}"></script>
+    <script src="{% static 'shop/js/searchScript.js' %}"></script>
+    
+    <script src="{% static 'shop/js/sliderScript.js' %}"></script>
+    <script src="{% static 'shop/js/maskInputScript.js' %}"></script>
+    <script src="{% static 'shop/js/tabScript.js' %}"></script>
+    <script src="{% static 'shop/js/MainSliderScript.js' %}"></script>
+    <script src="{% static 'shop/js/AssortmentSliderScript.js' %}"></script>
 
-<script>
-$(document).ready(function() {
-    // Обработчик события изменения значения поля "Способ получения"
-    $("#{{ form.way_to_get.id_for_label }}").change(function() {
-        var selectedOption = $(this).val();
-        if (selectedOption === "Доставка по СПб") {
-            // Если выбран способ доставки по Санкт-Петербургу, показываем поле "Адрес доставки"
-            $("#address-field").show();
-        } else {
-            // Иначе скрываем поле "Адрес доставки"
-            $("#address-field").hide();
-        }
-    });
+    <script>
+        $(document).ready(function () {
+            // Обработчик события изменения значения поля "Способ получения"
+            $("#{{ form.way_to_get.id_for_label }}").change(function () {
+                var selectedOption = $(this).val();
+                if (selectedOption === "Доставка по СПб") {
+                    // Если выбран способ доставки по Санкт-Петербургу, показываем поле "Адрес доставки"
+                    $("#address-field").show();
+                } else {
+                    // Иначе скрываем поле "Адрес доставки"
+                    $("#address-field").hide();
+                }
+            });
 
-    // Проверяем значение поля "Способ получения" при загрузке страницы
-    var selectedOption = $("#{{ form.way_to_get.id_for_label }}").val();
-    if (selectedOption === "Доставка по СПб") {
-        $("#address-field").show();
-    }
-});
-</script>
+            // Проверяем значение поля "Способ получения" при загрузке страницы
+            var selectedOption = $("#{{ form.way_to_get.id_for_label }}").val();
+            if (selectedOption === "Доставка по СПб") {
+                $("#address-field").show();
+            }
+        });
+    </script>
 
 
 
@@ -214,44 +218,48 @@ $(document).ready(function() {
 
 </body>
 <footer>
-{#    <div class="footer_body">#}
-{#        <div class="footer_block1">#}
-{#            <div class="footer_subblock1">#}
-{#                <img src="{% static 'shop/img/logo.svg' %}" alt="">#}
-{#            </div>#}
-{#            <div class="footer_subblock2">#}
-{#                <table>#}
-{#                    <tr>#}
-{#                        <td>Время работы:</td>#}
-{#                        <td align="right"> с 10:00 до 22:00</td>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td>Адрес:</td>#}
-{#                        <td align="right"> г. Гатчина, ул. Рысева 62А</td>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td>Почта:</td>#}
-{#                        <td align="right"><a href="mailto: info@sev_snab.ru">info@sev_snab.ru</a></td>#}
-{#                    </tr>#}
-{##}
-{#                </table>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="footer_block2">#}
-{#            <ul>#}
-{#                <li><a href="{% url 'partners' %}">наши партнёры</a></li>#}
-{#                <li><a href="{% url 'assortment' %}">ассортимент</a></li>#}
-{#                <li><a href="{% url 'about' %}">о нас</a></li>#}
-{#                <li><a href="{% url 'contacts' %}">контакты</a></li>#}
-{#            </ul>#}
-{#        </div>#}
-{#        <div class="footer_block3">#}
-{#            <script type="text/javascript" charset="utf-8" async#}
-{#                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=100%25&amp;height=387&amp;lang=ru_RU&amp;scroll=true"></script>#}
-{#        </div>#}
-{##}
-{#    </div>#}
-{#    <hr>#}
+    {# <div class="footer_body">#}
+        {# <div class="footer_block1">#}
+            {# <div class="footer_subblock1">#}
+                {# <img src="{% static 'shop/img/logo.svg' %}" alt="">#}
+                {# </div>#}
+            {# <div class="footer_subblock2">#}
+                {# <table>#}
+                    {# <tr>#}
+                        {# <td>Время работы:</td>#}
+                        {# <td align="right"> с 10:00 до 22:00</td>#}
+                        {# </tr>#}
+                    {# <tr>#}
+                        {# <td>Адрес:</td>#}
+                        {# <td align="right"> г. Гатчина, ул. Рысева 62А</td>#}
+                        {# </tr>#}
+                    {# <tr>#}
+                        {# <td>Почта:</td>#}
+                        {# <td align="right"><a href="mailto: info@sev_snab.ru">info@sev_snab.ru</a></td>#}
+                        {# </tr>#}
+                    {##}
+                    {# </table>#}
+                {# </div>#}
+            {# </div>#}
+        {# <div class="footer_block2">#}
+            {# <ul>#}
+                {# <li><a href="{% url 'partners' %}">наши партнёры</a></li>#}
+                {# <li><a href="{% url 'assortment' %}">ассортимент</a></li>#}
+                {# <li><a href="{% url 'about' %}">о нас</a></li>#}
+                {# <li><a href="{% url 'contacts' %}">контакты</a></li>#}
+                {# </ul>#}
+            {# </div>#}
+        {# <div class="footer_block3">#}
+            
+            {% comment %} <script type="text/javascript" charset="utf-8" async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f8d44ebac29f057b438b0fbec53fb5d69d5043d76d49fbc86d25d1ae69a7012&amp;width=100%25&amp;height=387&amp;lang=ru_RU&amp;scroll=true"></script>
+            
+            
+        </div> {% endcomment %}
+        {##}
+        {# </div>#}
+    
+    <hr>
 
     <div class="footer-body">
         <div class="footer-second-floor">
