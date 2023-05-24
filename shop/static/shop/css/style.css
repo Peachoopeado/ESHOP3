@@ -268,8 +268,20 @@ nav li {
     font-size: 2em;
     color: #F8FD00;
     padding-right: 10px;
-    width: 13vw;
 }
+@media screen and (max-width:768px){
+    .mobile-menu i{
+        width: 25vw;
+
+    }
+}
+@media screen and (min-width:768px) and (max-width:1200px){
+    .mobile-menu i{
+        width: 13vw;
+
+    }
+}
+
 
 .mobile-menu a {
     display: flex;
@@ -3609,7 +3621,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .main_slider-wrapper {
     position: absolute;
-    width: 200%;
+    width: 500%;
     height: 100%;
     display: flex;
     top: 0;
