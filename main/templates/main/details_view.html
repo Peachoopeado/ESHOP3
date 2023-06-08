@@ -2,21 +2,17 @@
 {% load static %}
 {% block title %}{{ new_post.title }}{% endblock %}
 {% block content %}
-<div class="detail_container">
-    <div class="detail_body">
-        <h2>{{ new_post.title|safe }}</h2>
-        <p>{{ new_post.text|safe }}</p>
-        Опубликовано: {{ new_post.created|date:"d/m/Y"|safe }}
-
+    <div class="detail_container">
+        <div class="detail_body">
+            <h2>{{ new_post.title|safe }}</h2>
+            <p>{{ new_post.text|safe }}</p>
+            Опубликовано: {{ new_post.created|date:"d/m/Y"|safe }}
+        </div>
+        <button onclick="goBack()">Назад</button>
     </div>
-    <button onclick="goBack()">Назад</button>
-
-</div>
-
-<script>
+    <script>
     function goBack() {
         window.history.back();
     }
-</script>
-
+    </script>
 {% endblock %}

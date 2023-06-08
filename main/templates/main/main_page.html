@@ -2,249 +2,298 @@
 {% load static %}
 {% block title %}Главная{% endblock %}
 {% block content %}
-<div class="lead_container">
-    <div class="lead_left_block">
-        <div class="lead_left_block_body">
-            <h3>Масло мирового качества</h3>
-            <h1>С НАМИ ВАША ТЕХНИКА
-                В НАДЕЖНЫХ РУКАХ!</h1>
-            <a id="show_assortment_ref" href="{% url 'assortment' %}">
-                <p><u>Показать ассортимент</u></p>
-            </a>
-        </div>
-    </div>
-    <div class="lead_right_block">
-        <button onclick="window.location.href='{% url 'contacts' %}'">Задать вопрос</button>
-    </div>
-</div>
-<div class="main_partners_container">
-    <div class="main_partners_body">
-        <div class="main_partners_layer1">
-            <div class="dblock1">
-                <div class="rectangle">
-
-                </div>
-            </div>
-            <div class="dblock2">
-                <div class="rectangle">
-                </div>
-            </div>
-            <div class="dblock3">
-                <div class="layer2_floor1">
-                    <h2>НАШИ ПАРТНЕРЫ</h2>
-                </div>
-                <div class="layer2_floor2">
-                    <div class="floor2_body">
-                        <div class="main_slider">
-                            <div class="main_slider-wrapper">
-                                {% for partner in partner %}
-                                <div class="main_slide1-content">
-                                    <h2>{{ partner.name }}</h2>
-                                    <h1>{{ partner.quote }}</h1>
-                                    <p>{{ partner.text }}</p>
-                                    {% for partner_img in partner.mainpartnerimg_set.all %}
-
-                                    <img src="{{ partner_img.img.url }}" alt="">
-                                    {% endfor %}
-
-                                    <div class="videos">
-                                        <a href="{{ partner.short_video_link }}"><i
-                                                class="fa-solid fa-circle-play"></i>Посмотрите видео о компании
-                                            (короткая версия)</a>
-                                        <a href="{{ partner.long_video_link }}"><i
-                                                class="fa-solid fa-circle-play"></i>Посмотрите видео о компании
-                                            (полная версия)</a>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="slider-controls">
-                    <button class="slider-prev">&#8249;</button>
-                    <button class="slider-next">&#8250;</button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<div class="main_assortment_desc_container">
-    <div class="main_assortment_slider">
-        <div class="indicators">
-            <div class="indicator"><i class="fa-solid fa-car-side"></i></div>
-            <div class="indicator"><i class="fa-solid fa-truck-fast"></i></div>
-            <div class="indicator"><i class="fa-solid fa-motorcycle"></i></div>
-            <div class="indicator"><i class="fa-solid fa-tractor"></i></div>
-            <div class="indicator"><i class="fa-solid fa-industry"></i></div>
-            <div class="indicator"><i class="fa-solid fa-sailboat"></i></div>
-            <div class="indicator"><i class="fa-solid fa-train-subway"></i></div>
-            <div class="indicator"><i class="fa-solid fa-gear"></i></div>
-            <!-- Добавьте остальные индикаторы -->
-        </div>
-        <div class="main_assortment_slider_wrapper">
-
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/cars_white.png' %}" alt="">
-                        <p>Моторное масло, предназначенное для максимальной
-                            защиты бензиновых и дизельных
-                            двигателей легковой техники,
-                            работающее в различных условиях эксплуатации.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/commercial_white.png' %}" alt="">
-                        <p>Мы предлагаем правильные продукты для обслуживания вашего парка грузоподъемных
-                            автомобилей.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/2t-4t_white.png' %}" alt="">
-                        <p>Все необходимые масла для небольших двигателей, таких как мотоциклы, мопеды и другие.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/dom_white.png' %}" alt="">
-                        <p>Полное покрытие для всех внедорожных материалов для удовлетворения всех ваших
-                            потребностей в сельскохозяйственном масле.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/manuf_white.png' %}" alt="">
-                        <p>Широкий ассортимент гидравлических масел и промышленных продуктов позволит оставаться вам
-                            на высоте.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/marine_white.png' %}" alt="">
-                        <p>Все основные товары для магистральных, поршневых и других двигателей.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/train_white.png' %}" alt="">
-                        <p>Лучшее масло для локомотивов способно работать в любых условиях.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-            <div class="main_assortment_slide-content">
-
-                <div class="assortment_text_block">
-                    <div class="assortment_text_content">
-                        <img src="{% static 'shop/img/categories/other_white.png' %}" alt="">
-                        <p>СеверСнаб удовлетворит все ваши потребности, независимо от того, насколько они
-                            специфичны.</p>
-                    </div>
-
-                </div>
-                <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<div class="main_about_container">
-    <div class="main_about_body">
-        <div class="main_about_layer1">
-            <div class="dblock1">
-                <div class="rectangle">
-
-                </div>
-            </div>
-            <div class="dblock2">
-                <div class="rectangle">
-
-                </div>
-            </div>
-            <div class="about_dblock3">
-                <div class="about_dblock3_body">
-                    <h1>НЕМНОГО О НАС</h1>
-                    <p>ООО "Северснаб" зарегистрирован 05.08.2014г., работает в сфере реализации ГСМ и фильтров.
-                        На сегодняшний день компания является официальным дилером крупнейшего производителя по
-                        маслам и
-                        смазкам North Sea Lubricants (Голландия), Ymioil (Тюмень), представляет интересы компании
-                        Delfin Group, Nordfil (фильтра).
+    <div class="lead_container">
+        <div class="lead_left_block">
+            <div class="lead_left_block_body">
+                <h3>Масло мирового качества</h3>
+                <h1>
+                    С НАМИ ВАША ТЕХНИКА
+                    В НАДЕЖНЫХ РУКАХ!
+                </h1>
+                <a id="show_assortment_ref" href="{% url 'assortment' %}">
+                    <p>
+                        <u>Показать ассортимент</u>
                     </p>
-                    <button onclick="window.location.href='{% url 'about' %}'">Подробнее</button>
+                </a>
+            </div>
+        </div>
+        <div class="lead_right_block">
+            <button onclick="window.location.href='{% url 'contacts' %}'">Задать вопрос</button>
+        </div>
+    </div>
+    <div class="main_partners_container">
+        <div class="main_partners_body">
+            <div class="main_partners_layer1">
+                <div class="dblock1">
+                    <div class="rectangle"></div>
                 </div>
-
+                <div class="dblock2">
+                    <div class="rectangle"></div>
+                </div>
+                <div class="dblock3">
+                    <div class="layer2_floor1">
+                        <h2>НАШИ ПАРТНЕРЫ</h2>
+                    </div>
+                    <div class="layer2_floor2">
+                        <div class="floor2_body">
+                            <div class="main_slider">
+                                <div class="main_slider-wrapper">
+                                    {% for partner in partner %}
+                                        <div class="main_slide1-content">
+                                            <h2>{{ partner.name }}</h2>
+                                            <h1>{{ partner.quote }}</h1>
+                                            <p>{{ partner.text }}</p>
+                                            {% for partner_img in partner.mainpartnerimg_set.all %}<img src="{{ partner_img.img.url }}" alt="">{% endfor %}
+                                            <div class="videos">
+                                                <a href="{{ partner.short_video_link }}"><i class="fa-solid fa-circle-play"></i>Посмотрите видео о компании
+                                                (короткая версия)</a>
+                                                <a href="{{ partner.long_video_link }}"><i class="fa-solid fa-circle-play"></i>Посмотрите видео о компании
+                                                (полная версия)</a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-prev">&#8249;</button>
+                        <button class="slider-next">&#8250;</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="main_news_container">
-    <h1>НОВОСТИ</h1>
-    <div class="main_news_body">
-        {% for new in news %}
-        <a class="new" href="{% url 'news-detail' new.id %}">
-            {% for new_img in new.newsimage_set.all %}
-            <img src="{{ new_img.img.url }}" alt="">
-            {% endfor %}
-            <h2>{{ new.title }}</h2>
-        </a>
-        {% endfor %}
-        <button onclick="window.location.href='{% url 'news' %}'">Все новости</button>
+    <div class="main_assortment_desc_container">
+        <div class="main_assortment_slider">
+            <div class="indicators">
+                <div class="indicator">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-tractor"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-industry"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-sailboat"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-train-subway"></i>
+                </div>
+                <div class="indicator">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <!-- Добавьте остальные индикаторы -->
+            </div>
+            <div class="main_assortment_slider_wrapper">
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/cars_white.png' %}" alt="">
+                            <p>
+                                Моторное масло, предназначенное для максимальной
+                                защиты бензиновых и дизельных
+                                двигателей легковой техники,
+                                работающее в различных условиях эксплуатации.
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/commercial_white.png' %}" alt="">
+                            <p>
+                                Мы предлагаем правильные продукты для обслуживания вашего парка грузоподъемных
+                                автомобилей.
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/2t-4t_white.png' %}" alt="">
+                            <p>Все необходимые масла для небольших двигателей, таких как мотоциклы, мопеды и другие.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/dom_white.png' %}" alt="">
+                            <p>
+                                Полное покрытие для всех внедорожных материалов для удовлетворения всех ваших
+                                потребностей в сельскохозяйственном масле.
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/manuf_white.png' %}" alt="">
+                            <p>
+                                Широкий ассортимент гидравлических масел и промышленных продуктов позволит оставаться вам
+                                на высоте.
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/marine_white.png' %}" alt="">
+                            <p>Все основные товары для магистральных, поршневых и других двигателей.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/train_white.png' %}" alt="">
+                            <p>Лучшее масло для локомотивов способно работать в любых условиях.</p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+                <div class="main_assortment_slide-content">
+                    <div class="assortment_text_block">
+                        <div class="assortment_text_content">
+                            <img src="{% static 'shop/img/categories/other_white.png' %}" alt="">
+                            <p>
+                                СеверСнаб удовлетворит все ваши потребности, независимо от того, насколько они
+                                специфичны.
+                            </p>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='{% url 'assortment' %}'">Подробнее</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-</div>
-
+    <div class="main_about_container">
+        <div class="main_about_body">
+            <div class="main_about_layer1">
+                <div class="dblock1">
+                    <div class="rectangle"></div>
+                </div>
+                <div class="dblock2">
+                    <div class="rectangle"></div>
+                </div>
+                <div class="about_dblock3">
+                    <div class="about_dblock3_body">
+                        <h1>НЕМНОГО О НАС</h1>
+                        <p>
+                            ООО "Северснаб" зарегистрирован 05.08.2014г., работает в сфере реализации ГСМ и фильтров.
+                            На сегодняшний день компания является официальным дилером крупнейшего производителя по
+                            маслам и
+                            смазкам North Sea Lubricants (Голландия), Ymioil (Тюмень), представляет интересы компании
+                            Delfin Group, Nordfil (фильтра).
+                        </p>
+                        <button onclick="window.location.href='{% url 'about' %}'">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sale_container">
+        <div class="sale_block">
+            <div class="sale_floor1">
+                <h2>АКЦИЯ!</h2>
+            </div>
+            <div class="sale_floor2">
+                <div class="sale_product_img_block">
+                    <img src="{% static 'main/img/sale_pr_1.png' %}" alt="">
+                    <img src="{% static 'main/img/sale_pr_2.png' %}" alt="">
+                </div>
+                <div class="sale_product_desc_block">
+                    <div class="sale_slider">
+                        <div class="sale_slider-controls">
+                            <button class="slider-prev">
+                                <i class="fa-solid fa-left-long"></i>
+                            </button>
+                            <button class="slider-next">
+                                <i class="fa-solid fa-right-long"></i>
+                            </button>
+                        </div>
+                        <div class="sale_slider-wrapper">
+                            <div class="sale_slider_content">
+                                <div class="sale_slider_content_body">
+                                    <h2><mark>ПОЛУЧИТЕ СКИДКУ 5%</mark> НА МАСЛО NSL COMPRESSOR POWER SYNTH 46 ДО КОНЦА АВГУСТА!</h2>
+                                    <p>
+                                        Не упустите уникальное предложение! Теперь у нас в продаже голландские компрессорные масла, которые не производятся в России.
+                                        <br>
+                                        И самое лучшее, мы предлагаем вам скидку 5%! Это отличная возможность получить первоклассное качество по еще более выгодной цене. Не упустите шанс обеспечить своей технике заботу, которую она заслуживает.
+                                        <br>
+                                        COMPRESSOR POWER SYNTH 46 подходит для поршневых воздушных, винтовых и лопастных компрессоров. Также используется в системах циркуляции масла, подшипниках скольжения и элементах качения, малонагруженных редукторах и т. д.
+                                        <br>
+                                        КОМПРЕССОРНОЕ МАСЛО POWER SYNTH 46 создано на основе высококачественного полиальфаолефинового базового масла (ПАО) в сочетании с уникальным пакетом присадок для обеспечения следующих свойств.
+                                        <br>
+                                        Акция действует до конца августа, поэтому не откладывайте свою покупку. Оформите заказ онлайн уже сегодня, чтобы воспользоваться этим превосходным предложением. Наши запасы ограничены, поэтому поторопитесь!
+                                    </p>
+                                    <div class="sale_price_block">
+                                        <p>21 590&#8381</p>
+                                        <p><del>22 900&#8381</del></p>
+                                    </div>
+                                    
+                                    <button class="sale_button" onclick="window.location.href=''"><u>Заказать по акции</u></button>
+                                    <button class="sale_button"><u>Подробнее о заказе</u></button>
+                                </div>
+                            </div>
+                            <div class="sale_slider_content">
+                                <div class="sale_slider_content_body">
+                                    <h2><mark>ПОЛУЧИТЕ СКИДКУ 5%</mark> НА МАСЛО NSL COMPRESSOR POWER SYNTH 46 ДО КОНЦА АВГУСТА!</h2>
+                                    <p>
+                                        Не упустите уникальное предложение! Теперь у нас в продаже голландские компрессорные масла, которые не производятся в России.
+                                        <br>
+                                        И самое лучшее, мы предлагаем вам скидку 5%! Это отличная возможность получить первоклассное качество по еще более выгодной цене. Не упустите шанс обеспечить своей технике заботу, которую она заслуживает.
+                                        <br>
+                                        COMPRESSOR POWER SYNTH 46 подходит для поршневых воздушных, винтовых и лопастных компрессоров. Также используется в системах циркуляции масла, подшипниках скольжения и элементах качения, малонагруженных редукторах и т. д.
+                                        <br>
+                                        КОМПРЕССОРНОЕ МАСЛО POWER SYNTH 46 создано на основе высококачественного полиальфаолефинового базового масла (ПАО) в сочетании с уникальным пакетом присадок для обеспечения следующих свойств.
+                                        <br>
+                                        Акция действует до конца августа, поэтому не откладывайте свою покупку. Оформите заказ онлайн уже сегодня, чтобы воспользоваться этим превосходным предложением. Наши запасы ограничены, поэтому поторопитесь!
+                                    </p>
+                                    <div class="sale_price_block">
+                                        <p>21 590&#8381</p>
+                                        <p><del>22 900&#8381</del></p>
+                                    </div>
+                                    
+                                    <button class="sale_button" onclick="window.location.href=''"><u>Заказать по акции</u></button>
+                                    <button class="sale_button"><u>Подробнее о заказе</u></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_news_container">
+        <h1>НОВОСТИ</h1>
+        <div class="main_news_body">
+            {% for new in news %}
+                <a class="new" href="{% url 'news-detail' new.id %}">
+                    {% for new_img in new.newsimage_set.all %}<img src="{{ new_img.img.url }}" alt="">{% endfor %}
+                    <h2>{{ new.title }}</h2>
+                </a>
+            {% endfor %}
+            <button onclick="window.location.href='{% url 'news' %}'">Все новости</button>
+        </div>
+    </div>
 {% endblock %}

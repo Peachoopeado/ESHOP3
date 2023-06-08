@@ -6,14 +6,12 @@
         <h1>НОВОСТИ</h1>
         <div class="main_news_body">
             {% for new_obj in news %}
-                    <a class="new" href="{% url 'news-detail' new_obj.id %}">
-                            {% for new_obj_img in new_obj.newsimage_set.all %}
-                                <img src="{{ new_obj_img.img.url }}" alt="">
-                            {% endfor %}
-                            <h3>{{ new_obj.title }}</h3>
-                    </a>
+                <a class="new" href="{% url 'news-detail' new_obj.id %}">
+                    {% for new_obj_img in new_obj.newsimage_set.all %}<img src="{{ new_obj_img.img.url }}" alt="">{% endfor %}
+                    <h3>{{ new_obj.title }}</h3>
+                </a>
             {% endfor %}
         </div>
-        </div>
     </div>
+</div>
 {% endblock %}
