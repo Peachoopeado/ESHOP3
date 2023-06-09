@@ -14,6 +14,9 @@ function slideMainPrev() {
   } else {
     goToMainSlide(mainSlideWrapper.children.length - 1);
   }
+  clearInterval(saleSlideInterval);
+
+  mainSlideInterval = setInterval(slideMainNext, 15000);
 }
 
 function slideMainNext() {
@@ -22,6 +25,9 @@ function slideMainNext() {
   } else {
     goToMainSlide(0);
   }
+  clearInterval(saleSlideInterval);
+
+  mainSlideInterval = setInterval(slideMainNext, 15000);
 }
 
 var mainPrevButton = document.querySelector('.slider-prev');
@@ -30,4 +36,4 @@ var mainNextButton = document.querySelector('.slider-next');
 mainPrevButton.addEventListener('click', slideMainPrev);
 mainNextButton.addEventListener('click', slideMainNext);
 
-setInterval(slideMainNext, 7000);
+setInterval(slideMainNext, 15000);

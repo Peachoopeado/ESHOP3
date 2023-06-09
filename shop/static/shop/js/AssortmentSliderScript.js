@@ -3,6 +3,11 @@ var assortmentSlideWidth = assortmentSlideWrapper.offsetWidth / assortmentSlideW
 var currentAssortmentSlideIndex = 0;
 var assortmentSlideInterval;
 
+function startSlideInterval(){
+  clearInterval(assortmentSlideInterval);
+  assortmentSlideInterval = setInterval(autoAssortmentSlide, 7000);
+}
+
 function goToAssortmentSlide(index) {
   assortmentSlideWrapper.style.transform = `translateX(-${assortmentSlideWidth * index}px)`;
   currentAssortmentSlideIndex = index;
@@ -19,23 +24,23 @@ function setActiveIndicator(index) {
 function slideToAssortmentIndex(index) {
   goToAssortmentSlide(index);
   setActiveIndicator(index);
+  startSlideInterval();
 }
 
 function autoAssortmentSlide() {
   var totalAssortmentSlides = assortmentSlideWrapper.children.length;
   var nextAssortmentSlideIndex = (currentAssortmentSlideIndex + 1) % totalAssortmentSlides;
   slideToAssortmentIndex(nextAssortmentSlideIndex);
+
 }
 
 var indicators = document.querySelectorAll('.indicator');
 indicators.forEach(function (indicator, index) {
   indicator.addEventListener('click', function () {
     slideToAssortmentIndex(index);
+    
   });
 });
 
 // Инициализация: установка активного индикатора на первый слайд
-setActiveIndicator(currentAssortmentSlideIndex);
-
-// Запуск автоматической смены слайдов каждые 5 секунд
-assortmentSlideInterval = setInterval(autoAssortmentSlide, 5000);
+slideToAssortmentIndex(currentAssortmentSlideIndex);

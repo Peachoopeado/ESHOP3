@@ -123,12 +123,12 @@
                 </div>
             </div>
             <div class="mobile-icon-container">
-                <a href="{% url 'dashboard' %}" class="mobile-icon">
+                <a href="{% url 'dashboard' %}" id="dashboard-button" class="mobile-icon">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
             <div class="mobile-icon-container">
-                <a href="{% url 'dashboard' %}" class="mobile-icon">
+                <a href="{% url 'dashboard' %}" id="fav-button" class="mobile-icon">
                     <i class="fa-solid fa-heart"></i>
                     <span class="favorite-items-pc">{{ total_items }}</span>
                 </a>
@@ -184,6 +184,10 @@
     <script src="{% static 'shop/js/tabScript.js' %}"></script>
     <script src="{% static 'shop/js/MainSliderScript.js' %}"></script>
     <script src="{% static 'shop/js/AssortmentSliderScript.js' %}"></script>
+    <script src="{% static 'shop/js/SaleSliderScript.js' %}"></script>
+    <script src="{% static 'shop/js/SaleSliderScriptMobile.js' %}"></script>
+
+
     <script>
         $(document).ready(function () {
             // Обработчик события изменения значения поля "Способ получения"
