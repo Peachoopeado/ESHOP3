@@ -18,8 +18,11 @@ a {
 }
 mark {
     background: yellow;
+    padding: unset;
 }
-
+u{
+    text-decoration-skip-ink: none;
+}
 .mobile {
     display: none;
 }
@@ -3289,6 +3292,8 @@ h3 {
     background-size: cover;
     background-attachment: scroll;
     background-repeat: no-repeat;
+
+    margin-bottom: 60px;
 }
 
 .lead_left_block {
@@ -4202,15 +4207,24 @@ h3 {
 }
 .sale_price_block {
     display: flex;
+    white-space: nowrap;
 }
 .sale_price_block p {
-    padding-right: 15px;
+    padding-right: 10px;
 }
 .sale_price_block p:first-child {
-    font-size: 1.5vw;
+    font-size: 1.65vw;
     font-weight: bold;
 }
-.sale_price_block p:last-child {
+.sale_price_block p:nth-child(2) {
+    font-size: 1vw;
+    color: rgba(0, 0, 0, 0.35);
+}
+.sale_price_block p:nth-child(3) {
+    font-size: 1.65vw;
+    font-weight: bold;
+}
+.sale_price_block p:nth-child(4){
     font-size: 1vw;
     color: rgba(0, 0, 0, 0.35);
 }
@@ -4255,7 +4269,7 @@ h3 {
     border: 1px solid #000;
     border-radius: 40px;
 
-    margin-right: 10px;
+    margin-right: 90px;
 
     background: white;
 
@@ -4267,10 +4281,8 @@ h3 {
 
     z-index: 151;
 }
-.sale_button:first-child {
-    position: absolute;
-    bottom: 0;
-}
+
+
 
 .sale_button:hover {
     background: #363131;
@@ -4352,31 +4364,19 @@ h3 {
         font-size: 1.95vw;
         font-weight: bold;
     }
-    .sale_price_block {
-        width: 95%;
-        margin: 0 auto;
-        margin-top: 5px;
-        font-size: 2vw;
-    }
-    .sale_price_block h6 {
-        font-size: 2vw;
-        margin-bottom: unset;
-        margin-right: 5vw;
+    .sale_slider_content_body_mobile h6{
+        font-size: 2.75vw;
+        margin-bottom: 5px;
         font-weight: bold;
+        margin-top: 10px;
     }
-    .sale_price_block p {
-        margin-bottom: unset;
-        font-weight: bold;
-    }
-    .sale_price_block p:last-child {
-        font-size: 1.5vw;
-    }
+
     .sale_slider_mobile {
         position: relative;
         overflow: hidden;
         width: 95%;
         margin: auto auto;
-        height: 32vw;
+        height: 42vw;
     }
     .sale_slider_wrapper_mobile {
         position: absolute;
@@ -4408,6 +4408,24 @@ h3 {
     .sale_slider_content_body_mobile p {
         font-size: 2vw;
         text-align: justify;
+        margin-bottom: unset;
+
+    }
+    .sale_price_block_mobile span{
+        font-weight: bold;
+        font-size: 3.5vw;
+    }
+    .sale_price_block_mobile span del{
+        font-size: 2.75vw;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .sale_price_block_mobile span i{
+        margin-right: 5px;
+        margin-left: 5px;
+        animation: headShake;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        
     }
     .sale_button_mobile {
         width: 20vw;

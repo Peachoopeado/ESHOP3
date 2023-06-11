@@ -28,6 +28,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=PT+Sans&display=swap"
               rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     </head>
     <header class="pc">
         <div class="header-body">
@@ -123,7 +125,9 @@
                 </div>
             </div>
             <div class="mobile-icon-container">
-                <a href="{% url 'dashboard' %}" id="dashboard-button" class="mobile-icon">
+                <a href="{% url 'dashboard' %}"
+                   id="dashboard-button"
+                   class="mobile-icon">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
@@ -186,8 +190,6 @@
     <script src="{% static 'shop/js/AssortmentSliderScript.js' %}"></script>
     <script src="{% static 'shop/js/SaleSliderScript.js' %}"></script>
     <script src="{% static 'shop/js/SaleSliderScriptMobile.js' %}"></script>
-
-
     <script>
         $(document).ready(function () {
             // Обработчик события изменения значения поля "Способ получения"
