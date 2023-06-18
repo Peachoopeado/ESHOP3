@@ -38,10 +38,12 @@ header {
 
     background: #ffffff;
     z-index: 9999;
+
 }
 
 #navbarNav {
     background-color: #4f80bb;
+    
 }
 
 #navbarNav ul li a {
@@ -154,7 +156,6 @@ nav li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-inside: 20px;
 }
 
 .favorite-icon i {

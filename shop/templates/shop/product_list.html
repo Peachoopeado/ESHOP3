@@ -1,20 +1,18 @@
 {% extends 'shop/base.html' %}
-{% block title %} {{ category.name }} {% endblock %}
-{% block pagename %}<h1>{{ category.name }}</h1> {% endblock %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block pagename %}<h1>{{ category.name }}</h1>{% endblock %}
 {% block content %}
     <div class="list_container">
-
         <div class="list_body">
-
-
             <aside>
                 <div class="aside-body">
-
                     <div class="filter_block">
                         <h2>Тип продукта</h2>
                         <ul>
                             {% for oiltype in category.oiltype_set.all %}
-                                <li><a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a></li>
+                                <li>
+                                    <a href="{{ category.get_url }}/{{ oiltype.slug }}">{{ oiltype }}</a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -57,49 +55,37 @@
                 </div>
             </aside>
             <div class="container mt-2">
-
-
                 <h2>Товары</h2>
                 <div class="product-list-container">
                     <div class="product-list-body">
-
-
                         <div class="product-list-bbody">
                             {% for product in products %}
                                 <div class="product-card-container">
                                     <div class="product-card-body">
-                                        {% if product.img %}
-                                            <img src="{{ product.img.url }}" alt="">
-                                        {% endif %}
+                                        {% if product.img %}<img src="{{ product.img.url }}" alt="">{% endif %}
                                         <div class="card-body">
                                             {% if product.is_favorite %}
-                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i
-                                                        class="fa-solid fa-star" style="color: #ffd041"></i></a>
+                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}">
+                                                    <i class="fa-solid fa-star" style="color: #ffd041"></i></a>
                                             {% else %}
-                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i
-                                                        class="fa-solid fa-star" style="color: #919191"></i></a>
+                                                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}">
+                                                    <i class="fa-solid fa-star" style="color: #919191"></i></a>
                                             {% endif %}
                                             <h5 class="card-title">{{ product.visual_name }}</h5>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                    <a href="{{ product.get_url }}"
-                                                       class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                                    <a href="{{ product.get_url }}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                                                 </div>
                                                 <small class="text-muted">{{ product.price }} руб.</small>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-
 {% endblock %}

@@ -1,9 +1,11 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import Category, Brand, OilType, Viscosity, Compound, Fuel, Product, CategoryImage, User_Request, Partner, \
     PartnerImage, Transmission
 from import_export.admin import ImportExportMixin
 from import_export import resources
 from django_summernote.admin import SummernoteModelAdmin
+import math
 
 # Register your models here.
 
@@ -58,13 +60,23 @@ class ProductResource(resources.ModelResource):
         import_id_fields = ['code']
 
 
+
+
 class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = ProductResource
     list_display = ['code', 'vendor_code', 'name_m', 'oiltype', 'compound', 'stock', 'price', 'available', 'img']
     list_editable = ['stock', 'price', 'available']
     list_filter = ['category', 'oiltype', 'viscosity', 'compound', 'available']
     filter_horizontal = ['category', 'viscosity', 'fuel', 'transmission']
-    actions = ['export_as_csv']
+    actions = ['export_as_csv', 'rounded_prices']
+
+
+    def rounded_prices(self, request, queryset):
+        for product in queryset:
+            product.price = math.ceil(product.price)
+            product.save()
+    rounded_prices.short_description = "Округлить цены выбранных продуктов"
+
 
     def export_as_csv(self, request, queryset):
         from django.http import HttpResponse
