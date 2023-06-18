@@ -27,7 +27,7 @@ class OrderCreateForm(forms.ModelForm):
                                                 ('ТК', 'Доставка до ТК'))),
             'address': forms.TextInput(attrs={
                 'placeholder': 'Адрес доставки*',
-                'required': 'False'
+                'required': False
             }),
             'comment': forms.Textarea(attrs={
                 'placeholder': 'Комментарий к заказу',

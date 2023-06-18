@@ -66,7 +66,7 @@ class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = ProductResource
     list_display = ['code', 'vendor_code', 'name_m', 'oiltype', 'compound', 'stock', 'price', 'available', 'img']
     list_editable = ['stock', 'price', 'available']
-    list_filter = ['category', 'oiltype', 'viscosity', 'compound', 'available']
+    list_filter = ['brand', 'category', 'oiltype', 'viscosity', 'compound', 'available']
     filter_horizontal = ['category', 'viscosity', 'fuel', 'transmission']
     actions = ['export_as_csv', 'rounded_prices']
 
