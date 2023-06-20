@@ -6,6 +6,7 @@ const favorite = document.getElementById('fav-button');
 
 searchButton.addEventListener('click', function () {
     searchInput.style.display = 'block';
+    searchButton.style.marginLeft = '130px';
     cart.style.display = 'none';
     dashboard.style.display = 'none';
     favorite.style.display = 'none';
