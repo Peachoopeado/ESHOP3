@@ -43,6 +43,7 @@ def dashboard(request):
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
+            
             form.save()
     else:
         form = UserChangeForm(instance=request.user)
