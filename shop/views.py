@@ -4,6 +4,7 @@ from cart.forms import CartAddProductForm
 from django.views.generic import ListView
 from .forms import User_RequestForm
 from django.db.models import Q
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -77,6 +78,11 @@ def show_contact_page(request):
         contact_form = User_RequestForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
+            subject = 'Новая заявка'
+            message = 'Вам поступила новая заявка. Проверьте панель администратора'
+            from_email = 'no-reply.sevsnab@mail.ru'
+            to_email = ['seversnab-info@yandex.ru']
+            send_mail(subject, message, from_email, to_email, fail_silently=True)
             return redirect('contacts')
         else:
             error = 'Данные введены некорректно'
