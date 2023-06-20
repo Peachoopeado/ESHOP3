@@ -10,14 +10,15 @@
                     Некорректный логин или пароль. Проверьте правильность данных
                 </p>
             {% else %}
-                <p>Пожалуйста, заполните поля ниже для входа в личный кабинет. Для регистрации личного кабинета перейдите по <a
-                        href="{% url 'register' %}"><u>ссылке</u></a>.</p>
+                <p>Пожалуйста, заполните поля ниже для входа в личный кабинет.</p>
             {% endif %}
             <div class="login-form">
                 <form action="{% url 'login' %}" method="post">
                     {{ form.as_p }}
                     {% csrf_token %}
                     <a href="{% url 'password-reset' %}"><u>Забыл(-а) пароль</u></a>
+                    <a href="{% url 'register' %}"><u>Регистрация</u></a>
+
                     <input type="hidden" name="text" value="{{ next }}">
                     <p><input type="submit" value="Войти"></p>
                 </form>

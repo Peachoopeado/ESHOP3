@@ -252,6 +252,7 @@ nav li {
 }
 
 .mobile-menu ul {
+    position: relative;
     margin-top: 2em;
     margin-left: 2em;
     padding: 0;
@@ -262,12 +263,15 @@ nav li {
     margin-bottom: 10px;
     text-transform: uppercase;
     font-size: 2em;
+    white-space: nowrap;
 }
+
 
 .mobile-menu i {
     font-size: 2em;
     color: #f8fd00;
     padding-right: 10px;
+    white-space: nowrap;
 }
 @media screen and (max-width: 768px) {
     .mobile-menu i {
@@ -286,7 +290,7 @@ nav li {
     padding: 5px 0;
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 .contact-us-button {
@@ -304,6 +308,7 @@ nav li {
     width: 276px;
     background: #f8fd00;
     border-radius: 40px;
+    white-space: nowrap;
 }
 
 .contact-us-button span {
@@ -1186,7 +1191,7 @@ aside {
 .price {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 @media screen and (max-width: 768px) {
@@ -1200,7 +1205,6 @@ aside {
     .price {
         font-size: 1.5vw;
         width: 35vw;
-        justify-content: start;
     }
 }
 
@@ -1208,6 +1212,7 @@ aside {
     .price {
         font-size: 1.5vw;
         width: 35vw;
+        
     }
 }
 
@@ -1321,9 +1326,7 @@ aside {
         display: block;
     }
 
-    .product_actions div {
-        margin: 0 auto;
-    }
+    
 }
 
 /*Контакты*/
@@ -1770,7 +1773,7 @@ aside {
 .slider-controls {
     display: flex;
     position: absolute;
-    bottom: 10px;
+    bottom: 65px;
     right: 1vw;
     transform: translateX(-50%);
 }
