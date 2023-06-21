@@ -1089,6 +1089,7 @@ aside {
     font-weight: 700;
 }
 
+
 @media screen and (max-width: 768px) {
     .product_chars table tr {
         font-size: 2.75vw;

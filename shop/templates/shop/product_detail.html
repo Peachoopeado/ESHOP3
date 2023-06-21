@@ -1,19 +1,18 @@
 {% extends 'shop/base.html' %}
 {% load static %}
-{% block title %} {{ product.name }} {% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 {% block content %}
     <div class="product_card">
         <div class="product_card_body">
             <div class="product_card_name_block">
-                <h2>{{ product.name }}
-                {% if product.is_favorite %}
-                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #ffd041"></i></a>
-                {% else %}
-                <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #919191"></i></a>
-                {% endif %}
+                <h2>
+                    {{ product.name }}
+                    {% if product.is_favorite %}
+                        <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #ffd041"></i></a>
+                    {% else %}
+                        <a class="is-favorite" href="{% url 'add_to_favorites' product.code %}"><i class="fa-solid fa-star" style="color: #919191"></i></a>
+                    {% endif %}
                 </h2>
-
-
             </div>
             <div class="product_block">
                 <div class="img_block">
@@ -23,8 +22,11 @@
                     <table>
                         <tr>
                             <th>Вязкость</th>
-                            <td>{% if product.viscosity.all %}{% for viscosity in product.viscosity.all %}
-                                {{ viscosity }}{% endfor %}{% endif %}</td>
+                            <td>
+                                {% if product.viscosity.all %}
+                                    {% for viscosity in product.viscosity.all %}{{ viscosity }}{% endfor %}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <th>Бренд</th>
@@ -40,16 +42,23 @@
                         </tr>
                         <tr>
                             <th>Топливо</th>
-                            <td>{% if product.fuel.all %}{% for fuel in product.fuel.all %}{{ fuel }}
-                            {% endfor %}{% endif %}</td>
+                            <td>
+                                {% if product.fuel.all %}
+                                    {% for fuel in product.fuel.all %}{{ fuel }}{% endfor %}
+                                {% endif %}
+                            </td>
                         </tr>
                         <tr>
                             <th>Объем</th>
                             <td>{{ product.volume }} л.</td>
-                        <tr></tr>
+                        </tr>
+                        <tr>
+                            <th>Другие объёмы:</th>
+                            {% for related_product in related_products %}
+                            <td colspan="2"><u><a href="{{ related_product.get_url}}">{{related_product.volume}} л.</a> </u></td>
+                            {% endfor %}
                         </tr>
                     </table>
-
                 </div>
             </div>
             <div class="product_description">
@@ -66,25 +75,21 @@
                         <a href="{{ product.tech_desc }}"><i class="fa-solid fa-file-lines" style="padding-right: 5px;"></i>Лист технического описания</a>
                         <a href="{{ product.security_pasport }}"><i class="fa-solid fa-triangle-exclamation" style="padding-right: 5px;"></i>Паспорт безопасности</a>
                     </div>
-                    <div class="price"><span id="price-indicator">Цена: {{ product.price }} руб.</span></div>
+                    <div class="price">
+                        <span id="price-indicator">Цена: {{ product.price }} руб.</span>
+                    </div>
                     <div class="actions_buttons">
                         <form action="{% url 'cart-add' product.code %}" method="post">
                             <input type="submit" value="в корзину">
                             {{ cart_product_form }}
                             {% csrf_token %}
-
                         </form>
-
-
                     </div>
                 </div>
             </div>
+            
         </div>
-
-        <div class="back_button">
-
-        </div>
+        <div class="back_button"></div>
     </div>
-
     <script src="{% static 'shop/js/ProductPriceChageScript.js' %}"></script>
 {% endblock %}

@@ -97,6 +97,7 @@ class Product(models.Model):
     fuel = models.ManyToManyField(Fuel, blank=True, default='-')
     transmission = models.ManyToManyField(Transmission, blank=True, default='-')
     volume = models.IntegerField(null=True, blank=True, default='-')
+    related_products = models.ManyToManyField('self', blank=True)
     description = models.TextField(null=True, blank=True, default='-')
     stock = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=2)

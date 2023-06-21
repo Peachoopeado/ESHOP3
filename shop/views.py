@@ -64,9 +64,11 @@ def show_category_assortment(request, category_slug=None, oiltype_slug=None, vis
 def show_product_detail(request, product_code: str):
     product = get_object_or_404(Product, code=product_code)
     cart_product_form = CartAddProductForm()
+    related_products = product.related_products.all()
     data = {
         'product': product,
-        'cart_product_form': cart_product_form
+        'cart_product_form': cart_product_form,
+        'related_products': related_products,
     }
 
     return render(request, 'shop/product_detail.html', data)

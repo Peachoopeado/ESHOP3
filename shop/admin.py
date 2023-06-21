@@ -67,7 +67,7 @@ class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
     list_display = ['code', 'vendor_code', 'name_m', 'oiltype', 'compound', 'stock', 'price', 'available', 'img']
     list_editable = ['stock', 'price', 'available']
     list_filter = ['brand', 'category', 'oiltype', 'viscosity', 'compound', 'available']
-    filter_horizontal = ['category', 'viscosity', 'fuel', 'transmission']
+    filter_horizontal = ['category', 'viscosity', 'fuel', 'transmission', 'related_products']
     actions = ['export_as_csv', 'rounded_prices']
 
 
