@@ -3587,15 +3587,15 @@ h3 {
 
 @media screen and (max-width: 768px) {
     .main_partners_layer1 {
-        height: 50vw;
+        height: 55.5vw;
     }
 
     .main_slider {
-        height: 40vw;
+        height: 45.5vw;
     }
 
     .main_slide1-content p {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 
     .videos a {
@@ -3971,19 +3971,19 @@ h3 {
 }
 @media screen and (min-width: 300px) and (max-width: 450px) {
     .main_about_layer1 {
-        height: 40vw;
+        height: 45vw;
     }
 }
 @media screen and (max-width: 768px) {
     .about_dblock3{
-        height: 30vw;
+        height: 55vw;
     }
     .main_about_layer1 {
-        height: 35vw;
+        height: 60vw;
     }
 
     .about_dblock3_body p {
-        font-size: 1.85vw;
+        font-size: 3vw;
     }
 
     .about_dblock3_body button {
