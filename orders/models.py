@@ -19,7 +19,7 @@ class Order(models.Model):
     full_name = models.CharField('Ф.И.О.', max_length=200, null=True)
     phone = models.CharField('Телефон', max_length=200, null=True)
     email = models.EmailField('Email', null=True)
-    address = models.CharField('Адрес', max_length=250)
+    address = models.CharField('Адрес', max_length=250, blank=True)
     postal_code = models.CharField('Почтовый индекс', max_length=20)
     way_to_get = models.CharField('Способ получения', max_length=200, null=True, blank=True)
     comment = models.TextField('Комментарий', null=True, blank=True)
@@ -28,17 +28,17 @@ class Order(models.Model):
     updated = models.DateTimeField('Обновлено', auto_now=True)
     paid = models.BooleanField('Оплачено', default=False)
     manager_status = models.BooleanField('Рассмотрено', default=False, blank=False)
-    total_cost = models.DecimalField('Итоговая стоимость', max_digits=10, decimal_places=2, blank=True, null=True)
+    # total_cost = models.DecimalField('Итоговая стоимость', max_digits=10, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
         return 'Заказ {}'.format(self.id)
     
-    def save(self, *args, **kwargs):
-        self.total_cost = self.get_total_cost()
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.total_cost = self.get_total_cost()
+    #     super().save(*args, **kwargs)
 
-    def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+    # def get_total_cost(self):
+    #     return sum(item.get_cost() for item in self.items.all())
 
 
 class OrderItem(models.Model):
