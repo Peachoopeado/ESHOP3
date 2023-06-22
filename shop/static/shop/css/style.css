@@ -10,7 +10,9 @@ body {
 
 body.body--no-scroll {
     overflow: hidden;
+
 }
+
 
 a {
     color: inherit;
@@ -1788,7 +1790,7 @@ aside {
 .slider-controls {
     display: flex;
     position: absolute;
-    bottom: 65px;
+    bottom: 5vw;
     right: 1vw;
     transform: translateX(-50%);
 }
