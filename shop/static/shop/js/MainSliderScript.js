@@ -1,7 +1,7 @@
 var mainSlideWrapper = document.querySelector('.main_slider-wrapper');
 var mainSlideWidth = mainSlideWrapper.offsetWidth / mainSlideWrapper.children.length;
 var currentMainSlideIndex = 0;
-var mainSlideInterval;
+var mainSlideInterval = null;
 
 function goToMainSlide(index) {
   mainSlideWrapper.style.transform = `translateX(-${mainSlideWidth * index}px)`;
@@ -14,7 +14,7 @@ function slideMainPrev() {
   } else {
     goToMainSlide(mainSlideWrapper.children.length - 1);
   }
-  clearInterval(saleSlideInterval);
+  clearInterval(mainSlideInterval);
 
   mainSlideInterval = setInterval(slideMainNext, 15000);
 }
@@ -25,7 +25,7 @@ function slideMainNext() {
   } else {
     goToMainSlide(0);
   }
-  clearInterval(saleSlideInterval);
+  clearInterval(mainSlideInterval);
 
   mainSlideInterval = setInterval(slideMainNext, 15000);
 }

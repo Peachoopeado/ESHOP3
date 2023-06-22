@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var saleSlideWrapper = document.querySelector('.sale_slider-wrapper');
     var saleSlideWidth = saleSlideWrapper.offsetWidth / saleSlideWrapper.children.length;
     var currentSaleSlideIndex = 0;
+    var saleSlideInterval = null;
 
     function goToSaleSlide(index) {
         saleSlideWrapper.style.transform = `translateX(-${saleSlideWidth * index}px)`;

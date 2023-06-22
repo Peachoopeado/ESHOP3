@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var saleMobileSlideWrapper = document.querySelector('.sale_slider_wrapper_mobile');
     var saleMobileSlideWidth = saleMobileSlideWrapper.offsetWidth / saleMobileSlideWrapper.children.length;
     var currentSaleMobileSlideIndex = 0;
+    var saleMobileSliderInterval = null;
+
 
     function goToSaleSlideMobile(index) {
         saleMobileSlideWrapper.style.transform = `translateX(-${saleMobileSlideWidth * index}px)`;
@@ -14,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             goToSaleSlideMobile(saleMobileSlideWrapper.children.length - 1);
         }
-        clearInterval(saleSlideInterval);
-        saleSlideInterval = setInterval(slideSaleMobileNext, 15000); // Установить интервал снова
+        clearInterval(saleMobileSliderInterval);
+        saleMobileSliderInterval = setInterval(slideSaleMobileNext, 15000); // Установить интервал снова
     }
 
     function slideSaleMobileNext() {
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             goToSaleSlideMobile(0);
         }
-        clearInterval(saleSlideInterval);
-        saleSlideInterval = setInterval(slideSaleMobileNext, 15000); // Установить интервал снова
+        clearInterval(saleMobileSliderInterval);
+        saleMobileSliderInterval = setInterval(slideSaleMobileNext, 15000); // Установить интервал снова
     }
 
     var saleMobilePrevButton = document.querySelector('.sale-slider-prev-mobile');
