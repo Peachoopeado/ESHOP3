@@ -9,7 +9,6 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required
 def order_create(request):
     cart = Cart(request)
     error = ''
@@ -17,7 +16,10 @@ def order_create(request):
         form = OrderCreateForm(request.POST)
         if form.is_valid():
             order = form.save(commit=False)
-            order.user = request.user
+            if request.user.is_authenticated:
+                order.user = request.user
+            else: 
+                order.user = None
             order.save()
             for item in cart:
                 OrderItem.objects.create(order=order,

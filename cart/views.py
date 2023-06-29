@@ -13,7 +13,6 @@ from decimal import Decimal
 
 # Create your views here.
 @require_POST
-@login_required
 def cart_add(request, product_code):
     cart = Cart(request)
     product = get_object_or_404(Product, code=product_code)
@@ -45,7 +44,6 @@ def cart_remove(request, product_code):
 
     return redirect('cart-detail')
 
-@login_required()
 def cart_detail(request):
     cart = Cart(request)
     delivery_price = cart.get_delivery_price()
